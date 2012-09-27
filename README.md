@@ -1,4 +1,0 @@
-dotfiles
-========
-
-my configuration files.
