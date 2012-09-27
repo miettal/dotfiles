@@ -119,7 +119,7 @@ Bundle 'vimpager'
 Bundle 'TeTrIs.vim'
 Bundle 'FastLadder.vim'
 Bundle 'ack.vim'
-Bundle 'project.vim'
+" Bundle 'project.vim'
 Bundle 'motemen/hatena-vim'
 Bundle 'vim-jp/vimdoc-ja'
 

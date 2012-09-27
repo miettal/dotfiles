@@ -1,7 +1,12 @@
 # for ruby
 alias ruby=ruby1.9
 alias irb=irb1.9
+# for gcc
 alias gcc=x86_64-apple-darwin12-gcc-4.7.1
+# for ls
+alias ls=gls\ --color=auto
+# for ps
+alias ps=ps -T
 # for macports gnu coreutils
 alias base64=gbase64
 alias basename=gbasename
@@ -41,7 +46,7 @@ alias kill=gkill
 alias link=glink
 alias ln=gln
 alias logname=glogname
-alias ls='gls --color=auto'
+#alias ls=gls
 alias md5sum=gmd5sum
 alias mkdir=gmkdir
 alias mkfifo=gmkfifo
