@@ -119,9 +119,10 @@ Bundle 'vimpager'
 Bundle 'TeTrIs.vim'
 Bundle 'FastLadder.vim'
 Bundle 'ack.vim'
-" Bundle 'project.vim'
+"Bundle 'project.vim'
 Bundle 'motemen/hatena-vim'
 Bundle 'vim-jp/vimdoc-ja'
+Bundle 'Lokaltog/vim-powerline'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
@@ -137,6 +138,8 @@ let g:neocomplcache_snippets_dir = $HOME . '.vim/bundle/snipMate/snippets'
 let g:ref_alc_cmd='lynx -dump -nonumbers %s'
 " .pdeをarduino-syntaxとして開く
 autocmd BufNewFile,BufRead *.pde setlocal filetype=arduino
+" powerlineの表示設定
+let g:Powerline_symbols = 'compatible'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
