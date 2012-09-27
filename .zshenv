@@ -5,8 +5,8 @@ alias rm='mv -f --backup=numbered --target-directory ~/.trash'
 alias vimpager=$HOME/.vim/bundle/vimpager/vimpager
 
 # Environment variable
-export PYTHONPATH=$PYTHONPATH:$HOME/Dropbox/lib/pymodule
-export PATH=$PATH:$HOME/Dropbox/bin
+export PYTHONPATH=$HOME/Dropbox/lib/pymodule:$PYTHONPATH
+export PATH=$HOME/Dropbox/bin:$PATH
 export EDITOR=/usr/bin/vi
 export PAGER=$HOME/.vim/bundle/vimpager/vimpager
-export CPATH=$CPATH:$HOME/Dropbox/lib/cmodule/include
+export CPATH=$HOME/Dropbox/lib/cmodule/include:$CPATH
