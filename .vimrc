@@ -33,6 +33,8 @@ set expandtab
 set cursorline
 " 日本語vimdocを優先
 set helplang=ja,en
+" カラースキームを設定
+colorscheme desert
 
 "-------------------------------------------------------------------------------
 " カレントウィンドウにのみ罫線を引く
@@ -57,9 +59,9 @@ nnoremap <C-h> <C-w>h
 " ファイルの種別によってコマンドを実行
 "-------------------------------------------------------------------------------
 " Cのファイルはcindentにする
-autocmd Filetype c set cindent
-autocmd Filetype cuda set cindent
-autocmd Filetype cpp set cindent
+autocmd Filetype c setl cindent
+autocmd Filetype cuda setl cindent
+autocmd Filetype cpp setl cindent
 " .vimperatorrc,_vimpeartorrcはvimrcとして扱う
 autocmd BufNewFile,BufRead .vimperatorrc set filetype=vim
 autocmd BufNewFile,BufRead _vimperatorrc set filetype=vim
