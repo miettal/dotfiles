@@ -20,7 +20,8 @@ set backspace=indent,eol,start
 " ステータスライン常に表示
 set laststatus=2
 " ステータスラインの内容
-set statusline=%<%m%f%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y%r%l/%L\ %{strftime('%H:%M')}
+" Powerlineを使い始めたのでコメントアウト
+"set statusline=%<%m%f%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y%r%l/%L\ %{strftime('%H:%M')}
 " 大文字小文字関係なく検索
 set ignorecase
 " zsh風の補完候補表示
