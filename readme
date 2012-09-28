@@ -1,5 +1,10 @@
 My setting files
 https://github.com/miettal/dotfiles
 
+How to use
+git submodule update --init
+chmod +x install.sh
+./install.sh
+
 Copyright 2012, Hiromasa Ihara
 Licensed under the WTFPL license.
