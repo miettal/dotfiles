@@ -19,15 +19,15 @@ ln -s $SCRIPT_DIR/.vim               $HOME/.vim
 ln -s $SCRIPT_DIR/.vimrc             $HOME/.vimrc
 ln -s $SCRIPT_DIR/.vimperatorrc      $HOME/.vimperatorrc
 ln -s $SCRIPT_DIR/.zshrc             $HOME/.zshrc
-touch $HOME/.zshenv
-echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
 
 # remove old .zshenv
 rm -rf $HOME/.zshenv
 # create new .zshenv
+touch $HOME/.zshenv
 if [ $distribution = y ] ; then
 	echo "source $SCRIPT_DIR/.zshenv_mac" >> $HOME/.zshenv
 fi
+echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
 
 # install require package
 yes|sudo apt-get install tmux
