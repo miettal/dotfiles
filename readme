@@ -5,6 +5,5 @@ How to use
 $chmod +x install.sh
 $./install.sh
 
-
 Copyright 2012, Hiromasa Ihara
 Licensed under the WTFPL license.
