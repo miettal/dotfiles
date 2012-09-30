@@ -35,7 +35,7 @@ yes|sudo apt-get install zsh
 yes|sudo apt-get install vim
 yes|sudo apt-get install curl
 
-# change default shell
+# change login shell
 chsh -s /bin/zsh
 
 # install vim plugin vunde
