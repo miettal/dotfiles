@@ -59,3 +59,6 @@ vim +BundleInstall +quit +quit
 
 # executable vimpager
 chmod +x $SCRIPT_DIR/.vim/bundle/vimpager/vimpager
+
+# create trash directory
+mkdir $HOME/.trash
