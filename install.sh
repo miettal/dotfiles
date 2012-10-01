@@ -38,7 +38,7 @@ yes|sudo apt-get install curl
 # change login shell
 chsh -s /bin/zsh
 
-# install vim plugin vunde
+# install vim plugin vundle
 cd $SCRIPT_DIR
 git submodule update --init
 cd -
@@ -46,3 +46,5 @@ cd -
 # install vim plugin for vundle
 vim +BundleInstall +quit +quit
 
+# executable vimpager
+chmod +x $SCRIPT_DIR/.vim/bundle/vimpager/vimpager
