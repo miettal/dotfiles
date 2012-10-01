@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 
-echo -n "Is this machine mac?[y/n]:"
+echo -n "Choose your machine [ubuntu/mac/...]:"
 read distribution
 
 # remove old symbolic link
@@ -24,16 +24,27 @@ ln -s $SCRIPT_DIR/.zshrc             $HOME/.zshrc
 rm -rf $HOME/.zshenv
 # create new .zshenv
 touch $HOME/.zshenv
-if [ $distribution = y ] ; then
+if [ $distribution = mac ] ; then
 	echo "source $SCRIPT_DIR/.zshenv_mac" >> $HOME/.zshenv
 fi
 echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
 
 # install require package
-yes|sudo apt-get install tmux
-yes|sudo apt-get install zsh
-yes|sudo apt-get install vim
-yes|sudo apt-get install curl
+case "$var" in
+"mac") 
+  sudo port install tmux
+  sudo port install vim
+  sudo port instal lurl
+ ;;
+"ubuntu")
+  yes|sudo apt-get install tmux
+  yes|sudo apt-get install zsh
+  yes|sudo apt-get install vim
+  yes|sudo apt-get install curl
+  ;;
+*)
+ ;;
+esac
 
 # change login shell
 chsh -s /bin/zsh
