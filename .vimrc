@@ -19,9 +19,6 @@ set hlsearch
 set backspace=indent,eol,start
 " ステータスライン常に表示
 set laststatus=2
-" ステータスラインの内容
-" Powerlineを使い始めたのでコメントアウト
-"set statusline=%<%m%f%=%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y%r%l/%L\ %{strftime('%H:%M')}
 " 大文字小文字関係なく検索
 set ignorecase
 " zsh風の補完候補表示
@@ -63,12 +60,16 @@ nnoremap <C-h> <C-w>h
 autocmd Filetype c setl cindent
 autocmd Filetype cuda setl cindent
 autocmd Filetype cpp setl cindent
-" .vimperatorrc,_vimpeartorrcはvimrcとして扱う
-autocmd BufNewFile,BufRead .vimperatorrc set filetype=vim
-autocmd BufNewFile,BufRead _vimperatorrc set filetype=vim
 " pythonのファイルはautoindentとsmartindentにする
 autocmd FileType python setl autoindent
 autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+"-------------------------------------------------------------------------------
+" ファイル名前によってファイルタイプを設定
+"-------------------------------------------------------------------------------
+" .vimperatorrc,_vimpeartorrcはvimrcとして扱う
+autocmd BufNewFile,BufRead .vimperatorrc setl filetype=vim
+autocmd BufNewFile,BufRead _vimperatorrc setl filetype=vim
 
 "-------------------------------------------------------------------------------
 " テンプレート
@@ -120,7 +121,6 @@ Bundle 'ref.vim'
 Bundle 'sudo.vim'
 Bundle 'vimpager'
 Bundle 'TeTrIs.vim'
-Bundle 'FastLadder.vim'
 Bundle 'ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'motemen/hatena-vim'
@@ -132,13 +132,8 @@ Bundle 'Lokaltog/vim-powerline'
 "-------------------------------------------------------------------------------
 " neocomplcacheを使用するための設定
 let g:neocomplcache_enable_at_startup = 1
-imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-let g:neocomplcache_snippets_dir = $HOME . '.vim/bundle/snipMate/snippets'
 " twitvim 旧式RT設定
 "let twitvim_old_retweet = 1
-" w3mがsegvするのでlynxを使う
-let g:ref_alc_cmd='lynx -dump -nonumbers %s'
 " .pdeをarduino-syntaxとして開く
 autocmd BufNewFile,BufRead *.pde setlocal filetype=arduino
 " powerlineの表示設定
@@ -149,8 +144,7 @@ let g:Powerline_symbols = 'compatible'
 "-------------------------------------------------------------------------------
 " twitvimをマップ
 nnoremap <C-i><C-t> :<C-u>CPosttoTwitter<CR>
-" カーソル下のキーワードで辞典を引く
-nnoremap <C-i><C-e> :<C-u>Ref<Space>alc<Space><C-r><C-w><CR>
+nnoremap <C-i><C-f> :<C-u>Unite buffer file file_mru<CR>
 
 "-------------------------------------------------------------------------------
 " やる気を出す
