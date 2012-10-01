@@ -30,7 +30,7 @@ fi
 echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
 
 # install require package
-case "$var" in
+case "$distribution" in
 "mac") 
   sudo port install tmux
   sudo port install vim
