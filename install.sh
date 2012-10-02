@@ -24,10 +24,10 @@ ln -s $SCRIPT_DIR/.zshrc             $HOME/.zshrc
 rm -rf $HOME/.zshenv
 # create new .zshenv
 touch $HOME/.zshenv
+echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
 if [ $distribution = mac ] ; then
 	echo "source $SCRIPT_DIR/.zshenv_mac" >> $HOME/.zshenv
 fi
-echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
 
 # install require package
 case "$distribution" in
