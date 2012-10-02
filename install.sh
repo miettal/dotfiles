@@ -34,7 +34,7 @@ case "$distribution" in
 "mac") 
   sudo port install tmux
   sudo port install vim
-  sudo port instal lurl
+  sudo port install curl
  ;;
 "ubuntu")
   yes|sudo apt-get install tmux
