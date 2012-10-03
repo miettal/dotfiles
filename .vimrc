@@ -126,6 +126,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'motemen/hatena-vim'
 Bundle 'vim-jp/vimdoc-ja'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'majutsushi/tagbar'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
@@ -145,6 +146,7 @@ let g:Powerline_symbols = 'compatible'
 " twitvimをマップ
 nnoremap <C-i><C-t> :<C-u>CPosttoTwitter<CR>
 nnoremap <C-i><C-f> :<C-u>Unite buffer file file_mru<CR>
+nnoremap <C-i><C-i> :<C-u>TagbarToggle<CR>
 
 "-------------------------------------------------------------------------------
 " やる気を出す
