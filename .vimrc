@@ -127,6 +127,7 @@ Bundle 'motemen/hatena-vim'
 Bundle 'vim-jp/vimdoc-ja'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
+Bundle 'sjl/gundo.vim'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
