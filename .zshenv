@@ -7,6 +7,7 @@ alias vimpager=$HOME/.vim/bundle/vimpager/vimpager
 # Environment variable
 export PYTHONPATH=$HOME/Dropbox/lib/pymodule:$PYTHONPATH
 export PATH=$HOME/Dropbox/bin:$PATH
+export PATH=$HOME/.vim/bundle/vimpager:$PATH
 export EDITOR=/usr/bin/vi
 export PAGER=$HOME/.vim/bundle/vimpager/vimpager
 export CPATH=$HOME/Dropbox/lib/cmodule/include:$CPATH
