@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 
-echo -n "Choose your machine [ubuntu/mac/...]:"
+echo -n "Choose your machine [ubuntu/mac/cygwin/...]:"
 read distribution
 
 # remove old symbolic link
@@ -42,12 +42,18 @@ case "$distribution" in
   yes|sudo apt-get install vim
   yes|sudo apt-get install curl
   ;;
+"cygwin")
+  ;;
 *)
  ;;
 esac
 
 # change login shell
-chsh -s /bin/zsh
+if [ $distribution = cygwin ] ; then
+  echo "Please modify your shell manually"
+else
+  chsh -s /bin/zsh
+fi
 
 # install vim plugin vundle
 cd $SCRIPT_DIR
@@ -61,4 +67,6 @@ vim +BundleInstall +quit +quit
 chmod +x $SCRIPT_DIR/.vim/bundle/vimpager/vimpager
 
 # create trash directory
-mkdir $HOME/.trash
+if [ ! -d $HOME/.trash ] ; then
+  mkdir $HOME/.trash
+fi
