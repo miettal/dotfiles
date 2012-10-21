@@ -111,7 +111,6 @@ set runtimepath+=~/.vim/vundle.git/
 call vundle#rc()
 Bundle 'neocomplcache'
 Bundle 'quickrun'
-Bundle 'snipMate'
 Bundle 'Arduino-syntax-file'
 Bundle 'HTML5-Syntax-File'
 Bundle 'unite.vim'
@@ -126,18 +125,24 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'motemen/hatena-vim'
 Bundle 'vim-jp/vimdoc-ja'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'Shougo/neosnippet'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
 "-------------------------------------------------------------------------------
-" neocomplcacheを使用するための設定
+" neocomplcache
 let g:neocomplcache_enable_at_startup = 1
-" twitvim 旧式RT設定
-"let twitvim_old_retweet = 1
-" .pdeをarduino-syntaxとして開く
+" arduino-syntax
 autocmd BufNewFile,BufRead *.pde setlocal filetype=arduino
-" powerlineの表示設定
+" powerline
 let g:Powerline_symbols = 'compatible'
+" neosnippet
+imap <expr><TAB> neosnippet#expandable() ?
+ \ "\<Plug>(neosnippet_expand_or_jump)"
+ \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() ?
+ \ "\<Plug>(neosnippet_expand_or_jump)"
+ \: "\<TAB>"
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
