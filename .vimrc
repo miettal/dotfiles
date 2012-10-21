@@ -126,6 +126,8 @@ Bundle 'motemen/hatena-vim'
 Bundle 'vim-jp/vimdoc-ja'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Shougo/neosnippet'
+Bundle 'majutsushi/tagbar'
+Bundle 'sjl/gundo.vim'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
@@ -150,6 +152,7 @@ smap <expr><TAB> neosnippet#expandable() ?
 " twitvimをマップ
 nnoremap <C-i><C-t> :<C-u>CPosttoTwitter<CR>
 nnoremap <C-i><C-f> :<C-u>Unite buffer file file_mru<CR>
+nnoremap <C-i><C-i> :<C-u>TagbarToggle<CR>
 
 "-------------------------------------------------------------------------------
 " やる気を出す

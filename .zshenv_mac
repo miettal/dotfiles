@@ -13,6 +13,7 @@ alias ls='gls --color=auto'
 alias rm='gmv -f --backup=numbered --target-directory ~/.trash'
 
 # for ps
+alias ps='ps -T'
 alias ps=ps -T
 
 # for macports gnu coreutils
@@ -114,3 +115,4 @@ alias yes=gyes
 
 # Environment variable
 export PATH=/opt/local/bin:$PATH
+export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:$PYTHONPATH

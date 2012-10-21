@@ -24,17 +24,17 @@ ln -s $SCRIPT_DIR/.zshrc             $HOME/.zshrc
 rm -rf $HOME/.zshenv
 # create new .zshenv
 touch $HOME/.zshenv
+echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
 if [ $distribution = mac ] ; then
 	echo "source $SCRIPT_DIR/.zshenv_mac" >> $HOME/.zshenv
 fi
-echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
 
 # install require package
 case "$distribution" in
 "mac") 
   sudo port install tmux
   sudo port install vim
-  sudo port instal lurl
+  sudo port install curl
  ;;
 "ubuntu")
   yes|sudo apt-get install tmux
@@ -59,3 +59,6 @@ vim +BundleInstall +quit +quit
 
 # executable vimpager
 chmod +x $SCRIPT_DIR/.vim/bundle/vimpager/vimpager
+
+# create trash directory
+mkdir $HOME/.trash
