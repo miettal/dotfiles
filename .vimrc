@@ -5,16 +5,18 @@
 set encoding=utf-8
 " 判別の順番と読み込む文字コード
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
-" シンタックスハイライトオン
-syntax on
 " 行番号表示
 set number
-" タブ幅2
-set tabstop=2
-" オートインデントタブ幅2
-set shiftwidth=2
+" インクリメンタル検索する
+set incsearch
 " 検索結果をハイライトする
 set hlsearch
+" vi互換モードを切る
+set nocompatible
+" タブ幅2
+set tabstop=2
+set shiftwidth=2
+set softtabstop=0
 " バックスペース設定
 set backspace=indent,eol,start
 " ステータスライン常に表示
@@ -29,10 +31,10 @@ set showcmd
 set expandtab
 " カレント行に下線を引く
 set cursorline
-" 日本語vimdocを優先
-set helplang=ja,en
 " カラースキームを設定
 colorscheme desert
+" シンタックスハイライトオン
+syntax on
 
 "-------------------------------------------------------------------------------
 " カレントウィンドウにのみ罫線を引く
@@ -145,6 +147,8 @@ imap <expr><TAB> neosnippet#expandable() ?
 smap <expr><TAB> neosnippet#expandable() ?
  \ "\<Plug>(neosnippet_expand_or_jump)"
  \: "\<TAB>"
+" vimdoc-ja
+set helplang=ja,en
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
