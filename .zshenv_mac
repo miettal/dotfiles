@@ -4,7 +4,7 @@ alias ruby=ruby1.9
 alias irb=irb1.9
 
 # for gcc
-alias gcc=x86_64-apple-darwin12-gcc-4.7.1
+alias gcc=x86_64-apple-darwin12-gcc-4.7.2
 
 # for ls
 alias ls='gls --color=auto'
@@ -14,7 +14,6 @@ alias rm='gmv -f --backup=numbered --target-directory ~/.trash'
 
 # for ps
 alias ps='ps -T'
-alias ps=ps -T
 
 # for macports gnu coreutils
 alias base64=gbase64
@@ -115,4 +114,5 @@ alias yes=gyes
 
 # Environment variable
 export PATH=/opt/local/bin:$PATH
+export LD_LIBRARY_PATH=/opt/local/lib
 export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:$PYTHONPATH
