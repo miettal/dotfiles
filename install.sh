@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 
-echo -n "Choose your machine [ubuntu/mac/cygwin/...]:"
+printf "Choose your machine [ubuntu/debian/mac/cygwin/...]:"
 read distribution
 
 # remove old symbolic link
@@ -36,7 +36,7 @@ case "$distribution" in
   sudo port install vim
   sudo port install curl
  ;;
-"ubuntu")
+"debian" | "ubuntu")
   yes|sudo apt-get install tmux
   yes|sudo apt-get install zsh
   yes|sudo apt-get install vim
