@@ -73,3 +73,19 @@ if [ ! -d $HOME/.trash ] ; then
 fi
 
 # for gEDA
+# remove old .gEDA/gschemrc
+if [ -e $HOME/.gEDA/gschemrc ]; then rm -rf $HOME/.gEDA/gschemrc; fi
+# create new .gEDA/gschemrc
+touch $HOME/.gEDA/gschemrc
+echo "(component-library \"$HOME/.gEDA/local_symbols\")" >> $HOME/.gEDA/gschemrc
+
+# remove old .gEDA/gschemrc
+if [ -e $HOME/.gEDA/local_symbols ]; then rm -rf $HOME/.gEDA/local_symbols; fi
+# create new .gEDA/local_symbols
+mkdir $HOME/.gEDA/local_symbols
+cd /tmp
+git clone https://gist.github.com/4104624.git
+cp 4104624/KA2311-42B-UR91.sym $HOME/.gEDA/local_symbols
+git clone https://gist.github.com/4104621.git
+cp 4104621/74LS574.sym $HOME/.gEDA/local_symbols
+
