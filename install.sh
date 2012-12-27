@@ -6,23 +6,23 @@ printf "Choose your machine [ubuntu/debian/mac/cygwin/...]:"
 read distribution
 
 # remove old symbolic link
-if [ -e $HOME/.inputrc ]; then rm -rf $HOME/.inputrc; fi
-if [ -e $HOME/.tmux.conf ]; then rm -rf $HOME/.tmux.conf; fi
-if [ -e $HOME/.vim ]; then rm -rf $HOME/.vim; fi
-if [ -e $HOME/.vimrc ]; then rm -rf $HOME/.vimrc; fi
+if [ -e $HOME/.inputrc ]; then      rm -rf $HOME/.inputrc; fi
+if [ -e $HOME/.tmux.conf ]; then    rm -rf $HOME/.tmux.conf; fi
+if [ -e $HOME/.vim ]; then          rm -rf $HOME/.vim; fi
+if [ -e $HOME/.vimrc ]; then        rm -rf $HOME/.vimrc; fi
 if [ -e $HOME/.vimperatorrc ]; then rm -rf $HOME/.vimperatorrc; fi
-if [ -e $HOME/.zshrc ]; then rm -rf $HOME/.zshrc; fi
+if [ -e $HOME/.zshrc ]; then        rm -rf $HOME/.zshrc; fi
 
 # create new symblic link
-ln -s $SCRIPT_DIR/.inputrc           $HOME/.inputrc
-ln -s $SCRIPT_DIR/.tmux.conf         $HOME/.tmux.conf
-ln -s $SCRIPT_DIR/.vim               $HOME/.vim
-ln -s $SCRIPT_DIR/.vimrc             $HOME/.vimrc
-ln -s $SCRIPT_DIR/.vimperatorrc      $HOME/.vimperatorrc
-ln -s $SCRIPT_DIR/.zshrc             $HOME/.zshrc
+ln -s $SCRIPT_DIR/.inputrc          $HOME/.inputrc
+ln -s $SCRIPT_DIR/.tmux.conf        $HOME/.tmux.conf
+ln -s $SCRIPT_DIR/.vim              $HOME/.vim
+ln -s $SCRIPT_DIR/.vimrc            $HOME/.vimrc
+ln -s $SCRIPT_DIR/.vimperatorrc     $HOME/.vimperatorrc
+ln -s $SCRIPT_DIR/.zshrc            $HOME/.zshrc
 
 # remove old .zshenv
-if [ -e $HOME/.zshenv ]; then rm -rf $HOME/.zshenv; fi
+if [ -e $HOME/.zshenv ]; then       rm -rf $HOME/.zshenv; fi
 # create new .zshenv
 touch $HOME/.zshenv
 echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
@@ -68,9 +68,7 @@ vim +BundleInstall +quit +quit
 chmod +x $SCRIPT_DIR/.vim/bundle/vimpager/vimpager
 
 # create trash directory
-if [ ! -d $HOME/.trash ] ; then
-  mkdir $HOME/.trash
-fi
+if [ ! -d $HOME/.trash ] ; then mkdir $HOME/.trash; fi
 
 # for gEDA
 # remove old .gEDA/gschemrc
@@ -79,13 +77,11 @@ if [ -e $HOME/.gEDA/gschemrc ]; then rm -rf $HOME/.gEDA/gschemrc; fi
 touch $HOME/.gEDA/gschemrc
 echo "(component-library \"$HOME/.gEDA/local_symbols\")" >> $HOME/.gEDA/gschemrc
 
-# remove old .gEDA/gschemrc
-if [ -e $HOME/.gEDA/local_symbols ]; then rm -rf $HOME/.gEDA/local_symbols; fi
-# create new .gEDA/local_symbols
-mkdir $HOME/.gEDA/local_symbols
+# create .gEDA/gschemrc directory
+if [ ! -e $HOME/.gEDA/local_symbols ]; then mkdir $HOME/.gEDA/local_symbols; fi
 cd /tmp
-git clone https://gist.github.com/4104624.git
+if [ ! -e 4104624 ]; then git clone https://gist.github.com/4104624.git; fi
 cp 4104624/KA2311-42B-UR91.sym $HOME/.gEDA/local_symbols
-git clone https://gist.github.com/4104621.git
+if [ ! -e 4104621 ]; then git clone https://gist.github.com/4104621.git; fi
 cp 4104621/74LS574.sym $HOME/.gEDA/local_symbols
 
