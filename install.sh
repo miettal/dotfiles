@@ -22,7 +22,7 @@ ln -s $SCRIPT_DIR/.vimperatorrc      $HOME/.vimperatorrc
 ln -s $SCRIPT_DIR/.zshrc             $HOME/.zshrc
 
 # remove old .zshenv
-if [ -e $HOME/.zshenv]; then rm -rf $HOME/.zshenv; fi
+if [ -e $HOME/.zshenv ]; then rm -rf $HOME/.zshenv; fi
 # create new .zshenv
 touch $HOME/.zshenv
 echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
