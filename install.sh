@@ -6,12 +6,13 @@ printf "Choose your machine [ubuntu/debian/mac/cygwin/...]:"
 read distribution
 
 # remove old symbolic link
-rm -rf $HOME/.inputrc
-rm -rf $HOME/.tmux.conf
-rm -rf $HOME/.vim
-rm -rf $HOME/.vimrc
-rm -rf $HOME/.vimperatorrc
-rm -rf $HOME/.zshrc
+if [ -e $HOME/.inputrc ]; then rm -rf $HOME/.inputrc; fi
+if [ -e $HOME/.tmux.conf ]; then rm -rf $HOME/.tmux.conf; fi
+if [ -e $HOME/.vim ]; then rm -rf $HOME/.vim; fi
+if [ -e $HOME/.vimrc ]; then rm -rf $HOME/.vimrc; fi
+if [ -e $HOME/.vimperatorrc ]; then rm -rf $HOME/.vimperatorrc; fi
+if [ -e $HOME/.zshrc ]; then rm -rf $HOME/.zshrc; fi
+
 # create new symblic link
 ln -s $SCRIPT_DIR/.inputrc           $HOME/.inputrc
 ln -s $SCRIPT_DIR/.tmux.conf         $HOME/.tmux.conf
@@ -21,7 +22,7 @@ ln -s $SCRIPT_DIR/.vimperatorrc      $HOME/.vimperatorrc
 ln -s $SCRIPT_DIR/.zshrc             $HOME/.zshrc
 
 # remove old .zshenv
-rm -rf $HOME/.zshenv
+if [ -e $HOME/.zshenv]; then rm -rf $HOME/.zshenv; fi
 # create new .zshenv
 touch $HOME/.zshenv
 echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
@@ -70,3 +71,5 @@ chmod +x $SCRIPT_DIR/.vim/bundle/vimpager/vimpager
 if [ ! -d $HOME/.trash ] ; then
   mkdir $HOME/.trash
 fi
+
+# for gEDA
