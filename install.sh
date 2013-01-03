@@ -56,6 +56,9 @@ else
   chsh -s /bin/zsh
 fi
 
+################################################################################
+# for vim                                                                      #
+################################################################################
 # install vim plugin vundle
 cd $SCRIPT_DIR
 git submodule update --init
@@ -67,10 +70,17 @@ vim +BundleInstall +quit +quit
 # executable vimpager
 chmod +x $SCRIPT_DIR/.vim/bundle/vimpager/vimpager
 
+################################################################################
+# for trash                                                                    #
+################################################################################
 # create trash directory
 if [ ! -d $HOME/.trash ] ; then mkdir $HOME/.trash; fi
 
-# for gEDA
+################################################################################
+# for gEDA                                                                     #
+################################################################################
+# create .gEDA directory
+if [ ! -e $HOME/.gEDA ]; then mkdir $HOME/.gEDA; fi
 # remove old .gEDA/gschemrc
 if [ -e $HOME/.gEDA/gschemrc ]; then rm -rf $HOME/.gEDA/gschemrc; fi
 # create new .gEDA/gschemrc
@@ -84,4 +94,6 @@ if [ ! -e 4104624 ]; then git clone https://gist.github.com/4104624.git; fi
 cp 4104624/KA2311-42B-UR91.sym $HOME/.gEDA/local_symbols
 if [ ! -e 4104621 ]; then git clone https://gist.github.com/4104621.git; fi
 cp 4104621/74LS574.sym $HOME/.gEDA/local_symbols
+if [ ! -e 4444843 ]; then git clone https://gist.github.com/4444843.git; fi
+cp 4444843/ATtiny2313.sym $HOME/.gEDA/local_symbols
 
