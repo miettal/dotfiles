@@ -141,12 +141,9 @@ autocmd BufNewFile,BufRead *.pde setlocal filetype=arduino
 " powerline
 let g:Powerline_symbols = 'compatible'
 " neosnippet
-imap <expr><TAB> neosnippet#expandable() ?
- \ "\<Plug>(neosnippet_expand_or_jump)"
- \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable() ?
- \ "\<Plug>(neosnippet_expand_or_jump)"
- \: "\<TAB>"
+imap <expr><TAB>
+\ neosnippet#expandable() <Bar><Bar> neosnippet#jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<C-n>"
 " vimdoc-ja
 set helplang=ja,en
 
