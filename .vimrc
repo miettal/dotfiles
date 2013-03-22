@@ -118,7 +118,7 @@ Bundle 'HTML5-Syntax-File'
 Bundle 'unite.vim'
 Bundle 'TwitVim'
 Bundle 'Gist.vim'
-Bundle 'ref.vim'
+Bundle 'thinca/vim-ref'
 Bundle 'sudo.vim'
 Bundle 'vimpager'
 Bundle 'TeTrIs.vim'
@@ -130,6 +130,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'Shougo/neosnippet'
 Bundle 'majutsushi/tagbar'
 Bundle 'sjl/gundo.vim'
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
@@ -149,14 +151,40 @@ smap <expr><TAB> neosnippet#expandable() ?
  \: "\<TAB>"
 " vimdoc-ja
 set helplang=ja,en
+" ref.vim
+let g:ref_source_webdict_sites = {
+\   'je': {
+\     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
+\   },
+\   'ej': {
+\     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
+\   },
+\   'wiki': {
+\     'url': 'http://ja.wikipedia.org/wiki/%s',
+\   },
+\ }
+let g:ref_source_webdict_sites.default = 'ej'
+function! g:ref_source_webdict_sites.je.filter(output)
+  return join(split(a:output, "\n")[15 :], "\n")
+endfunction
+function! g:ref_source_webdict_sites.ej.filter(output)
+  return join(split(a:output, "\n")[15 :], "\n")
+endfunction
+function! g:ref_source_webdict_sites.wiki.filter(output)
+  return join(split(a:output, "\n")[17 :], "\n")
+endfunction
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
 "-------------------------------------------------------------------------------
-" twitvimをマップ
+" twitvim
 nnoremap <C-i><C-t> :<C-u>CPosttoTwitter<CR>
 nnoremap <C-i><C-f> :<C-u>Unite buffer file file_mru<CR>
 nnoremap <C-i><C-i> :<C-u>TagbarToggle<CR>
+" ref.vim
+nnoremap <Leader>je :<C-u>Ref webdict je<Space>
+nnoremap <Leader>ej :<C-u>Ref webdict ej<Space>
+nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
 
 "-------------------------------------------------------------------------------
 " やる気を出す
