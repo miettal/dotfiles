@@ -170,6 +170,15 @@ endfunction
 function! g:ref_source_webdict_sites.wiki.filter(output)
   return join(split(a:output, "\n")[17 :], "\n")
 endfunction
+" quickrun
+let g:quickrun_config = {
+\   "make" : {
+\       "command"   : "mingw32-make",
+\       "exec" : "%c %o",
+\       "outputter" : "error:buffer:quickfix",
+\       "runner" : "vimproc",
+\   },
+\}
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
