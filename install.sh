@@ -96,4 +96,6 @@ if [ ! -e 4104621 ]; then git clone https://gist.github.com/4104621.git; fi
 cp 4104621/74LS574.sym $HOME/.gEDA/local_symbols
 if [ ! -e 4444843 ]; then git clone https://gist.github.com/4444843.git; fi
 cp 4444843/ATtiny2313.sym $HOME/.gEDA/local_symbols
+if [ ! -e 5490805 ]; then git clone https://gist.github.com/5490805.git; fi
+cp 5490805/ATmega168.sym $HOME/.gEDA/local_symbols
 
