@@ -111,14 +111,10 @@ nnoremap <C-i><C-f> :<C-u>call<Space>Bfrun_current_buffer()<CR>
 "-------------------------------------------------------------------------------
 set runtimepath+=~/.vim/vundle.git/
 call vundle#rc()
-Bundle 'neocomplcache'
-Bundle 'quickrun'
 Bundle 'Arduino-syntax-file'
 Bundle 'HTML5-Syntax-File'
-Bundle 'unite.vim'
 Bundle 'TwitVim'
 Bundle 'Gist.vim'
-Bundle 'thinca/vim-ref'
 Bundle 'sudo.vim'
 Bundle 'vimpager'
 Bundle 'TeTrIs.vim'
@@ -127,11 +123,15 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'motemen/hatena-vim'
 Bundle 'vim-jp/vimdoc-ja'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Shougo/neosnippet'
 Bundle 'majutsushi/tagbar'
 Bundle 'sjl/gundo.vim'
+Bundle 'thinca/vim-quickrun'
+Bundle 'thinca/vim-ref'
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/neosnippet'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
@@ -171,14 +171,21 @@ function! g:ref_source_webdict_sites.wiki.filter(output)
   return join(split(a:output, "\n")[17 :], "\n")
 endfunction
 " quickrun
-let g:quickrun_config = {
-\   "make" : {
-\       "command"   : "mingw32-make",
-\       "exec" : "%c %o",
+let g:quickrun_config = {}
+let g:quickrun_config.make = {
+\       "command"   : "make",
 \       "outputter" : "error:buffer:quickfix",
 \       "runner" : "vimproc",
-\   },
-\}
+\       "exec" : "%c %o",
+\   }
+autocmd BufNewFile,BufRead *.md setl filetype=markdown
+let g:quickrun_config.markdown = {
+\       'outputter' : 'null',
+\       'command'   : 'open',
+\       'cmdopt'    : '-a',
+\       'args'      : 'Marked',
+\       'exec'      : '%c %o %a %s',
+\   }
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
