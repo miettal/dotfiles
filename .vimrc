@@ -76,14 +76,23 @@ autocmd BufNewFile,BufRead _vimperatorrc setl filetype=vim
 "-------------------------------------------------------------------------------
 " テンプレート
 "-------------------------------------------------------------------------------
-" Cのヘッダファイル
+" C header
 autocmd BufNewFile *.h call IncludeGuard()
 function! IncludeGuard()
   let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
   execute "normal! i#ifndef " . gatename . "_INCLUDED"
-  execute "normal! o#define " . gatename .  "_INCLUDED\<CR>\<CR>\<CR>\<CR>\<CR>"
+  execute "normal! o#define " . gatename .  "_INCLUDED\<CR>\<CR>\<CR>\<CR>"
   execute "normal! Go#endif   /* " . gatename . "_INCLUDED */"
-  4
+  3
+endfunction 
+" tex
+autocmd Filetype plaintex call TexGuard()
+function! TexGuard()
+  execute "normal! i\\documentclass{jsarticle}"
+  execute "normal! o\\usepackage[dvipdfmx]{graphicx}\<CR>"
+  execute "normal! o\\begin{document}\<CR>\<CR>\<CR>"
+  execute "normal! Go\\end{document}"
+  6
 endfunction 
 
 "-------------------------------------------------------------------------------
@@ -179,8 +188,8 @@ endfunction
 " quickrun
 let g:quickrun_config = {}
 let g:quickrun_config.make = {
-\       "command"   : "make",
 \       "outputter" : "error:buffer:quickfix",
+\       "command"   : "make",
 \       "runner" : "vimproc",
 \       "exec" : "%c %o",
 \   }
@@ -191,6 +200,13 @@ let g:quickrun_config.markdown = {
 \       'cmdopt'    : '-a',
 \       'args'      : 'Marked',
 \       'exec'      : '%c %o %a %s',
+\   }
+let g:quickrun_config.tex = {
+\       "outputter" : "error:buffer:quickfix",
+\       "runner" : "vimproc",
+\       "runner/vimproc/updatetime" : 10,
+\       'command'   : 'platex',
+\       'exec': ['%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'evince %s:r.pdf&'],
 \   }
 
 "-------------------------------------------------------------------------------
