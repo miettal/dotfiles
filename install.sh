@@ -33,19 +33,16 @@ fi
 # install require package
 case "$distribution" in
 "mac") 
-  sudo port install tmux
-  sudo port install vim
-  sudo port install curl
+  sudo ./mac.sh
  ;;
 "debian" | "ubuntu")
-  yes|sudo apt-get install tmux
-  yes|sudo apt-get install zsh
-  yes|sudo apt-get install vim
-  yes|sudo apt-get install curl
+  sudo ./debian.sh
   ;;
 "cygwin")
+  ./cygwin.sh
   ;;
 *)
+  ./other.sh
  ;;
 esac
 
