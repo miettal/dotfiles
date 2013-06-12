@@ -146,6 +146,7 @@ Bundle 'Shougo/neosnippet'
 let g:neocomplcache_enable_at_startup = 1
 " arduino-syntax
 autocmd BufNewFile,BufRead *.pde setlocal filetype=arduino
+autocmd BufNewFile,BufRead *.ino setlocal filetype=arduino
 " powerline
 let g:Powerline_symbols = 'compatible'
 " neosnippet
