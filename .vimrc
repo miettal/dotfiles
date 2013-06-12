@@ -147,6 +147,8 @@ Bundle 'Shougo/vimshell'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/neosnippet'
+Bundle 'tpope/vim-pathogen'
+Bundle 'scrooloose/syntastic'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
@@ -208,6 +210,8 @@ let g:quickrun_config.tex = {
 \       'command'   : 'platex',
 \       'exec': ['%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'evince %s:r.pdf&'],
 \   }
+" vim-pathogen
+call pathogen#infect()
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
