@@ -21,8 +21,14 @@ set softtabstop=0
 set backspace=indent,eol,start
 " ステータスライン常に表示
 set laststatus=2
-" 大文字小文字関係なく検索
+" 大文字小文字関係なく探索
 set ignorecase
+" 大文字で探索の場合，大文字小文字区別
+set smartcase
+" バッファを閉じる代わりに隠す（Undo履歴を残すため）
+set hidden
+" 不可視文字の可視化
+set list
 " zsh風の補完候補表示
 set wildmode=list:longest
 " 入力中のコマンド表示
@@ -132,14 +138,17 @@ Bundle 'TwitVim'
 Bundle 'Gist.vim'
 Bundle 'sudo.vim'
 Bundle 'vimpager'
-Bundle 'TeTrIs.vim'
-Bundle 'ack.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'Yggdroot/indentLine'
 Bundle 'scrooloose/nerdtree'
 Bundle 'motemen/hatena-vim'
 Bundle 'vim-jp/vimdoc-ja'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'sjl/gundo.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'davidhalter/jedi-vim'
 Bundle 'thinca/vim-quickrun'
 Bundle 'thinca/vim-ref'
 Bundle 'Shougo/vimproc'
@@ -147,8 +156,6 @@ Bundle 'Shougo/vimshell'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/neosnippet'
-Bundle 'tpope/vim-pathogen'
-Bundle 'scrooloose/syntastic'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
@@ -168,6 +175,7 @@ imap <expr><TAB>
 set helplang=ja,en
 " ref.vim
 let g:ref_source_webdict_sites = {
+\   'default': 'ej',
 \   'je': {
 \     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
 \   },
@@ -178,7 +186,6 @@ let g:ref_source_webdict_sites = {
 \     'url': 'http://ja.wikipedia.org/wiki/%s',
 \   },
 \ }
-let g:ref_source_webdict_sites.default = 'ej'
 function! g:ref_source_webdict_sites.je.filter(output)
   return join(split(a:output, "\n")[15 :], "\n")
 endfunction
@@ -190,10 +197,13 @@ function! g:ref_source_webdict_sites.wiki.filter(output)
 endfunction
 " quickrun
 let g:quickrun_config = {}
+let g:quickrun_config._ = {
+\       "runner" : "vimproc",
+\       "runner/vimproc/updatetime" : 40,
+\   }
 let g:quickrun_config.make = {
 \       "outputter" : "error:buffer:quickfix",
 \       "command"   : "make",
-\       "runner" : "vimproc",
 \       "exec" : "%c %o",
 \   }
 autocmd BufNewFile,BufRead *.md setl filetype=markdown
@@ -205,15 +215,10 @@ let g:quickrun_config.markdown = {
 \       'exec'      : '%c %o %a %s',
 \   }
 let g:quickrun_config.tex = {
-\       "outputter" : "error:buffer:quickfix",
-\       "runner" : "vimproc",
-\       "runner/vimproc/updatetime" : 10,
+\       "outputter" : "null",
 \       'command'   : 'platex',
-\       'exec': ['%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'evince %s:r.pdf&'],
+\       'exec': ['%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open %s:r.pdf&'],
 \   }
-" vim-pathogen
-call pathogen#infect()
-
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
 "-------------------------------------------------------------------------------
@@ -222,8 +227,8 @@ nnoremap <C-i><C-t> :<C-u>CPosttoTwitter<CR>
 nnoremap <C-i><C-f> :<C-u>Unite buffer file file_mru<CR>
 nnoremap <C-i><C-i> :<C-u>TagbarToggle<CR>
 " ref.vim
-nnoremap <Leader>je :<C-u>Ref webdict je<Space>
 nnoremap <Leader>ej :<C-u>Ref webdict ej<Space>
+nnoremap <Leader>e :<C-u>call ref#jump('normal', 'webdict', 'ej')<CR>
 nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
 
 "-------------------------------------------------------------------------------
