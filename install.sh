@@ -26,16 +26,15 @@ if [ -e $HOME/.zshenv ]; then       rm -rf $HOME/.zshenv; fi
 # create new .zshenv
 touch $HOME/.zshenv
 echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
-if [ $distribution = mac ] ; then
-	echo "source $SCRIPT_DIR/.zshenv_mac" >> $HOME/.zshenv
-fi
 
 # install require package
 case "$distribution" in
 "mac") 
+  echo "source $SCRIPT_DIR/.zshenv_mac" >> $HOME/.zshenv
   sudo ./mac.sh
  ;;
 "debian" | "ubuntu")
+  echo "source $SCRIPT_DIR/.zshenv_debian" >> $HOME/.zshenv
   sudo ./debian.sh
   ;;
 "cygwin")
