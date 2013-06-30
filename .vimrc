@@ -141,6 +141,7 @@ Bundle 'vimpager'
 Bundle 'tpope/vim-surround'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'Yggdroot/indentLine'
+Bundle 'osyo-manga/vim-gyazo'
 Bundle 'scrooloose/nerdtree'
 Bundle 'motemen/hatena-vim'
 Bundle 'vim-jp/vimdoc-ja'
@@ -174,18 +175,17 @@ imap <expr><TAB>
 " vimdoc-ja
 set helplang=ja,en
 " ref.vim
-let g:ref_source_webdict_sites = {
-\   'default': 'ej',
-\   'je': {
+let g:ref_source_webdict_sites = {}
+let g:ref_source_webdict_sites.default = 'ej'
+let g:ref_source_webdict_sites.je = {
 \     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
-\   },
-\   'ej': {
+\   }
+let g:ref_source_webdict_sites.ej = {
 \     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
-\   },
-\   'wiki': {
+\   }
+let g:ref_source_webdict_sites.wiki = {
 \     'url': 'http://ja.wikipedia.org/wiki/%s',
-\   },
-\ }
+\   }
 function! g:ref_source_webdict_sites.je.filter(output)
   return join(split(a:output, "\n")[15 :], "\n")
 endfunction
