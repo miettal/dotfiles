@@ -140,7 +140,6 @@ Bundle 'sudo.vim'
 Bundle 'vimpager'
 Bundle 'tpope/vim-surround'
 Bundle 'kevinw/pyflakes-vim'
-Bundle 'Yggdroot/indentLine'
 Bundle 'scrooloose/nerdtree'
 Bundle 'motemen/hatena-vim'
 Bundle 'vim-jp/vimdoc-ja'
@@ -230,8 +229,3 @@ nnoremap <C-i><C-i> :<C-u>TagbarToggle<CR>
 nnoremap <Leader>ej :<C-u>Ref webdict ej<Space>
 nnoremap <Leader>e :<C-u>call ref#jump('normal', 'webdict', 'ej')<CR>
 nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
-
-"-------------------------------------------------------------------------------
-" やる気を出す
-"-------------------------------------------------------------------------------
-autocmd VimEnter * echo "千里の道も一歩から．ガツガツコードを書こう！"
