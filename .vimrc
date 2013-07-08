@@ -216,7 +216,7 @@ let g:quickrun_config.markdown = {
 let g:quickrun_config.tex = {
 \       "outputter" : "null",
 \       'command'   : 'platex',
-\       'exec': ['%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open %s:r.pdf&'],
+\       'exec': ['%c %s', '%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open %s:r.pdf&'],
 \   }
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
