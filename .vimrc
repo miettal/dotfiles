@@ -143,7 +143,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'basyura/TweetVim'
 Bundle 'tyru/open-browser.vim'
 Bundle 'kevinw/pyflakes-vim'
-Bundle 'Yggdroot/indentLine'
 Bundle 'osyo-manga/vim-gyazo'
 Bundle 'scrooloose/nerdtree'
 Bundle 'motemen/hatena-vim'
@@ -221,7 +220,7 @@ let g:quickrun_config.markdown = {
 let g:quickrun_config.tex = {
 \       "outputter" : "null",
 \       'command'   : 'platex',
-\       'exec': ['%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'gnome-open %s:r.pdf'],
+\       'exec': ['%c %s', '%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open %s:r.pdf&'],
 \   }
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
@@ -234,8 +233,3 @@ nnoremap <C-i><C-i> :<C-u>TagbarToggle<CR>
 nnoremap <Leader>ej :<C-u>Ref webdict ej<Space>
 nnoremap <Leader>e :<C-u>call ref#jump('normal', 'webdict', 'ej')<CR>
 nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
-
-"-------------------------------------------------------------------------------
-" やる気を出す
-"-------------------------------------------------------------------------------
-autocmd VimEnter * echo "千里の道も一歩から．ガツガツコードを書こう！"
