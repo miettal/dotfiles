@@ -138,7 +138,10 @@ Bundle 'TwitVim'
 Bundle 'Gist.vim'
 Bundle 'sudo.vim'
 Bundle 'vimpager'
+Bundle 'basyura/twibill.vim'
 Bundle 'tpope/vim-surround'
+Bundle 'basyura/TweetVim'
+Bundle 'tyru/open-browser.vim'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'Yggdroot/indentLine'
 Bundle 'osyo-manga/vim-gyazo'
@@ -157,6 +160,7 @@ Bundle 'Shougo/vimshell'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/neosnippet'
+Bundle 'mattn/webapi-vim'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
@@ -217,7 +221,7 @@ let g:quickrun_config.markdown = {
 let g:quickrun_config.tex = {
 \       "outputter" : "null",
 \       'command'   : 'platex',
-\       'exec': ['%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open %s:r.pdf&'],
+\       'exec': ['%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'gnome-open %s:r.pdf'],
 \   }
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
