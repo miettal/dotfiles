@@ -31,6 +31,7 @@ echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
 case "$distribution" in
 "mac") 
   echo "source $SCRIPT_DIR/.zshenv_mac" >> $HOME/.zshenv
+  echo "source $SCRIPT_DIR/.vimrc_mac" >> $HOME/.vimrc
   sudo ./mac.sh
  ;;
 "debian" | "ubuntu")

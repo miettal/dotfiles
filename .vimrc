@@ -209,14 +209,6 @@ let g:quickrun_config.make = {
 \       "command"   : "make",
 \       "exec" : "%c %o",
 \   }
-autocmd BufNewFile,BufRead *.md setl filetype=markdown
-let g:quickrun_config.markdown = {
-\       'outputter' : 'null',
-\       'command'   : 'open',
-\       'cmdopt'    : '-a',
-\       'args'      : 'Marked',
-\       'exec'      : '%c %o %a %s',
-\   }
 let g:quickrun_config.tex = {
 \       "outputter" : "null",
 \       'command'   : 'platex',
@@ -233,3 +225,5 @@ nnoremap <C-i><C-i> :<C-u>TagbarToggle<CR>
 nnoremap <Leader>ej :<C-u>Ref webdict ej<Space>
 nnoremap <Leader>e :<C-u>call ref#jump('normal', 'webdict', 'ej')<CR>
 nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
+source /Users/miettal/dotfiles/.vimrc_mac
+source /Users/miettal/dotfiles/.vimrc_mac
