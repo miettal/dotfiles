@@ -27,7 +27,7 @@ if [ -e $HOME/.zshenv ]; then       rm -rf $HOME/.zshenv; fi
 touch $HOME/.zshenv
 echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
 #create new .vimrc_env
-echo "source $SCRIPT_DIR/.vimrc_env" >> $HOME/.vimrc_env
+touch $HOME/.vimrc_env
 
 # install require package
 case "$distribution" in

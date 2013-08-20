@@ -225,5 +225,5 @@ nnoremap <C-i><C-i> :<C-u>TagbarToggle<CR>
 nnoremap <Leader>ej :<C-u>Ref webdict ej<Space>
 nnoremap <Leader>e :<C-u>call ref#jump('normal', 'webdict', 'ej')<CR>
 nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
-source /Users/miettal/dotfiles/.vimrc_mac
-source /Users/miettal/dotfiles/.vimrc_mac
+
+source $HOME/.vimrc_env
