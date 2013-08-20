@@ -26,12 +26,14 @@ if [ -e $HOME/.zshenv ]; then       rm -rf $HOME/.zshenv; fi
 # create new .zshenv
 touch $HOME/.zshenv
 echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
+#create new .vimrc_env
+echo "source $SCRIPT_DIR/.vimrc_env" >> $HOME/.vimrc_env
 
 # install require package
 case "$distribution" in
 "mac") 
   echo "source $SCRIPT_DIR/.zshenv_mac" >> $HOME/.zshenv
-  echo "source $SCRIPT_DIR/.vimrc_mac" >> $HOME/.vimrc
+  echo "source $SCRIPT_DIR/.vimrc_mac" >> $HOME/.vimrc_env
   sudo ./mac.sh
  ;;
 "debian" | "ubuntu")
