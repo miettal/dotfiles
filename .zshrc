@@ -90,6 +90,9 @@ setopt hist_no_store
 setopt list_packed
 ## 最後のスラッシュを自動的に削除しない
 setopt noautoremoveslash
+## Macの濁点半濁点に対応させる
+setopt COMBINING_CHARS
 
 # tmux auto ran
 [ ${TMUX} ] || tmux attach || tmux
+
