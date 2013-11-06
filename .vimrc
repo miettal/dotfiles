@@ -41,6 +41,8 @@ set cursorline
 colorscheme desert
 " シンタックスハイライトオン
 syntax on
+" *.texはlatexファイルタイプで開く
+let g:tex_flavor = "latex"
 
 "-------------------------------------------------------------------------------
 " カレントウィンドウにのみ罫線を引く
@@ -78,7 +80,6 @@ autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,exc
 " .vimperatorrc,_vimpeartorrcはvimrcとして扱う
 autocmd BufNewFile,BufRead .vimperatorrc setl filetype=vim
 autocmd BufNewFile,BufRead _vimperatorrc setl filetype=vim
-
 "-------------------------------------------------------------------------------
 " テンプレート
 "-------------------------------------------------------------------------------
@@ -92,7 +93,7 @@ function! IncludeGuard()
   3
 endfunction 
 " tex
-autocmd Filetype plaintex call TexGuard()
+autocmd BufNewFile *.tex call TexGuard()
 function! TexGuard()
   execute "normal! i\\documentclass{jsarticle}"
   execute "normal! o\\usepackage[dvipdfmx]{graphicx}\<CR>"
@@ -151,7 +152,6 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'davidhalter/jedi-vim'
 Bundle 'thinca/vim-quickrun'
 Bundle 'thinca/vim-ref'
 Bundle 'Shougo/vimproc'
@@ -160,6 +160,7 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/neosnippet'
 Bundle 'mattn/webapi-vim'
+Bundle 'mattn/emmet-vim'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
