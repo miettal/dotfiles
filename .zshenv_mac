@@ -1,4 +1,6 @@
 # Alias
+alias update_system="sudo port -d upgrade outdated && sudo port -d uninstall inactive && sudo port -d clean --all all"
+
 # for ruby
 alias ruby=ruby1.9
 alias irb=irb1.9
