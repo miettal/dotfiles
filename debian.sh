@@ -1,6 +1,6 @@
 #!/bin/sh
 
-yes|apt-get install tmux
-yes|apt-get install zsh
-yes|apt-get install vim-nox
-yes|apt-get install curl
+apt-get install --assume-yes tmux
+apt-get install --assume-yes zsh
+apt-get install --assume-yes vim-nox
+apt-get install --assume-yes curl

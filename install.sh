@@ -69,6 +69,24 @@ vim +BundleInstall +quit +quit
 # executable vimpager
 chmod +x $SCRIPT_DIR/.vim/bundle/vimpager/vimpager
 
+# compile vimproc
+cd $SCRIPT_DIR/.vim/bundle/vimproc/
+case "$distribution" in
+"mac") 
+  make -f make_mac.mak
+ ;;
+"debian" | "ubuntu")
+  make -f make_unix.mak
+  ;;
+"cygwin")
+  make -f make_unix.mak
+  ;;
+*)
+  make -f make_unix.mak
+ ;;
+esac
+cd -
+
 ################################################################################
 # for trash                                                                    #
 ################################################################################
