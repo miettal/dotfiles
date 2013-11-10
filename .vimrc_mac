@@ -12,3 +12,8 @@ let g:quickrun_config.arduino = {
 \       'args'      : 'Arduino',
 \       'exec'      : '%c %o %a %s',
 \   }
+let g:quickrun_config.tex = {
+\       "outputter" : "null",
+\       'command'   : 'platex',
+\       'exec': ['%c %s', '%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open %s:r.pdf&'],
+\   }
