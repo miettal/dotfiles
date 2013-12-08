@@ -1,2 +1,2 @@
 alias open=gnome-open
-alias update_system="sudo apt-get update && sudo apt-get --assume-yes dist-upgrade && sudo apt-get autoremove"
+alias update_system="sudo apt-get update && sudo apt-get -y dist-upgrade && sudo apt-get autoremove -y"
