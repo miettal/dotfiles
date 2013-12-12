@@ -73,6 +73,10 @@ autocmd Filetype cpp setl cindent
 " pythonのファイルはautoindentとsmartindentにする
 autocmd FileType python setl autoindent
 autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+" Javaのファイルはcindentにする
+autocmd Filetype java setl cindent
+" Makefileではスペースをタブ代わりに使わない
+autocmd Filetype make setl noexpandtab
 
 "-------------------------------------------------------------------------------
 " ファイル名前によってファイルタイプを設定
