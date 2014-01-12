@@ -210,11 +210,22 @@ let g:quickrun_config.make = {
 \       "command"   : "make",
 \       "exec" : "%c %o",
 \   }
-let g:quickrun_config.tex = {
-\       "outputter" : "null",
-\       'command'   : 'platex',
-\       'exec': ['%c %s', '%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open %s:r.pdf&'],
-\   }
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Linux\n"
+    let g:quickrun_config.tex = {
+    \       "outputter" : "error:error:buffer",
+    \       'command'   : 'platex',
+    \       'exec': ['%c %s', '%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'gnome-open %s:r.pdf &'],
+    \   }
+  elseif s:uname == "Darwin"
+    let g:quickrun_config.tex = {
+    \       "outputter" : "error:error:buffer",
+    \       'command'   : 'platex',
+    \       'exec': ['%c %s', '%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open %s:r.pdf || true'],
+    \   }
+  endif
+endif
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
 "-------------------------------------------------------------------------------
