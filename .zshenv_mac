@@ -1,5 +1,6 @@
 # Alias
-alias update_system="sudo port selfupdate && sudo port sync && sudo port upgrade outdated && sudo port uninstall inactive && sudo port clean --all all"
+alias open="open -g"
+alias update_system="sudo port selfupdate; sudo port sync; sudo port upgrade outdated; sudo port uninstall inactive; sudo port clean --all all"
 
 # for ruby
 alias ruby=ruby1.9
