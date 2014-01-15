@@ -84,6 +84,7 @@ autocmd Filetype make setl noexpandtab
 " .vimperatorrc,_vimpeartorrcはvimrcとして扱う
 autocmd BufNewFile,BufRead .vimperatorrc setl filetype=vim
 autocmd BufNewFile,BufRead _vimperatorrc setl filetype=vim
+
 "-------------------------------------------------------------------------------
 " テンプレート
 "-------------------------------------------------------------------------------
@@ -163,6 +164,7 @@ Bundle 'Shougo/vimshell'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet-snippets'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/emmet-vim'
 
@@ -226,7 +228,7 @@ if has("unix")
     let g:quickrun_config.tex = {
     \       "outputter" : "error:error:buffer",
     \       'command'   : 'platex',
-    \       'exec': ['%c %s', '%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open %s:r.pdf || true'],
+    \       'exec': ['%c %s', '%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open -g %s:r.pdf || true'],
     \   }
   endif
 endif
