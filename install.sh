@@ -6,20 +6,24 @@ printf "Choose your machine [ubuntu/debian/mac/cygwin/...]:"
 read distribution
 
 # remove old symbolic link
-if [ -e $HOME/.inputrc ]; then      rm -rf $HOME/.inputrc; fi
-if [ -e $HOME/.tmux.conf ]; then    rm -rf $HOME/.tmux.conf; fi
-if [ -e $HOME/.vim ]; then          rm -rf $HOME/.vim; fi
-if [ -e $HOME/.vimrc ]; then        rm -rf $HOME/.vimrc; fi
+if [ -e $HOME/.inputrc ]; then rm -rf $HOME/.inputrc; fi
+if [ -e $HOME/.tmux.conf ]; then rm -rf $HOME/.tmux.conf; fi
+if [ -e $HOME/.vim ]; then rm -rf $HOME/.vim; fi
+if [ -e $HOME/.vimrc ]; then rm -rf $HOME/.vimrc; fi
 if [ -e $HOME/.vimperatorrc ]; then rm -rf $HOME/.vimperatorrc; fi
-if [ -e $HOME/.zshrc ]; then        rm -rf $HOME/.zshrc; fi
+if [ -e $HOME/.zshrc ]; then rm -rf $HOME/.zshrc; fi
+if [ -e $HOME/.config/fontconfig/fonts.conf ]; then rm -rf $HOME/.config/fontconfig/fonts.conf; fi
+
+mkdir -p $HOME/.config/fontconfig
 
 # create new symblic link
-ln -s $SCRIPT_DIR/.inputrc          $HOME/.inputrc
-ln -s $SCRIPT_DIR/.tmux.conf        $HOME/.tmux.conf
-ln -s $SCRIPT_DIR/.vim              $HOME/.vim
-ln -s $SCRIPT_DIR/.vimrc            $HOME/.vimrc
-ln -s $SCRIPT_DIR/.vimperatorrc     $HOME/.vimperatorrc
-ln -s $SCRIPT_DIR/.zshrc            $HOME/.zshrc
+ln -s $SCRIPT_DIR/.inputrc $HOME/.inputrc
+ln -s $SCRIPT_DIR/.tmux.conf $HOME/.tmux.conf
+ln -s $SCRIPT_DIR/.vim $HOME/.vim
+ln -s $SCRIPT_DIR/.vimrc $HOME/.vimrc
+ln -s $SCRIPT_DIR/.vimperatorrc $HOME/.vimperatorrc
+ln -s $SCRIPT_DIR/.zshrc $HOME/.zshrc
+ln -s $SCRIPT_DIR/.config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
 
 # remove old .zshenv
 if [ -e $HOME/.zshenv ]; then       rm -rf $HOME/.zshenv; fi
