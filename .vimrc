@@ -134,39 +134,41 @@ set runtimepath+=~/.vim/brainfuck
 nnoremap <C-i><C-f> :<C-u>call<Space>Bfrun_current_buffer()<CR>
 
 "-------------------------------------------------------------------------------
-" Vundle設定
+" neovundle設定
 "-------------------------------------------------------------------------------
-set runtimepath+=~/.vim/vundle.git/
-call vundle#rc()
-Bundle 'Arduino-syntax-file'
-Bundle 'HTML5-Syntax-File'
-Bundle 'TwitVim'
-Bundle 'Gist.vim'
-Bundle 'sudo.vim'
-Bundle 'vimpager'
-Bundle 'basyura/twibill.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'basyura/TweetVim'
-Bundle 'tyru/open-browser.vim'
-Bundle 'kevinw/pyflakes-vim'
-Bundle 'osyo-manga/vim-gyazo'
-Bundle 'scrooloose/nerdtree'
-Bundle 'motemen/hatena-vim'
-Bundle 'vim-jp/vimdoc-ja'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'majutsushi/tagbar'
-Bundle 'sjl/gundo.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'thinca/vim-quickrun'
-Bundle 'thinca/vim-ref'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/neosnippet-snippets'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/emmet-vim'
+set runtimepath+=~/.vim/neobundle.vim
+call neobundle#rc()
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Arduino-syntax-file'
+NeoBundle 'HTML5-Syntax-File'
+NeoBundle 'TwitVim'
+NeoBundle 'Gist.vim'
+NeoBundle 'sudo.vim'
+NeoBundle 'vimpager'
+NeoBundle 'basyura/twibill.vim'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'basyura/TweetVim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'kevinw/pyflakes-vim'
+NeoBundle 'osyo-manga/vim-gyazo'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'motemen/hatena-vim'
+NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/emmet-vim'
+NeoBundleCheck
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
@@ -245,3 +247,4 @@ nnoremap <Leader>e :<C-u>call ref#jump('normal', 'webdict', 'ej')<CR>
 nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
 
 source $HOME/.vimrc_env
+syntax on

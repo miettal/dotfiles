@@ -62,13 +62,13 @@ fi
 ################################################################################
 # for vim                                                                      #
 ################################################################################
-# install vim plugin vundle
+# install vim plugin neobundle
 cd $SCRIPT_DIR
 git submodule update --init
 cd -
 
-# install vim plugin for vundle
-vim +BundleInstall +quit +quit
+# install vim plugin for neobundle
+vim +quit +quit
 
 # executable vimpager
 chmod +x $SCRIPT_DIR/.vim/bundle/vimpager/vimpager
