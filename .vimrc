@@ -136,7 +136,7 @@ nnoremap <C-i><C-f> :<C-u>call<Space>Bfrun_current_buffer()<CR>
 "-------------------------------------------------------------------------------
 " neovundle設定
 "-------------------------------------------------------------------------------
-set runtimepath+=~/.vim/neobundle.vim
+set runtimepath+=~/.vim/bundle/neobundle.vim
 call neobundle#rc()
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Arduino-syntax-file'
@@ -160,7 +160,14 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+\   'build' : {
+\     'windows' : 'make -f make_mingw32.mak',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'unix' : 'make -f make_unix.mak',
+\   },
+\}
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
