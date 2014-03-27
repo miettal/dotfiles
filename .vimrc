@@ -43,6 +43,8 @@ colorscheme desert
 syntax on
 " *.texはlatexファイルタイプで開く
 let g:tex_flavor = "latex"
+" 全角幅の記号正しく表示する
+set ambiwidth=double
 
 "-------------------------------------------------------------------------------
 " カレントウィンドウにのみ罫線を引く
