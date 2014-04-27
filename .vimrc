@@ -187,20 +187,20 @@ set helplang=ja,en
 " ref.vim
 let g:ref_source_webdict_sites = {}
 let g:ref_source_webdict_sites.default = 'ej'
-let g:ref_source_webdict_sites.je = {
+let g:ref_source_webdict_sites.en = {
 \     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
 \   }
-let g:ref_source_webdict_sites.ej = {
-\     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
+let g:ref_source_webdict_sites.en2 = {
+\     'url': 'http://ejje.weblio.jp/content/%s',
 \   }
 let g:ref_source_webdict_sites.wiki = {
 \     'url': 'http://ja.wikipedia.org/wiki/%s',
 \   }
-function! g:ref_source_webdict_sites.je.filter(output)
+function! g:ref_source_webdict_sites.en.filter(output)
   return join(split(a:output, "\n")[15 :], "\n")
 endfunction
-function! g:ref_source_webdict_sites.ej.filter(output)
-  return join(split(a:output, "\n")[15 :], "\n")
+function! g:ref_source_webdict_sites.en2.filter(output)
+  return join(split(a:output, "\n")[57 :], "\n")
 endfunction
 function! g:ref_source_webdict_sites.wiki.filter(output)
   return join(split(a:output, "\n")[17 :], "\n")
@@ -240,8 +240,9 @@ nnoremap <C-i><C-t> :<C-u>CPosttoTwitter<CR>
 nnoremap <C-i><C-f> :<C-u>Unite buffer file file_mru<CR>
 nnoremap <C-i><C-i> :<C-u>TagbarToggle<CR>
 " ref.vim
-nnoremap <Leader>ej :<C-u>Ref webdict ej<Space>
-nnoremap <Leader>e :<C-u>call ref#jump('normal', 'webdict', 'ej')<CR>
+nnoremap <Leader>en :<C-u>Ref webdict en<Space>
+nnoremap <Leader>en2 :<C-u>Ref webdict en2<Space>
+"nnoremap <Leader>e :<C-u>call ref#jump('normal', 'webdict', 'en')<CR>
 nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
 
 source $HOME/.vimrc_env
