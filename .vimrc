@@ -43,6 +43,8 @@ colorscheme desert
 syntax on
 " *.texはlatexファイルタイプで開く
 let g:tex_flavor = "latex"
+" 全角幅の記号正しく表示する
+set ambiwidth=double
 
 "-------------------------------------------------------------------------------
 " カレントウィンドウにのみ罫線を引く
@@ -73,6 +75,10 @@ autocmd Filetype cpp setl cindent
 " pythonのファイルはautoindentとsmartindentにする
 autocmd FileType python setl autoindent
 autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+" Javaのファイルはcindentにする
+autocmd Filetype java setl cindent
+" Makefileではスペースをタブ代わりに使わない
+autocmd Filetype make setl noexpandtab
 
 "-------------------------------------------------------------------------------
 " ファイル名前によってファイルタイプを設定
@@ -80,6 +86,7 @@ autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,exc
 " .vimperatorrc,_vimpeartorrcはvimrcとして扱う
 autocmd BufNewFile,BufRead .vimperatorrc setl filetype=vim
 autocmd BufNewFile,BufRead _vimperatorrc setl filetype=vim
+
 "-------------------------------------------------------------------------------
 " テンプレート
 "-------------------------------------------------------------------------------
@@ -129,38 +136,48 @@ set runtimepath+=~/.vim/brainfuck
 nnoremap <C-i><C-f> :<C-u>call<Space>Bfrun_current_buffer()<CR>
 
 "-------------------------------------------------------------------------------
-" Vundle設定
+" neovundle設定
 "-------------------------------------------------------------------------------
-set runtimepath+=~/.vim/vundle.git/
-call vundle#rc()
-Bundle 'Arduino-syntax-file'
-Bundle 'HTML5-Syntax-File'
-Bundle 'TwitVim'
-Bundle 'Gist.vim'
-Bundle 'sudo.vim'
-Bundle 'vimpager'
-Bundle 'basyura/twibill.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'basyura/TweetVim'
-Bundle 'tyru/open-browser.vim'
-Bundle 'kevinw/pyflakes-vim'
-Bundle 'osyo-manga/vim-gyazo'
-Bundle 'scrooloose/nerdtree'
-Bundle 'motemen/hatena-vim'
-Bundle 'vim-jp/vimdoc-ja'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'majutsushi/tagbar'
-Bundle 'sjl/gundo.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'thinca/vim-quickrun'
-Bundle 'thinca/vim-ref'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/neosnippet'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/emmet-vim'
+set runtimepath+=~/.vim/bundle/neobundle.vim
+call neobundle#rc()
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Arduino-syntax-file'
+NeoBundle 'HTML5-Syntax-File'
+NeoBundle 'TwitVim'
+NeoBundle 'Gist.vim'
+NeoBundle 'sudo.vim'
+NeoBundle 'vimpager'
+NeoBundle 'basyura/twibill.vim'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'basyura/TweetVim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'kevinw/pyflakes-vim'
+NeoBundle 'osyo-manga/vim-gyazo'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'motemen/hatena-vim'
+NeoBundle 'vim-jp/vimdoc-ja'
+"NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'Shougo/vimproc', {
+\   'build' : {
+\     'windows' : 'make -f make_mingw32.mak',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'unix' : 'make -f make_unix.mak',
+\   },
+\}
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/emmet-vim'
+NeoBundleCheck
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
@@ -181,20 +198,20 @@ set helplang=ja,en
 " ref.vim
 let g:ref_source_webdict_sites = {}
 let g:ref_source_webdict_sites.default = 'ej'
-let g:ref_source_webdict_sites.je = {
+let g:ref_source_webdict_sites.en = {
 \     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
 \   }
-let g:ref_source_webdict_sites.ej = {
-\     'url': 'http://dictionary.infoseek.ne.jp/ejword/%s',
+let g:ref_source_webdict_sites.en2 = {
+\     'url': 'http://ejje.weblio.jp/content/%s',
 \   }
 let g:ref_source_webdict_sites.wiki = {
 \     'url': 'http://ja.wikipedia.org/wiki/%s',
 \   }
-function! g:ref_source_webdict_sites.je.filter(output)
+function! g:ref_source_webdict_sites.en.filter(output)
   return join(split(a:output, "\n")[15 :], "\n")
 endfunction
-function! g:ref_source_webdict_sites.ej.filter(output)
-  return join(split(a:output, "\n")[15 :], "\n")
+function! g:ref_source_webdict_sites.en2.filter(output)
+  return join(split(a:output, "\n")[57 :], "\n")
 endfunction
 function! g:ref_source_webdict_sites.wiki.filter(output)
   return join(split(a:output, "\n")[17 :], "\n")
@@ -242,8 +259,10 @@ nnoremap <C-i><C-t> :<C-u>CPosttoTwitter<CR>
 nnoremap <C-i><C-f> :<C-u>Unite buffer file file_mru<CR>
 nnoremap <C-i><C-i> :<C-u>TagbarToggle<CR>
 " ref.vim
-nnoremap <Leader>ej :<C-u>Ref webdict ej<Space>
-nnoremap <Leader>e :<C-u>call ref#jump('normal', 'webdict', 'ej')<CR>
+nnoremap <Leader>en :<C-u>Ref webdict en<Space>
+nnoremap <Leader>en2 :<C-u>Ref webdict en2<Space>
+"nnoremap <Leader>e :<C-u>call ref#jump('normal', 'webdict', 'en')<CR>
 nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
 
 source $HOME/.vimrc_env
+syntax on
