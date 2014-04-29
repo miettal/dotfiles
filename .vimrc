@@ -216,13 +216,21 @@ if has("unix")
     let g:quickrun_config.tex = {
     \       "outputter" : "error:error:buffer",
     \       'command'   : 'platex',
-    \       'exec': ['%c %s', '%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'gnome-open %s:r.pdf &'],
+    \       'exec': [
+    \                '%c %s',
+    \                '%c %s',
+    \                'dvipdfmx -o %s:r.pdf %s:r.dvi',
+    \                'gnome-open %s:r.pdf &'],
     \   }
   elseif s:uname == "Darwin"
     let g:quickrun_config.tex = {
     \       "outputter" : "error:error:buffer",
     \       'command'   : 'platex',
-    \       'exec': ['%c %s', '%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi', 'open %s:r.pdf || true'],
+    \       'exec': [
+    \                '%c %s',
+    \                '%c %s',
+    \                'dvipdfmx -o %s:r.pdf %s:r.dvi',
+    \                'open %s:r.pdf || true'],
     \   }
   endif
 endif
