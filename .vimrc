@@ -69,45 +69,25 @@ nnoremap <C-h> <C-w>h
 " ファイルの種別によってコマンドを実行
 "-------------------------------------------------------------------------------
 " Cのファイルはcindentにする
-autocmd Filetype c setl cindent
-autocmd Filetype cuda setl cindent
-autocmd Filetype cpp setl cindent
+autocmd Filetype c setlocal cindent
+autocmd Filetype cuda setlocal cindent
+autocmd Filetype cpp setlocal cindent
+autocmd BufNewFile,BufRead *.ino setlocal cindent
+autocmd BufNewFile,BufRead *.pde setlocal cindent
 " pythonのファイルはautoindentとsmartindentにする
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setlocal autoindent
+autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 " Javaのファイルはcindentにする
-autocmd Filetype java setl cindent
+autocmd Filetype java setlocal cindent
 " Makefileではスペースをタブ代わりに使わない
-autocmd Filetype make setl noexpandtab
+autocmd Filetype make setlocal noexpandtab
 
 "-------------------------------------------------------------------------------
 " ファイル名前によってファイルタイプを設定
 "-------------------------------------------------------------------------------
 " .vimperatorrc,_vimpeartorrcはvimrcとして扱う
-autocmd BufNewFile,BufRead .vimperatorrc setl filetype=vim
-autocmd BufNewFile,BufRead _vimperatorrc setl filetype=vim
-
-"-------------------------------------------------------------------------------
-" テンプレート
-"-------------------------------------------------------------------------------
-" C header
-autocmd BufNewFile *.h call IncludeGuard()
-function! IncludeGuard()
-  let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
-  execute "normal! i#ifndef " . gatename . "_INCLUDED"
-  execute "normal! o#define " . gatename .  "_INCLUDED\<CR>\<CR>\<CR>\<CR>"
-  execute "normal! Go#endif   /* " . gatename . "_INCLUDED */"
-  3
-endfunction 
-" tex
-autocmd BufNewFile *.tex call TexGuard()
-function! TexGuard()
-  execute "normal! i\\documentclass{jsarticle}"
-  execute "normal! o\\usepackage[dvipdfmx]{graphicx}\<CR>"
-  execute "normal! o\\begin{document}\<CR>\<CR>\<CR>"
-  execute "normal! Go\\end{document}"
-  6
-endfunction 
+autocmd BufNewFile,BufRead .vimperatorrc setlocal filetype=vim
+autocmd BufNewFile,BufRead _vimperatorrc setlocal filetype=vim
 
 "-------------------------------------------------------------------------------
 " バイナリエディタ設定
@@ -142,6 +122,7 @@ set runtimepath+=~/.vim/bundle/neobundle.vim
 call neobundle#rc()
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Arduino-syntax-file'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'HTML5-Syntax-File'
 NeoBundle 'TwitVim'
 NeoBundle 'Gist.vim'
@@ -160,6 +141,7 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle "thinca/vim-template"
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'Shougo/vimproc', {
@@ -185,8 +167,8 @@ NeoBundleCheck
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 " arduino-syntax
-autocmd BufNewFile,BufRead *.pde setlocal filetype=arduino
 autocmd BufNewFile,BufRead *.ino setlocal filetype=arduino
+autocmd BufNewFile,BufRead *.pde setlocal filetype=arduino
 " powerline
 let g:Powerline_symbols = 'compatible'
 " neosnippet
@@ -258,3 +240,20 @@ nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
 
 source $HOME/.vimrc_env
 syntax on
+
+"-------------------------------------------------------------------------------
+" テンプレート
+"-------------------------------------------------------------------------------
+" テンプレート中に含まれる特定文字列を置き換える
+autocmd User plugin-template-loaded call s:template_keywords()
+function! s:template_keywords()
+  silent! %s/<+DATE+>/\=strftime('%Y-%m-%d')/g
+  silent! %s/<+FILENAME+>/\=expand('%:r')/g
+  silent! %s/<+CFILENAME+>/\=toupper(expand('%:r'))/g
+endfunction
+" テンプレート中に含まれる'<+CURSOR+>'にカーソルを移動
+autocmd User plugin-template-loaded
+  \   if search('<+CURSOR+>')
+  \ |   silent! execute 'normal! "_da>'
+  \ | endif
+
