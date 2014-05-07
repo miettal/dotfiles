@@ -1,28 +1,32 @@
 # LANG環境変数
 export LANG=ja_JP.UTF-8
 
-## 履歴の保存先
+# oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="crcandy"
+DISABLE_LS_COLORS=true
+plugins=(git osx tmux autojump battery vi-mode debian web-search zsh_reaload)
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOQUIT=false
+source $ZSH/oh-my-zsh.sh
+
+# 履歴の保存先
 HISTFILE=$HOME/.zsh-history
-## メモリに展開する履歴の数
+# メモリに展開する履歴の数
 HISTSIZE=100000
-## 保存する履歴の数
+# 保存する履歴の数
 SAVEHIST=100000
 
-## 補完機能の強化
+# 補完機能の強化
 autoload -U compinit
 compinit
 
-## プロンプトの設定
-PROMPT="[%*]%. %%"
-RPROMPT="%n@%M:%/"
-PROMPT2="%_%%"
-
-## コアダンプサイズを制限
+# コアダンプサイズを制限
 limit coredumpsize 102400
-## 出力の文字列末尾に改行コードが無い場合でも表示
+# 出力の文字列末尾に改行コードが無い場合でも表示
 unsetopt promptcr
-## viライクキーバインド設定
-bindkey -v
+# viライクキーバインド設定
+#bindkey -v
 
 ## 色を使う
 setopt prompt_subst
@@ -92,7 +96,3 @@ setopt list_packed
 setopt noautoremoveslash
 ## Macの濁点半濁点に対応させる
 setopt COMBINING_CHARS
-
-# tmux auto ran
-[ ${TMUX} ] || tmux attach || tmux
-
