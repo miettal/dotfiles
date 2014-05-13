@@ -169,6 +169,8 @@ let g:neocomplcache_enable_at_startup = 1
 " arduino-syntax
 autocmd BufNewFile,BufRead *.ino setlocal filetype=arduino
 autocmd BufNewFile,BufRead *.pde setlocal filetype=arduino
+autocmd BufNewFile,BufRead *.ino let b:quickrun_config={'command': 'make', 'exec': ['%c all', '%c upload', 'stty -F /dev/ttyUSB0 9600 min 100 time 2', 'cat /dev/ttyUSB0']}
+autocmd BufNewFile,BufRead *.pde let b:quickrun_config={'command': 'make', 'exec': ['%c all', '%c upload', 'stty -F /dev/ttyUSB0 9600 min 100 time 2', 'cat /dev/ttyUSB0']}
 " powerline
 let g:Powerline_symbols = 'compatible'
 " neosnippet
