@@ -72,8 +72,6 @@ nnoremap <C-h> <C-w>h
 autocmd Filetype c setlocal cindent
 autocmd Filetype cuda setlocal cindent
 autocmd Filetype cpp setlocal cindent
-autocmd BufNewFile,BufRead *.ino setlocal cindent
-autocmd BufNewFile,BufRead *.pde setlocal cindent
 " pythonのファイルはautoindentとsmartindentにする
 autocmd FileType python setlocal autoindent
 autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
@@ -85,9 +83,14 @@ autocmd Filetype make setlocal noexpandtab
 "-------------------------------------------------------------------------------
 " ファイル名前によってファイルタイプを設定
 "-------------------------------------------------------------------------------
-" .vimperatorrc,_vimpeartorrcはvimrcとして扱う
+" .vimperatorrc,_vimpeartorrc
 autocmd BufNewFile,BufRead .vimperatorrc setlocal filetype=vim
 autocmd BufNewFile,BufRead _vimperatorrc setlocal filetype=vim
+" Arduino
+autocmd BufNewFile,BufRead *.ino setlocal cindent
+autocmd BufNewFile,BufRead *.pde setlocal cindent
+" Markdown
+autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
 "-------------------------------------------------------------------------------
 " バイナリエディタ設定
@@ -137,6 +140,7 @@ NeoBundle 'osyo-manga/vim-gyazo'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'motemen/hatena-vim'
 NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundle 'moznion/hateblo.vim'
 "NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'sjl/gundo.vim'
@@ -233,6 +237,14 @@ if has("unix")
     \   }
   endif
 endif
+" hateblo.vim
+let g:hateblo_vim = {
+     \ 'user':         'miettal',
+     \ 'api_key':      'hkoxbik8qe',
+     \ 'api_endpoint': 'https://blog.hatena.ne.jp/miettal/miettal.hatenablog.com/atom',
+     \ 'edit_command': 'edit'
+\ }
+
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
 "-------------------------------------------------------------------------------
