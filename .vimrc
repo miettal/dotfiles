@@ -225,6 +225,9 @@ if has("unix")
     \                '%c %s',
     \                '%c %s',
     \                'dvipdfmx -o %s:r.pdf %s:r.dvi',
+    \                'rm -rf %s:r.dvi',
+    \                'rm -rf %s:r.log',
+    \                'rm -rf %s:r.aux',
     \                'gnome-open %s:r.pdf &'],
     \   }
   elseif s:uname == "Darwin"
@@ -235,6 +238,9 @@ if has("unix")
     \                '%c %s',
     \                '%c %s',
     \                'dvipdfmx -o %s:r.pdf %s:r.dvi',
+    \                'rm -rf %s:r.dvi',
+    \                'rm -rf %s:r.log',
+    \                'rm -rf %s:r.aux',
     \                'open %s:r.pdf || true'],
     \   }
   endif
