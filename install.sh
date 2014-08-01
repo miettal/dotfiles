@@ -64,9 +64,16 @@ fi
 ################################################################################
 git clone https://github.com/yyuu/pyenv.git $HOME/.pyenv
 git clone https://github.com/yyuu/pyenv-virtualenv.git \
-$HOME/.pyenv/plugins/pyenv-virtualenv
+  $HOME/.pyenv/plugins/pyenv-virtualenv
 git clone https://github.com/yyuu/pyenv-pip-rehash.git \
-~/.pyenv/plugins/pyenv-pip-rehash
+  $HOME/.pyenv/plugins/pyenv-pip-rehash
+
+################################################################################
+# for rbenv                                                                    #
+################################################################################
+git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git \
+  $HOME/.rbenv/plugins/ruby-build
 
 ################################################################################
 # for zsh                                                                      #
@@ -83,27 +90,6 @@ cd -
 
 # install vim plugin for neobundle
 vim +quit +quit
-
-# executable vimpager
-chmod +x $SCRIPT_DIR/.vim/bundle/vimpager/vimpager
-
-# compile vimproc
-cd $SCRIPT_DIR/.vim/bundle/vimproc/
-case "$distribution" in
-"mac") 
-  make -f make_mac.mak
- ;;
-"debian" | "ubuntu")
-  make -f make_unix.mak
-  ;;
-"cygwin")
-  make -f make_unix.mak
-  ;;
-*)
-  make -f make_unix.mak
- ;;
-esac
-cd -
 
 ################################################################################
 # for trash                                                                    #
