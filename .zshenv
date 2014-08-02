@@ -15,11 +15,8 @@ export PAGER=$HOME/.vim/bundle/vimpager/vimpager
 export CPATH=$HOME/Dropbox/data/lib/cmodule/include:$CPATH
 
 #pyenv
-export PYENV_ROOT="${HOME}/.pyenv"
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH=${PYENV_ROOT}/bin:${PYENV_ROOT}/shims:${PATH}
-    eval "$(pyenv init -)"
-fi
+export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
+eval "$(pyenv init -)"
 
 #rbenv
 export PATH=$HOME/.rbenv/bin:$PATH

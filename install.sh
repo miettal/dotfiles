@@ -5,31 +5,25 @@ SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 printf "Choose your machine [ubuntu/debian/mac/cygwin/...]:"
 read distribution
 
-# remove old symbolic link
-rm -rf $HOME/.inputrc
-rm -rf $HOME/.tmux.conf
-rm -rf $HOME/.vim
-rm -rf $HOME/.vimrc
-rm -rf $HOME/.vimperatorrc
-rm -rf $HOME/.zshrc
-rm -rf $HOME/.config/fontconfig/fonts.conf
-
 mkdir -p $HOME/.config/fontconfig
 
 # create new symblic link
-ln -s $SCRIPT_DIR/.inputrc $HOME/.inputrc
-ln -s $SCRIPT_DIR/.tmux.conf $HOME/.tmux.conf
-ln -s $SCRIPT_DIR/.vim $HOME/.vim
-ln -s $SCRIPT_DIR/.vimrc $HOME/.vimrc
-ln -s $SCRIPT_DIR/.vimperatorrc $HOME/.vimperatorrc
-ln -s $SCRIPT_DIR/.zshrc $HOME/.zshrc
-ln -s $SCRIPT_DIR/.config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
+ln -f -s $SCRIPT_DIR/.inputrc $HOME/.inputrc
+ln -f -s $SCRIPT_DIR/.tmux.conf $HOME/.tmux.conf
+ln -f -s $SCRIPT_DIR/.vim $HOME/.vim
+ln -f -s $SCRIPT_DIR/.vimrc $HOME/.vimrc
+ln -f -s $SCRIPT_DIR/.vimperatorrc $HOME/.vimperatorrc
+ln -f -s $SCRIPT_DIR/.zshrc $HOME/.zshrc
+ln -f -s $SCRIPT_DIR/.config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
+ln -f -s $SCRIPT_DIR/.gemrc $HOME/.gemrc
 
 # remove old .zshenv
-if [ -e $HOME/.zshenv ]; then       rm -rf $HOME/.zshenv; fi
+rm -rf $HOME/.zshenv
+
 # create new .zshenv
 touch $HOME/.zshenv
 echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
+
 #create new .vimrc_env
 touch $HOME/.vimrc_env
 
@@ -70,6 +64,9 @@ git clone https://github.com/yyuu/pyenv-pip-rehash.git \
 git clone https://github.com/sstephenson/rbenv-gem-rehash.git \
   $HOME/.rbenv/plugins/rbenv-gem-rehash
 
+export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
+eval "$(pyenv init -)"
+
 pyenv install 2.7.8
 pyenv install 3.4.1
 pyenv global 2.7.8
@@ -83,12 +80,15 @@ git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git \
   $HOME/.rbenv/plugins/ruby-build
 
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+
 rbenv install 1.9.3-p547
 rbenv install 2.0.0-p481
 rbenv global 2.0.0-p481
 
 sudo gem update --system
-gem install bundler
+sudo gem install bundler
 
 ################################################################################
 # for zsh                                                                      #
@@ -110,7 +110,7 @@ vim +quit +quit
 # for trash                                                                    #
 ################################################################################
 # create trash directory
-if [ ! -d $HOME/.trash ] ; then mkdir $HOME/.trash; fi
+mkdir $HOME/.trash
 
 ################################################################################
 # for gEDA                                                                     #
