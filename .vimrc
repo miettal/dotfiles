@@ -130,7 +130,14 @@ NeoBundle 'HTML5-Syntax-File'
 NeoBundle 'TwitVim'
 NeoBundle 'Gist.vim'
 NeoBundle 'sudo.vim'
-NeoBundle 'vimpager'
+NeoBundle 'vimpager', {
+\   'build' : {
+\     'windows' : 'chmod +x vimpager',
+\     'cygwin' : 'chmod +x vimpager',
+\     'mac' : 'chmod +x vimpager',
+\     'unix' : 'chmod +x vimpager',
+\   },
+\}
 NeoBundle 'basyura/twibill.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'basyura/TweetVim'

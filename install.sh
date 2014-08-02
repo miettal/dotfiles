@@ -60,6 +60,22 @@ else
 fi
 
 ################################################################################
+# for pyenv                                                                    #
+################################################################################
+git clone https://github.com/yyuu/pyenv.git $HOME/.pyenv
+git clone https://github.com/yyuu/pyenv-virtualenv.git \
+  $HOME/.pyenv/plugins/pyenv-virtualenv
+git clone https://github.com/yyuu/pyenv-pip-rehash.git \
+  $HOME/.pyenv/plugins/pyenv-pip-rehash
+
+################################################################################
+# for rbenv                                                                    #
+################################################################################
+git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git \
+  $HOME/.rbenv/plugins/ruby-build
+
+################################################################################
 # for zsh                                                                      #
 ################################################################################
 git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
@@ -75,27 +91,6 @@ cd -
 # install vim plugin for neobundle
 vim +quit +quit
 
-# executable vimpager
-chmod +x $SCRIPT_DIR/.vim/bundle/vimpager/vimpager
-
-# compile vimproc
-cd $SCRIPT_DIR/.vim/bundle/vimproc/
-case "$distribution" in
-"mac") 
-  make -f make_mac.mak
- ;;
-"debian" | "ubuntu")
-  make -f make_unix.mak
-  ;;
-"cygwin")
-  make -f make_unix.mak
-  ;;
-*)
-  make -f make_unix.mak
- ;;
-esac
-cd -
-
 ################################################################################
 # for trash                                                                    #
 ################################################################################
@@ -105,24 +100,24 @@ if [ ! -d $HOME/.trash ] ; then mkdir $HOME/.trash; fi
 ################################################################################
 # for gEDA                                                                     #
 ################################################################################
-# create .gEDA directory
-if [ ! -e $HOME/.gEDA ]; then mkdir $HOME/.gEDA; fi
-# remove old .gEDA/gschemrc
-if [ -e $HOME/.gEDA/gschemrc ]; then rm -rf $HOME/.gEDA/gschemrc; fi
-# create new .gEDA/gschemrc
-touch $HOME/.gEDA/gschemrc
-echo "(component-library \"$HOME/.gEDA/local_symbols\")" >> $HOME/.gEDA/gschemrc
-
-# create .gEDA/gschemrc directory
-if [ ! -e $HOME/.gEDA/local_symbols ]; then mkdir $HOME/.gEDA/local_symbols; fi
-cd /tmp
-if [ ! -e 4104624 ]; then git clone https://gist.github.com/4104624.git; fi
-cp 4104624/KA2311-42B-UR91.sym $HOME/.gEDA/local_symbols
-if [ ! -e 4104621 ]; then git clone https://gist.github.com/4104621.git; fi
-cp 4104621/74LS574.sym $HOME/.gEDA/local_symbols
-if [ ! -e 4444843 ]; then git clone https://gist.github.com/4444843.git; fi
-cp 4444843/ATtiny2313.sym $HOME/.gEDA/local_symbols
-if [ ! -e 5490805 ]; then git clone https://gist.github.com/5490805.git; fi
-cp 5490805/ATmega168.sym $HOME/.gEDA/local_symbols
-if [ ! -e 5494499 ]; then git clone https://gist.github.com/5494499.git; fi
-cp 5494499/AJ207NWWLWP.sym $HOME/.gEDA/local_symbols
+## create .gEDA directory
+#if [ ! -e $HOME/.gEDA ]; then mkdir $HOME/.gEDA; fi
+## remove old .gEDA/gschemrc
+#if [ -e $HOME/.gEDA/gschemrc ]; then rm -rf $HOME/.gEDA/gschemrc; fi
+## create new .gEDA/gschemrc
+#touch $HOME/.gEDA/gschemrc
+#echo "(component-library \"$HOME/.gEDA/local_symbols\")" >> $HOME/.gEDA/gschemrc
+#
+## create .gEDA/gschemrc directory
+#if [ ! -e $HOME/.gEDA/local_symbols ]; then mkdir $HOME/.gEDA/local_symbols; fi
+#cd /tmp
+#if [ ! -e 4104624 ]; then git clone https://gist.github.com/4104624.git; fi
+#cp 4104624/KA2311-42B-UR91.sym $HOME/.gEDA/local_symbols
+#if [ ! -e 4104621 ]; then git clone https://gist.github.com/4104621.git; fi
+#cp 4104621/74LS574.sym $HOME/.gEDA/local_symbols
+#if [ ! -e 4444843 ]; then git clone https://gist.github.com/4444843.git; fi
+#cp 4444843/ATtiny2313.sym $HOME/.gEDA/local_symbols
+#if [ ! -e 5490805 ]; then git clone https://gist.github.com/5490805.git; fi
+#cp 5490805/ATmega168.sym $HOME/.gEDA/local_symbols
+#if [ ! -e 5494499 ]; then git clone https://gist.github.com/5494499.git; fi
+#cp 5494499/AJ207NWWLWP.sym $HOME/.gEDA/local_symbols
