@@ -2,10 +2,6 @@
 alias open="open -g"
 alias update_system="sudo port selfupdate; sudo port sync; sudo port upgrade outdated; sudo port uninstall inactive; sudo port clean --all all"
 
-# for ruby
-alias ruby=ruby1.9
-alias irb=irb1.9
-
 # for arduino
 alias arduino='open /Applications/Arduino.app'
 
@@ -14,5 +10,5 @@ alias ps='ps -T'
 
 # Environment variable
 export PATH=/opt/local/bin:$PATH
-export LD_LIBRARY_PATH=/opt/local/lib
+export LD_LIBRARY_PATH=/opt/local/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:$PYTHONPATH

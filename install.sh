@@ -6,13 +6,13 @@ printf "Choose your machine [ubuntu/debian/mac/cygwin/...]:"
 read distribution
 
 # remove old symbolic link
-if [ -e $HOME/.inputrc ]; then rm -rf $HOME/.inputrc; fi
-if [ -e $HOME/.tmux.conf ]; then rm -rf $HOME/.tmux.conf; fi
-if [ -e $HOME/.vim ]; then rm -rf $HOME/.vim; fi
-if [ -e $HOME/.vimrc ]; then rm -rf $HOME/.vimrc; fi
-if [ -e $HOME/.vimperatorrc ]; then rm -rf $HOME/.vimperatorrc; fi
-if [ -e $HOME/.zshrc ]; then rm -rf $HOME/.zshrc; fi
-if [ -e $HOME/.config/fontconfig/fonts.conf ]; then rm -rf $HOME/.config/fontconfig/fonts.conf; fi
+rm -rf $HOME/.inputrc
+rm -rf $HOME/.tmux.conf
+rm -rf $HOME/.vim
+rm -rf $HOME/.vimrc
+rm -rf $HOME/.vimperatorrc
+rm -rf $HOME/.zshrc
+rm -rf $HOME/.config/fontconfig/fonts.conf
 
 mkdir -p $HOME/.config/fontconfig
 
@@ -67,6 +67,14 @@ git clone https://github.com/yyuu/pyenv-virtualenv.git \
   $HOME/.pyenv/plugins/pyenv-virtualenv
 git clone https://github.com/yyuu/pyenv-pip-rehash.git \
   $HOME/.pyenv/plugins/pyenv-pip-rehash
+git clone https://github.com/sstephenson/rbenv-gem-rehash.git \
+  $HOME/.rbenv/plugins/rbenv-gem-rehash
+
+pyenv install 2.7.8
+pyenv install 3.4.1
+pyenv global 2.7.8
+
+easy_install pip
 
 ################################################################################
 # for rbenv                                                                    #
@@ -74,6 +82,13 @@ git clone https://github.com/yyuu/pyenv-pip-rehash.git \
 git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git \
   $HOME/.rbenv/plugins/ruby-build
+
+rbenv install 1.9.3-p547
+rbenv install 2.0.0-p481
+rbenv global 2.0.0-p481
+
+sudo gem update --system
+gem install bundler
 
 ################################################################################
 # for zsh                                                                      #
