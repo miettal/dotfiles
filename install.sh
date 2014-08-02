@@ -61,8 +61,6 @@ git clone https://github.com/yyuu/pyenv-virtualenv.git \
   $HOME/.pyenv/plugins/pyenv-virtualenv
 git clone https://github.com/yyuu/pyenv-pip-rehash.git \
   $HOME/.pyenv/plugins/pyenv-pip-rehash
-git clone https://github.com/sstephenson/rbenv-gem-rehash.git \
-  $HOME/.rbenv/plugins/rbenv-gem-rehash
 
 export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
 eval "$(pyenv init -)"
@@ -79,8 +77,10 @@ easy_install pip
 git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git \
   $HOME/.rbenv/plugins/ruby-build
+git clone https://github.com/sstephenson/rbenv-gem-rehash.git \
+  $HOME/.rbenv/plugins/rbenv-gem-rehash
 
-export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 eval "$(rbenv init -)"
 
 rbenv install 1.9.3-p547
