@@ -91,6 +91,14 @@ sudo gem update --system
 sudo gem install bundler
 
 ################################################################################
+# for git                                                                      #
+################################################################################
+git config --global user.name "Hiromasa Ihara"
+git config --global user.mail iharahiromasa@gmail.com
+git config --global core.editor "/usr/bin/vi"
+git config --global alias.co checkout
+
+################################################################################
 # for zsh                                                                      #
 ################################################################################
 git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
