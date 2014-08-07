@@ -170,6 +170,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundleCheck
 
 "-------------------------------------------------------------------------------
@@ -259,6 +260,8 @@ let g:hateblo_vim = {
      \ 'api_endpoint': 'https://blog.hatena.ne.jp/miettal/miettal.hatenablog.com/atom',
      \ 'edit_command': 'edit'
 \ }
+" auto-ctags.vim
+let g:auto_ctags = 1
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
