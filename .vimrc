@@ -36,7 +36,8 @@ set showcmd
 " タブをスペースで埋める
 set expandtab
 " カレント行に下線を引く
-set cursorline
+"set cursorline
+"autocmd VimEnter,ColorScheme * highlight CursorLine term=reverse cterm=reverse
 " カラースキームを設定
 colorscheme desert
 " シンタックスハイライトオン
@@ -49,8 +50,8 @@ set ambiwidth=double
 "-------------------------------------------------------------------------------
 " カレントウィンドウにのみ罫線を引く
 "-------------------------------------------------------------------------------
-autocmd WinLeave * set nocursorline
-autocmd WinEnter,BufRead * set cursorline
+"autocmd WinLeave * set nocursorline
+"autocmd WinEnter,BufRead * set cursorline
 
 "-------------------------------------------------------------------------------
 " ショートカットを設定
@@ -149,6 +150,7 @@ NeoBundle 'motemen/hatena-vim'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'moznion/hateblo.vim'
 "NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'supermomonga/shaberu.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'scrooloose/syntastic'
@@ -233,12 +235,10 @@ if has("unix")
     \                '%c %s',
     \                '%c %s',
     \                'dvipdfmx -o %s:r.pdf %s:r.dvi',
-    \                'rm -rf %s:r.dvi',
-    \                'rm -rf %s:r.log',
-    \                'rm -rf %s:r.aux',
+    \                'rm -rf %s:r.dvi %s:r.log %s:r.aux %s:r.toc',
     \                'gnome-open %s:r.pdf &'],
     \   }
-  elseif s:uname == "Darwin"
+  elseif s:uname == "Darwin\n"
     let g:quickrun_config.tex = {
     \       "outputter" : "error:error:buffer",
     \       'command'   : 'platex',
@@ -246,9 +246,7 @@ if has("unix")
     \                '%c %s',
     \                '%c %s',
     \                'dvipdfmx -o %s:r.pdf %s:r.dvi',
-    \                'rm -rf %s:r.dvi',
-    \                'rm -rf %s:r.log',
-    \                'rm -rf %s:r.aux',
+    \                'rm -rf %s:r.dvi %s:r.log %s:r.aux %s:r.toc',
     \                'open %s:r.pdf || true'],
     \   }
   endif
@@ -271,6 +269,8 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+"syaberu.vim
+let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
@@ -304,3 +304,8 @@ autocmd User plugin-template-loaded
   \ |   silent! execute 'normal! "_da>'
   \ | endif
 
+" VimShell
+autocmd FileType vimshell
+\ call vimshell#hook#add('chpwd' , 'my_vimshell_chpwd' , 'g:my_vimshell_chpwd')
+\| call vimshell#hook#add('emptycmd', 'my_vimshell_emptycmd', 'g:my_vimshell_emptycmd')
+\| call vimshell#hook#add('notfound', 'my_vimshell_notfound', 'g:my_vimshell_notfound')

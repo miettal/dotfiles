@@ -96,3 +96,6 @@ setopt list_packed
 setopt noautoremoveslash
 ## Macの濁点半濁点に対応させる
 setopt COMBINING_CHARS
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

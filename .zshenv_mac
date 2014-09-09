@@ -1,10 +1,12 @@
 # Alias
 alias open="open -g"
-alias update_system="sudo port selfupdate; sudo port sync; sudo port upgrade outdated; sudo port uninstall inactive; sudo port clean --all all"
+#alias update_system="sudo port selfupdate; sudo port sync; sudo port upgrade outdated; sudo port uninstall inactive; sudo port clean --all all"
+alias update_system="sudo port selfupdate; sudo port sync; sudo port upgrade outdated; sudo port uninstall inactive; sudo port clean --all installed"
 alias lsusb="system_profiler SPUSBDataType"
 
 # for arduino
 alias arduino='open /Applications/Arduino.app'
+alias ls=gls
 
 # for ps
 alias ps='ps -T'
