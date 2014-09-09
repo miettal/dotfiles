@@ -5,7 +5,7 @@ export LANG=ja_JP.UTF-8
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="crcandy"
 DISABLE_LS_COLORS=true
-plugins=(git osx tmux autojump battery vi-mode debian web-search zsh_reaload)
+plugins=(git osx tmux autojump battery vi-mode debian web-search zsh_reaload gnu-utils)
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOQUIT=false
 source $ZSH/oh-my-zsh.sh
