@@ -8,12 +8,16 @@ alias cattodo="F=/tmp/\$RANDOM.md;geeknote show TODO | sed -n '7,\$p' | cat > \$
 alias each="find . -type f -print0 | xargs -n 1 -0"
 
 # Environment variable
-export PYTHONPATH=$HOME/Dropbox/data/lib/pymodule:$PYTHONPATH
 export PATH=$HOME/Dropbox/data/bin:$PATH
 export PATH=$HOME/.vim/bundle/vimpager:$PATH
 export EDITOR=/usr/bin/vi
 export PAGER=$HOME/.vim/bundle/vimpager/vimpager
+
+#C
 export CPATH=$HOME/Dropbox/data/lib/cmodule/include:$CPATH
+
+#python
+export PYTHONPATH=$HOME/Dropbox/data/lib/pymodule:$PYTHONPATH
 
 #pyenv
 export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}

@@ -12,7 +12,11 @@ alias ps='ps -T'
 
 # Environment variable
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
 export LD_LIBRARY_PATH=/opt/local/lib:$LD_LIBRARY_PATH
-export INCLUDE=/opt/local/include:$INCLUDE
+export MANPATH=/opt/local/share/man:$MANPATH
+
+#C
+export CPATH=/opt/local/include:$INCLUDE
+
+#python
 export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:$PYTHONPATH
