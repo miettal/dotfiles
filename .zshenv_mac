@@ -6,12 +6,13 @@ alias lsusb="system_profiler SPUSBDataType"
 
 # for arduino
 alias arduino='open /Applications/Arduino.app'
-alias ls=gls
 
 # for ps
 alias ps='ps -T'
 
 # Environment variable
-export PATH=/opt/local/bin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
 export LD_LIBRARY_PATH=/opt/local/lib:$LD_LIBRARY_PATH
+export INCLUDE=/opt/local/include:$INCLUDE
 export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:$PYTHONPATH

@@ -22,3 +22,6 @@ eval "$(pyenv init -)"
 #rbenv
 export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 eval "$(rbenv init -)"
+
+#heroku
+PATH="/usr/local/heroku/bin:$PATH"
