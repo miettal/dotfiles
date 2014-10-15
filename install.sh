@@ -67,7 +67,9 @@ eval "$(pyenv init -)"
 
 pyenv install 2.7.8
 pyenv install 3.4.1
-pyenv global 2.7.8
+pyenv install pypy-2.3.1
+pyenv install pypy3-2.3.1
+pyenv global pypy3-2.3.1
 
 easy_install pip
 
@@ -87,8 +89,8 @@ rbenv install 1.9.3-p547
 rbenv install 2.0.0-p481
 rbenv global 2.0.0-p481
 
-sudo gem update --system
-sudo gem install bundler
+gem update --system
+gem install bundler
 
 ################################################################################
 # for git                                                                      #
