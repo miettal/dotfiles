@@ -1,6 +1,8 @@
 # Alias
 alias open="open -g"
-alias update_system="sudo port selfupdate; sudo port sync; sudo port upgrade outdated; sudo port uninstall inactive; sudo port clean --all all"
+#alias update_system="sudo port selfupdate; sudo port sync; sudo port upgrade outdated; sudo port uninstall inactive; sudo port clean --all all"
+alias update_system="sudo port selfupdate; sudo port sync; sudo port upgrade outdated; sudo port uninstall inactive; sudo port clean --all installed"
+alias lsusb="system_profiler SPUSBDataType"
 
 # for arduino
 alias arduino='open /Applications/Arduino.app'
@@ -9,6 +11,12 @@ alias arduino='open /Applications/Arduino.app'
 alias ps='ps -T'
 
 # Environment variable
-export PATH=/opt/local/bin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export LD_LIBRARY_PATH=/opt/local/lib:$LD_LIBRARY_PATH
+export MANPATH=/opt/local/share/man:$MANPATH
+
+#C
+export CPATH=/opt/local/include:$INCLUDE
+
+#python
 export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:$PYTHONPATH

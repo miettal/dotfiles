@@ -67,7 +67,9 @@ eval "$(pyenv init -)"
 
 pyenv install 2.7.8
 pyenv install 3.4.1
-pyenv global 2.7.8
+pyenv install pypy-2.3.1
+pyenv install pypy3-2.3.1
+pyenv global pypy3-2.3.1
 
 easy_install pip
 

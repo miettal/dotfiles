@@ -7,3 +7,4 @@ port install curl
 port install openssl
 port install readline
 port install libiconv
+port install ctags
