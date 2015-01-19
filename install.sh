@@ -39,6 +39,7 @@ case "$distribution" in
   sudo ./debian.sh
   ;;
 "cygwin")
+  echo "source $SCRIPT_DIR/.zshenv_cygwin" >> $HOME/.zshenv
   ./cygwin.sh
   ;;
 *)
