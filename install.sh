@@ -2,6 +2,11 @@
 
 SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 
+uname=`uname -s`
+if [ ${uname:0:6} = "CYGWIN" ]; then
+  uname="Cygwin"
+fi
+
 printf "Choose your machine [ubuntu/debian/mac/cygwin/...]:"
 read distribution
 
@@ -71,10 +76,10 @@ git clone https://github.com/yyuu/pyenv-pip-rehash.git \
 export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
 eval "$(pyenv init -)"
 
-pyenv install 2.7.8
-pyenv install 3.4.1
-pyenv install pypy-2.3.1
-pyenv install pypy3-2.3.1
+yes | pyenv install 2.7.8
+yes | pyenv install 3.4.1
+yes | pyenv install pypy-2.3.1
+yes | pyenv install pypy3-2.3.1
 pyenv global pypy3-2.3.1
 
 easy_install pip
@@ -91,8 +96,8 @@ git clone https://github.com/sstephenson/rbenv-gem-rehash.git \
 export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 eval "$(rbenv init -)"
 
-rbenv install 1.9.3-p547
-rbenv install 2.0.0-p481
+yes | rbenv install 1.9.3-p547
+yes | rbenv install 2.0.0-p481
 rbenv global 2.0.0-p481
 
 gem update --system
