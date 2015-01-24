@@ -1,6 +1,6 @@
 function update_package() {
-  apt-cyg remove $*
-  apt-cyg install $*
+  yes | apt-cyg remove $*
+  yes | apt-cyg install $*
 }
 
 function update_all_package() {
