@@ -1,0 +1,9 @@
+[user]
+	name = Hiromasa Ihara
+	mail = iharahiromasa@gmail.com
+	email = iharahiromasa@gmail.com
+	miettal = Hiromasa Ihara
+[core]
+	editor = /usr/bin/vi
+[alias]
+	co = checkout

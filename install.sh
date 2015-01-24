@@ -8,21 +8,22 @@ read distribution
 mkdir -p $HOME/.config/fontconfig
 
 # create new symblic link
-ln -f -s $SCRIPT_DIR/.inputrc $HOME/.inputrc
-ln -f -s $SCRIPT_DIR/.tmux.conf $HOME/.tmux.conf
-ln -f -s $SCRIPT_DIR/.vim $HOME/.vim
-ln -f -s $SCRIPT_DIR/.vimrc $HOME/.vimrc
-ln -f -s $SCRIPT_DIR/.vimperatorrc $HOME/.vimperatorrc
-ln -f -s $SCRIPT_DIR/.zshrc $HOME/.zshrc
-ln -f -s $SCRIPT_DIR/.config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
-ln -f -s $SCRIPT_DIR/.gemrc $HOME/.gemrc
+ln -f -s gitconfig $HOME/.gitconfig
+ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc
+ln -f -s $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
+ln -f -s $SCRIPT_DIR/vim $HOME/.vim
+ln -f -s $SCRIPT_DIR/vimrc $HOME/.vimrc
+ln -f -s $SCRIPT_DIR/vimperatorrc $HOME/.vimperatorrc
+ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
+ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
+ln -f -s $SCRIPT_DIR/gemrc $HOME/.gemrc
 
 # remove old .zshenv
 rm -rf $HOME/.zshenv
 
 # create new .zshenv
 touch $HOME/.zshenv
-echo "source $SCRIPT_DIR/.zshenv" >> $HOME/.zshenv
+echo "source $SCRIPT_DIR/zshenv" >> $HOME/.zshenv
 
 #create new .vimrc_env
 touch $HOME/.vimrc_env
@@ -30,28 +31,32 @@ touch $HOME/.vimrc_env
 # install require package
 case "$distribution" in
 "mac") 
-  echo "source $SCRIPT_DIR/.zshenv_mac" >> $HOME/.zshenv
-  echo "source $SCRIPT_DIR/.vimrc_mac" >> $HOME/.vimrc_env
-  sudo ./mac.sh
+  echo "source $SCRIPT_DIR/zshenv_mac" >> $HOME/.zshenv
+  echo "source $SCRIPT_DIR/vimrc_mac" >> $HOME/.vimrc_env
+  sudo ./install_mac.sh
  ;;
 "debian" | "ubuntu")
-  echo "source $SCRIPT_DIR/.zshenv_debian" >> $HOME/.zshenv
-  sudo ./debian.sh
+  echo "source $SCRIPT_DIR/zshenv_debian" >> $HOME/.zshenv
+  sudo ./install_debian.sh
   ;;
 "cygwin")
-  echo "source $SCRIPT_DIR/.zshenv_cygwin" >> $HOME/.zshenv
-  ./cygwin.sh
+  echo "source $SCRIPT_DIR/zshenv_cygwin" >> $HOME/.zshenv
+  ./install_cygwin.sh
   ;;
 *)
-  ./other.sh
+  ./install_other.sh
  ;;
 esac
 
 # change login shell
-if [ $distribution = cygwin ] ; then
-  echo "Please modify your shell manually"
-else
-  chsh -s /bin/zsh
+if [[ $SHELL != "/bin/zsh" ]]; then
+  if [[ $distribution = "cygwin" ]] ; then
+    echo "Please modify your shell manually"
+  else
+    chsh -s /bin/zsh
+  fi
+  /bin/zsh $0
+  exit
 fi
 
 ################################################################################
@@ -109,12 +114,7 @@ git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 ################################################################################
 # for vim                                                                      #
 ################################################################################
-# install vim plugin neobundle
-cd $SCRIPT_DIR
-git submodule update --init
-cd -
-
-# install vim plugin for neobundle
+git clone git@github.com:Shougo/neobundle.vim.git vim/bundle/neobundle.vim
 vim +quit +quit
 
 ################################################################################
@@ -122,28 +122,3 @@ vim +quit +quit
 ################################################################################
 # create trash directory
 mkdir $HOME/.trash
-
-################################################################################
-# for gEDA                                                                     #
-################################################################################
-## create .gEDA directory
-#if [ ! -e $HOME/.gEDA ]; then mkdir $HOME/.gEDA; fi
-## remove old .gEDA/gschemrc
-#if [ -e $HOME/.gEDA/gschemrc ]; then rm -rf $HOME/.gEDA/gschemrc; fi
-## create new .gEDA/gschemrc
-#touch $HOME/.gEDA/gschemrc
-#echo "(component-library \"$HOME/.gEDA/local_symbols\")" >> $HOME/.gEDA/gschemrc
-#
-## create .gEDA/gschemrc directory
-#if [ ! -e $HOME/.gEDA/local_symbols ]; then mkdir $HOME/.gEDA/local_symbols; fi
-#cd /tmp
-#if [ ! -e 4104624 ]; then git clone https://gist.github.com/4104624.git; fi
-#cp 4104624/KA2311-42B-UR91.sym $HOME/.gEDA/local_symbols
-#if [ ! -e 4104621 ]; then git clone https://gist.github.com/4104621.git; fi
-#cp 4104621/74LS574.sym $HOME/.gEDA/local_symbols
-#if [ ! -e 4444843 ]; then git clone https://gist.github.com/4444843.git; fi
-#cp 4444843/ATtiny2313.sym $HOME/.gEDA/local_symbols
-#if [ ! -e 5490805 ]; then git clone https://gist.github.com/5490805.git; fi
-#cp 5490805/ATmega168.sym $HOME/.gEDA/local_symbols
-#if [ ! -e 5494499 ]; then git clone https://gist.github.com/5494499.git; fi
-#cp 5494499/AJ207NWWLWP.sym $HOME/.gEDA/local_symbols
