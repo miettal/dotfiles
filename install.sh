@@ -13,7 +13,7 @@ read distribution
 mkdir -p $HOME/.config/fontconfig
 
 # create new symblic link
-ln -f -s gitconfig $HOME/.gitconfig
+ln -f -s $SCRIPT_DIR/gitconfig $HOME/.gitconfig
 ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc
 ln -f -s $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
 ln -f -s $SCRIPT_DIR/vim $HOME/.vim
