@@ -1,0 +1,18 @@
+function update_package() {
+  apt-cyg remove $*
+  apt-cyg install $*
+}
+
+function update_all_package() {
+  filename="/tmp/update_all_package-`cat /proc/self/ppid`"
+  echo $filename
+
+  apt-cyg search _ > $filename
+  packages=( ${(@f)"$(< $filename)"} )
+
+  for package in $packages; do
+    if [[ $package != "zsh" ]]; then
+      update_package $package
+    fi
+  done
+}
