@@ -3,10 +3,10 @@ function update_package() {
   yes | apt-cyg install $*
 }
 
-function update_all_package() {
+function update_system() {
   filename="/tmp/update_all_package-`cat /proc/self/ppid`"
-  echo $filename
 
+  apt-cyg update
   apt-cyg search _ > $filename
   packages=( ${(@f)"$(< $filename)"} )
 

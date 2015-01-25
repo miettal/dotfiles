@@ -123,8 +123,16 @@ nnoremap <C-i><C-f> :<C-u>call<Space>Bfrun_current_buffer()<CR>
 " neovundle設定
 "-------------------------------------------------------------------------------
 set runtimepath+=~/.vim/bundle/neobundle.vim
-call neobundle#rc()
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc', {
+\   'build' : {
+\     'windows' : 'make -f make_mingw32.mak',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'unix' : 'make -f make_unix.mak',
+\   },
+\}
 NeoBundle 'Arduino-syntax-file'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'HTML5-Syntax-File'
@@ -157,14 +165,6 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle "thinca/vim-template"
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'Shougo/vimproc', {
-\   'build' : {
-\     'windows' : 'make -f make_mingw32.mak',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'unix' : 'make -f make_unix.mak',
-\   },
-\}
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
@@ -173,6 +173,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'soramugi/auto-ctags.vim'
+call neobundle#end()
 NeoBundleCheck
 
 "-------------------------------------------------------------------------------

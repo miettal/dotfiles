@@ -76,10 +76,10 @@ git clone https://github.com/yyuu/pyenv-pip-rehash.git \
 export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
 eval "$(pyenv init -)"
 
-yes | pyenv install 2.7.8
-yes | pyenv install 3.4.1
-yes | pyenv install pypy-2.3.1
-yes | pyenv install pypy3-2.3.1
+yes n | pyenv install 2.7.8
+yes n | pyenv install 3.4.1
+yes n | pyenv install pypy-2.3.1
+yes n | pyenv install pypy3-2.3.1
 pyenv global pypy3-2.3.1
 
 easy_install pip
@@ -96,8 +96,8 @@ git clone https://github.com/sstephenson/rbenv-gem-rehash.git \
 export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 eval "$(rbenv init -)"
 
-yes | rbenv install 1.9.3-p547
-yes | rbenv install 2.0.0-p481
+yes n | rbenv install 1.9.3-p547
+yes n | rbenv install 2.0.0-p481
 rbenv global 2.0.0-p481
 
 gem update --system
@@ -120,7 +120,7 @@ git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 # for vim                                                                      #
 ################################################################################
 git clone git@github.com:Shougo/neobundle.vim.git vim/bundle/neobundle.vim
-vim +quit +quit
+yes | vim +quit +quit
 
 ################################################################################
 # for trash                                                                    #
