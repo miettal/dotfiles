@@ -135,6 +135,7 @@ NeoBundle 'Shougo/vimproc', {
 \}
 NeoBundle 'Arduino-syntax-file'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'HTML5-Syntax-File'
 NeoBundle 'TwitVim'
 NeoBundle 'Gist.vim'
@@ -173,6 +174,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'soramugi/auto-ctags.vim'
+NeoBundle 'airblade/vim-gitgutter'
 call neobundle#end()
 NeoBundleCheck
 
@@ -272,6 +274,13 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "syaberu.vim
 let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
+"vim-colors-solarized
+" -- solarized personal conf
+set background=dark
+try
+    colorscheme solarized
+catch
+endtry
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定

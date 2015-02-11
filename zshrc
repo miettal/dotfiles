@@ -20,7 +20,6 @@ SAVEHIST=100000
 autoload -U compinit
 compinit -u
 
-
 eval `dircolors`
 export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}

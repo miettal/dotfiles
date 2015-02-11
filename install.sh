@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 
@@ -127,3 +127,9 @@ yes | vim +quit +quit
 ################################################################################
 # create trash directory
 mkdir $HOME/.trash
+
+################################################################################
+# for tmux                                                                     #
+################################################################################
+# tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
