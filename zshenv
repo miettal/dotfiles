@@ -1,5 +1,6 @@
 # Alias
 alias tmux='[ ${TMUX} ] || tmux attach || tmux'
+alias vi=vim
 alias ls='ls --color=auto'
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
 alias vimpager=$HOME/.vim/bundle/vimpager/vimpager

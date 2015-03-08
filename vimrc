@@ -123,10 +123,19 @@ nnoremap <C-i><C-f> :<C-u>call<Space>Bfrun_current_buffer()<CR>
 " neovundle設定
 "-------------------------------------------------------------------------------
 set runtimepath+=~/.vim/bundle/neobundle.vim
-call neobundle#rc()
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc', {
+\   'build' : {
+\     'windows' : 'make -f make_mingw32.mak',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'unix' : 'make -f make_unix.mak',
+\   },
+\}
 NeoBundle 'Arduino-syntax-file'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'HTML5-Syntax-File'
 NeoBundle 'TwitVim'
 NeoBundle 'Gist.vim'
@@ -157,14 +166,6 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle "thinca/vim-template"
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'Shougo/vimproc', {
-\   'build' : {
-\     'windows' : 'make -f make_mingw32.mak',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'unix' : 'make -f make_unix.mak',
-\   },
-\}
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
@@ -173,6 +174,8 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'soramugi/auto-ctags.vim'
+NeoBundle 'airblade/vim-gitgutter'
+call neobundle#end()
 NeoBundleCheck
 
 "-------------------------------------------------------------------------------
@@ -271,6 +274,13 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "syaberu.vim
 let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
+"vim-colors-solarized
+" -- solarized personal conf
+set background=dark
+try
+    colorscheme solarized
+catch
+endtry
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
