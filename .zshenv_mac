@@ -14,6 +14,7 @@ alias ps='ps -T'
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export LD_LIBRARY_PATH=/opt/local/lib:$LD_LIBRARY_PATH
 export MANPATH=/opt/local/share/man:$MANPATH
+export PATH=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:$PATH
 
 #C
 export CPATH=/opt/local/include:$INCLUDE

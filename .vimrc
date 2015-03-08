@@ -183,8 +183,8 @@ let g:neocomplcache_enable_at_startup = 1
 " arduino-syntax
 autocmd BufNewFile,BufRead *.ino setlocal filetype=arduino
 autocmd BufNewFile,BufRead *.pde setlocal filetype=arduino
-autocmd BufNewFile,BufRead *.ino let b:quickrun_config={'command': 'make', 'exec': ['%c all', '%c upload', 'stty -F /dev/ttyUSB0 9600 min 100 time 2', 'cat /dev/ttyUSB0']}
-autocmd BufNewFile,BufRead *.pde let b:quickrun_config={'command': 'make', 'exec': ['%c all', '%c upload', 'stty -F /dev/ttyUSB0 9600 min 100 time 2', 'cat /dev/ttyUSB0']}
+autocmd BufNewFile,BufRead *.ino let b:quickrun_config={'exec': ['ino build && ino upload && ino serial']}
+autocmd BufNewFile,BufRead *.pde let b:quickrun_config={'exec': ['ino build && ino upload && ino serial']}
 " powerline
 let g:Powerline_symbols = 'compatible'
 " neosnippet
@@ -247,7 +247,7 @@ if has("unix")
     \                '%c %s',
     \                'dvipdfmx -o %s:r.pdf %s:r.dvi',
     \                'rm -rf %s:r.dvi %s:r.log %s:r.aux %s:r.toc',
-    \                'open %s:r.pdf || true'],
+    \                'open -g %s:r.pdf || true'],
     \   }
   endif
 endif

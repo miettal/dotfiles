@@ -29,3 +29,6 @@ eval "$(rbenv init -)"
 
 #heroku
 PATH="/usr/local/heroku/bin:$PATH"
+
+#arm-toolchain
+PATH="/opt/sat/bin:$PATH"
