@@ -51,10 +51,14 @@ case "$distribution" in
 esac
 
 # change login shell
-if [[ $distribution = "cygwin" ]] ; then
-  echo "Please modify your shell manually"
-else
-  chsh -s /bin/zsh
+if [[ $SHELL != "/bin/zsh" ]]; then
+  if [[ $distribution = "cygwin" ]] ; then
+    echo "Please modify your shell manually"
+  else
+    chsh -s /bin/zsh
+  fi
+  echo Re-login
+  exit
 fi
 
 ################################################################################
@@ -120,3 +124,9 @@ yes | vim +quit +quit
 ################################################################################
 # create trash directory
 mkdir $HOME/.trash
+
+################################################################################
+# for tmux                                                                     #
+################################################################################
+# tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm

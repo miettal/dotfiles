@@ -135,6 +135,7 @@ NeoBundle 'Shougo/vimproc', {
 \}
 NeoBundle 'Arduino-syntax-file'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'HTML5-Syntax-File'
 NeoBundle 'TwitVim'
 NeoBundle 'Gist.vim'
@@ -173,6 +174,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'soramugi/auto-ctags.vim'
+NeoBundle 'airblade/vim-gitgutter'
 call neobundle#end()
 NeoBundleCheck
 
@@ -184,8 +186,8 @@ let g:neocomplcache_enable_at_startup = 1
 " arduino-syntax
 autocmd BufNewFile,BufRead *.ino setlocal filetype=arduino
 autocmd BufNewFile,BufRead *.pde setlocal filetype=arduino
-autocmd BufNewFile,BufRead *.ino let b:quickrun_config={'command': 'make', 'exec': ['%c all', '%c upload', 'stty -F /dev/ttyUSB0 9600 min 100 time 2', 'cat /dev/ttyUSB0']}
-autocmd BufNewFile,BufRead *.pde let b:quickrun_config={'command': 'make', 'exec': ['%c all', '%c upload', 'stty -F /dev/ttyUSB0 9600 min 100 time 2', 'cat /dev/ttyUSB0']}
+autocmd BufNewFile,BufRead *.ino let b:quickrun_config={'exec': ['ino build && ino upload && ino serial']}
+autocmd BufNewFile,BufRead *.pde let b:quickrun_config={'exec': ['ino build && ino upload && ino serial']}
 " powerline
 let g:Powerline_symbols = 'compatible'
 " neosnippet
@@ -248,7 +250,7 @@ if has("unix")
     \                '%c %s',
     \                'dvipdfmx -o %s:r.pdf %s:r.dvi',
     \                'rm -rf %s:r.dvi %s:r.log %s:r.aux %s:r.toc',
-    \                'open %s:r.pdf || true'],
+    \                'open -g %s:r.pdf || true'],
     \   }
   endif
 endif
@@ -272,6 +274,13 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "syaberu.vim
 let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
+"vim-colors-solarized
+" -- solarized personal conf
+set background=dark
+try
+    colorscheme solarized
+catch
+endtry
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
