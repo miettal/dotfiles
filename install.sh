@@ -3,9 +3,6 @@
 SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 
 uname=`uname -s`
-if [ ${uname:0:6} = "CYGWIN" ]; then
-  uname="Cygwin"
-fi
 
 printf "Choose your machine [ubuntu/debian/mac/cygwin/...]:"
 read distribution
@@ -67,10 +64,10 @@ fi
 ################################################################################
 # for pyenv                                                                    #
 ################################################################################
-git clone https://github.com/yyuu/pyenv.git $HOME/.pyenv
-git clone https://github.com/yyuu/pyenv-virtualenv.git \
+git clone git@github.com:yyuu/pyenv.git $HOME/.pyenv
+git clone git@github.com:yyuu/pyenv-virtualenv.git \
   $HOME/.pyenv/plugins/pyenv-virtualenv
-git clone https://github.com/yyuu/pyenv-pip-rehash.git \
+git clone git@github.com:yyuu/pyenv-pip-rehash.git \
   $HOME/.pyenv/plugins/pyenv-pip-rehash
 
 export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
@@ -87,10 +84,10 @@ easy_install pip
 ################################################################################
 # for rbenv                                                                    #
 ################################################################################
-git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
-git clone https://github.com/sstephenson/ruby-build.git \
+git clone git@github.com:sstephenson/rbenv.git $HOME/.rbenv
+git clone git@github.com:sstephenson/ruby-build.git \
   $HOME/.rbenv/plugins/ruby-build
-git clone https://github.com/sstephenson/rbenv-gem-rehash.git \
+git clone git@github.com:sstephenson/rbenv-gem-rehash.git \
   $HOME/.rbenv/plugins/rbenv-gem-rehash
 
 export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
@@ -114,7 +111,7 @@ git config --global alias.co checkout
 ################################################################################
 # for zsh                                                                      #
 ################################################################################
-git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+git clone git@github.com:robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 
 ################################################################################
 # for vim                                                                      #

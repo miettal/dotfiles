@@ -7,3 +7,5 @@
 	editor = /usr/bin/vi
 [alias]
 	co = checkout
+[url "https://github.com/"]
+	insteadOf = git://github.com/
