@@ -46,6 +46,8 @@ syntax on
 let g:tex_flavor = "latex"
 " 全角幅の記号正しく表示する
 set ambiwidth=double
+" ステータスラインにフィアル名，文字コード，改行コードを表示
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
 "-------------------------------------------------------------------------------
 " カレントウィンドウにのみ罫線を引く
@@ -163,7 +165,7 @@ NeoBundle 'supermomonga/shaberu.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle "thinca/vim-template"
+NeoBundle 'thinca/vim-template'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'Shougo/vimshell'
@@ -173,7 +175,6 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/emmet-vim'
-NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'airblade/vim-gitgutter'
 call neobundle#end()
 NeoBundleCheck
@@ -261,8 +262,6 @@ let g:hateblo_vim = {
      \ 'api_endpoint': 'https://blog.hatena.ne.jp/miettal/miettal.hatenablog.com/atom',
      \ 'edit_command': 'edit'
 \ }
-" auto-ctags.vim
-let g:auto_ctags = 1
 "unite.vim
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
@@ -275,10 +274,10 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "syaberu.vim
 let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
 "vim-colors-solarized
-" -- solarized personal conf
 set background=dark
+let g:solarized_termcolors=256
 try
-    colorscheme solarized
+  colorscheme solarized
 catch
 endtry
 
