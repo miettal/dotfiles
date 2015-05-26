@@ -274,12 +274,12 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "syaberu.vim
 let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
 "vim-colors-solarized
-set background=dark
 let g:solarized_termcolors=256
 try
   colorscheme solarized
 catch
 endtry
+set background=dark
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
