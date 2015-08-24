@@ -38,10 +38,6 @@ set expandtab
 " カレント行に下線を引く
 "set cursorline
 "autocmd VimEnter,ColorScheme * highlight CursorLine term=reverse cterm=reverse
-" カラースキームを設定
-colorscheme desert
-" シンタックスハイライトオン
-syntax on
 " *.texはlatexファイルタイプで開く
 let g:tex_flavor = "latex"
 " 全角幅の記号正しく表示する
@@ -274,7 +270,6 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "syaberu.vim
 let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
 "vim-colors-solarized
-let g:solarized_termcolors=256
 try
   colorscheme solarized
 catch
@@ -295,7 +290,6 @@ nnoremap <Leader>en2 :<C-u>Ref webdict en2<Space>
 nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
 
 source $HOME/.vimrc_env
-syntax on
 
 "-------------------------------------------------------------------------------
 " テンプレート
@@ -318,3 +312,6 @@ autocmd FileType vimshell
 \ call vimshell#hook#add('chpwd' , 'my_vimshell_chpwd' , 'g:my_vimshell_chpwd')
 \| call vimshell#hook#add('emptycmd', 'my_vimshell_emptycmd', 'g:my_vimshell_emptycmd')
 \| call vimshell#hook#add('notfound', 'my_vimshell_notfound', 'g:my_vimshell_notfound')
+
+" シンタックスハイライトオン
+syntax on

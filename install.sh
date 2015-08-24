@@ -62,6 +62,37 @@ if [[ $SHELL != "/bin/zsh" ]]; then
 fi
 
 ################################################################################
+# for git                                                                      #
+################################################################################
+git config --global user.name "Hiromasa Ihara"
+git config --global user.mail iharahiromasa@gmail.com
+git config --global core.editor "/usr/bin/vi"
+git config --global alias.co checkout
+
+################################################################################
+# for zsh                                                                      #
+################################################################################
+git clone git@github.com:robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+
+################################################################################
+# for vim                                                                      #
+################################################################################
+git clone git@github.com:Shougo/neobundle.vim.git vim/bundle/neobundle.vim
+yes | vim +quit +quit
+
+################################################################################
+# for trash                                                                    #
+################################################################################
+# create trash directory
+mkdir $HOME/.trash
+
+################################################################################
+# for tmux                                                                     #
+################################################################################
+# tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+
+################################################################################
 # for pyenv                                                                    #
 ################################################################################
 git clone git@github.com:yyuu/pyenv.git $HOME/.pyenv
@@ -100,33 +131,3 @@ rbenv global 2.0.0-p481
 gem update --system
 gem install bundler
 
-################################################################################
-# for git                                                                      #
-################################################################################
-git config --global user.name "Hiromasa Ihara"
-git config --global user.mail iharahiromasa@gmail.com
-git config --global core.editor "/usr/bin/vi"
-git config --global alias.co checkout
-
-################################################################################
-# for zsh                                                                      #
-################################################################################
-git clone git@github.com:robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
-
-################################################################################
-# for vim                                                                      #
-################################################################################
-git clone git@github.com:Shougo/neobundle.vim.git vim/bundle/neobundle.vim
-yes | vim +quit +quit
-
-################################################################################
-# for trash                                                                    #
-################################################################################
-# create trash directory
-mkdir $HOME/.trash
-
-################################################################################
-# for tmux                                                                     #
-################################################################################
-# tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
