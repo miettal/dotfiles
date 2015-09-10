@@ -13,7 +13,7 @@ mkdir -p $HOME/.config/fontconfig
 ln -f -s $SCRIPT_DIR/gitconfig $HOME/.gitconfig
 ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc
 ln -f -s $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
-ln -f -s $SCRIPT_DIR/vim/ $HOME/.vim
+ln -f -s $SCRIPT_DIR/vim $HOME/.vim
 ln -f -s $SCRIPT_DIR/vimrc $HOME/.vimrc
 ln -f -s $SCRIPT_DIR/vimperatorrc $HOME/.vimperatorrc
 ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
