@@ -109,9 +109,6 @@ case "$yn" in
   eval "$(pyenv init -)"
   
   yes n | pyenv install 2.7.8
-  yes n | pyenv install 3.4.1
-  yes n | pyenv install pypy-2.3.1
-  yes n | pyenv install pypy3-2.3.1
   pyenv global 2.7.8
   
   easy_install pip
@@ -137,7 +134,6 @@ case "$yn" in
   export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
   eval "$(rbenv init -)"
   
-  yes n | rbenv install 1.9.3-p547
   yes n | rbenv install 2.0.0-p481
   rbenv global 2.0.0-p481
   
