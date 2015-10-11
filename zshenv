@@ -4,9 +4,10 @@ alias vi=vim
 alias ls='ls --color=auto'
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
 alias vimpager=$HOME/.vim/bundle/vimpager/vimpager
-alias vitodo='geeknote edit TODO'
-alias cattodo="F=/tmp/\$RANDOM.md;geeknote show TODO | sed -n '7,\$p' | cat > \$F && vim \$F +\"nnoremap q :q<CR>\""
 alias each="find . -type f -print0 | xargs -n 1 -0"
+alias update_pip="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias update_pyenv="cd $HOME/.pyenv;git pull;cd -"
+alias update_rbenv="cd $HOME/.rbenv;git pull;cd -"
 
 # Environment variable
 export PATH=$HOME/Dropbox/data/bin:$PATH
@@ -29,7 +30,7 @@ export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 eval "$(rbenv init -)"
 
 #heroku
-PATH="/usr/local/heroku/bin:$PATH"
+export PATH=/usr/local/heroku/bin:$PATH
 
 #arm-toolchain
-PATH="/opt/sat/bin:$PATH"
+export PATH=/opt/sat/bin:$PATH

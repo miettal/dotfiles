@@ -80,6 +80,7 @@ yes n | pyenv install pypy3-2.3.1
 pyenv global pypy3-2.3.1
 
 easy_install pip
+pip install gcalcli
 
 ################################################################################
 # for rbenv                                                                    #
@@ -117,7 +118,7 @@ git clone git@github.com:robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 # for vim                                                                      #
 ################################################################################
 git clone git@github.com:Shougo/neobundle.vim.git vim/bundle/neobundle.vim
-yes | vim +quit +quit
+yes | vim +quit +quit #todo
 
 ################################################################################
 # for trash                                                                    #

@@ -274,6 +274,7 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "syaberu.vim
 let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
 "vim-colors-solarized
+syntax enable
 let g:solarized_termcolors=256
 try
   colorscheme solarized
@@ -295,7 +296,6 @@ nnoremap <Leader>en2 :<C-u>Ref webdict en2<Space>
 nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
 
 source $HOME/.vimrc_env
-syntax on
 
 "-------------------------------------------------------------------------------
 " テンプレート
