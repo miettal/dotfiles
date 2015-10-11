@@ -38,10 +38,6 @@ set expandtab
 " カレント行に下線を引く
 "set cursorline
 "autocmd VimEnter,ColorScheme * highlight CursorLine term=reverse cterm=reverse
-" カラースキームを設定
-colorscheme desert
-" シンタックスハイライトオン
-syntax on
 " *.texはlatexファイルタイプで開く
 let g:tex_flavor = "latex"
 " 全角幅の記号正しく表示する
@@ -318,3 +314,6 @@ autocmd FileType vimshell
 \ call vimshell#hook#add('chpwd' , 'my_vimshell_chpwd' , 'g:my_vimshell_chpwd')
 \| call vimshell#hook#add('emptycmd', 'my_vimshell_emptycmd', 'g:my_vimshell_emptycmd')
 \| call vimshell#hook#add('notfound', 'my_vimshell_notfound', 'g:my_vimshell_notfound')
+
+" シンタックスハイライトオン
+syntax on

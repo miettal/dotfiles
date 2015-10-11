@@ -23,3 +23,6 @@ compinit -u
 eval `dircolors`
 export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+gcalcli calw &
+clear

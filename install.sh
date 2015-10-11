@@ -62,46 +62,6 @@ if [[ $SHELL != "/bin/zsh" ]]; then
 fi
 
 ################################################################################
-# for pyenv                                                                    #
-################################################################################
-git clone git@github.com:yyuu/pyenv.git $HOME/.pyenv
-git clone git@github.com:yyuu/pyenv-virtualenv.git \
-  $HOME/.pyenv/plugins/pyenv-virtualenv
-git clone git@github.com:yyuu/pyenv-pip-rehash.git \
-  $HOME/.pyenv/plugins/pyenv-pip-rehash
-
-export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
-eval "$(pyenv init -)"
-
-yes n | pyenv install 2.7.8
-yes n | pyenv install 3.4.1
-yes n | pyenv install pypy-2.3.1
-yes n | pyenv install pypy3-2.3.1
-pyenv global pypy3-2.3.1
-
-easy_install pip
-pip install gcalcli
-
-################################################################################
-# for rbenv                                                                    #
-################################################################################
-git clone git@github.com:sstephenson/rbenv.git $HOME/.rbenv
-git clone git@github.com:sstephenson/ruby-build.git \
-  $HOME/.rbenv/plugins/ruby-build
-git clone git@github.com:sstephenson/rbenv-gem-rehash.git \
-  $HOME/.rbenv/plugins/rbenv-gem-rehash
-
-export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
-eval "$(rbenv init -)"
-
-yes n | rbenv install 1.9.3-p547
-yes n | rbenv install 2.0.0-p481
-rbenv global 2.0.0-p481
-
-gem update --system
-gem install bundler
-
-################################################################################
 # for git                                                                      #
 ################################################################################
 git config --global user.name "Hiromasa Ihara"
@@ -131,3 +91,58 @@ mkdir $HOME/.trash
 ################################################################################
 # tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+
+################################################################################
+# for pyenv                                                                    #
+################################################################################
+printf "do you want to instal pyenv?[y/n]:"
+read yn
+case "$yn" in
+"y") 
+  git clone git@github.com:yyuu/pyenv.git $HOME/.pyenv
+  git clone git@github.com:yyuu/pyenv-virtualenv.git \
+    $HOME/.pyenv/plugins/pyenv-virtualenv
+  git clone git@github.com:yyuu/pyenv-pip-rehash.git \
+    $HOME/.pyenv/plugins/pyenv-pip-rehash
+  
+  export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
+  eval "$(pyenv init -)"
+  
+  yes n | pyenv install 2.7.8
+  pyenv global 2.7.8
+  
+  easy_install pip
+  pip install gcalcli
+ ;;
+*)
+  # no
+ ;;
+esac
+
+################################################################################
+# for rbenv                                                                    #
+################################################################################
+printf "do you want to instal rbenv?[y/n]:"
+read yn
+case "$yn" in
+"y") 
+  git clone git@github.com:sstephenson/rbenv.git $HOME/.rbenv
+  git clone git@github.com:sstephenson/ruby-build.git \
+    $HOME/.rbenv/plugins/ruby-build
+  git clone git@github.com:sstephenson/rbenv-gem-rehash.git \
+    $HOME/.rbenv/plugins/rbenv-gem-rehash
+  
+  export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
+  eval "$(rbenv init -)"
+  
+  yes n | rbenv install 2.0.0-p481
+  rbenv global 2.0.0-p481
+  
+  gem update --system
+  gem install bundler
+ ;;
+*)
+  # no
+ ;;
+esac
+

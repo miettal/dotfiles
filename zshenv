@@ -22,12 +22,16 @@ export CPATH=$HOME/Dropbox/data/lib/cmodule/include:$CPATH
 export PYTHONPATH=$HOME/Dropbox/data/lib/pymodule:$PYTHONPATH
 
 #pyenv
-export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
-eval "$(pyenv init -)"
+if [ -e $HOME/.pyenv ]; then
+  export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
+  eval "$(pyenv init -)"
+fi
 
 #rbenv
-export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
-eval "$(rbenv init -)"
+if [ -e $HOME/.rbenv ]; then
+  export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
+  eval "$(rbenv init -)"
+fi
 
 #heroku
 export PATH=/usr/local/heroku/bin:$PATH
