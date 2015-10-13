@@ -15,6 +15,7 @@ ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc
 ln -f -s $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
 ln -f -s $SCRIPT_DIR/vim $HOME/.vim
 ln -f -s $SCRIPT_DIR/vimrc $HOME/.vimrc
+ln -f -s $SCRIPT_DIR/vimperator $HOME/.vimperator
 ln -f -s $SCRIPT_DIR/vimperatorrc $HOME/.vimperatorrc
 ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf

@@ -1,0 +1,6 @@
+export COUNTER=1
+while [ $COUNTER -lt 255 ]
+do
+    ping -c 1 -W 400 $1$COUNTER | grep -B 1 "1 packets received" &
+    COUNTER=$(( $COUNTER + 1 ))
+done

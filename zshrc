@@ -33,3 +33,13 @@ cat /tmp/com.miettal.gcalcli | tail -n $((`cat /tmp/com.miettal.gcalcli | wc -l 
 (zsh -c "python $HOME/.tasky_/tasky.py --list > /tmp/com.miettal.tasky.$$ && cp /tmp/com.miettal.tasky.$$ /tmp/com.miettal.tasky"&)
 ls /tmp/com.miettal.tasky > /dev/null 2>&1 || touch /tmp/com.miettal.tasky
 cat /tmp/com.miettal.tasky | tail -n $((`cat /tmp/com.miettal.tasky | wc -l ` - 1 ))
+
+#echo -n "\x1b[5;30m進捗どうですか？"
+echo -n "\x1b[1;4;5;31m進捗どうですか？"
+echo -n "\x1b[1;4;5;32m進捗どうですか？"
+echo -n "\x1b[1;4;5;33m進捗どうですか？"
+echo
+echo -n "\x1b[1;4;5;34m進捗どうですか？"
+echo -n "\x1b[1;4;5;35m進捗どうですか？"
+echo -n "\x1b[1;4;5;36m進捗どうですか？"
+echo
