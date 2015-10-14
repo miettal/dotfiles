@@ -12,7 +12,8 @@ alias update_rbenv="cd $HOME/.rbenv;git pull;cd -"
 # Environment variable
 export PATH=$HOME/Dropbox/data/bin:$PATH
 export PATH=$HOME/.vim/bundle/vimpager:$PATH
-export EDITOR=/usr/bin/vi
+export PATH=/opt/local/bin:$PATH
+export EDITOR=vi
 export PAGER=$HOME/.vim/bundle/vimpager/vimpager
 
 #C
