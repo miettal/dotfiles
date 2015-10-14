@@ -13,7 +13,6 @@ alias commit='git commit . -m "quick commit"; git push origin master'
 # Environment variable
 export PATH=$HOME/Dropbox/data/bin:$PATH
 export PATH=$HOME/.vim/bundle/vimpager:$PATH
-export PATH=/opt/local/bin:$PATH
 export EDITOR=vi
 export PAGER=$HOME/.vim/bundle/vimpager/vimpager
 
@@ -40,7 +39,3 @@ export PATH=/usr/local/heroku/bin:$PATH
 
 #arm-toolchain
 export PATH=/opt/sat/bin:$PATH
-
-if [ `pyenv global ` = 'system' ] ; then
-fi
-

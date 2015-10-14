@@ -23,3 +23,9 @@ if [ `pyenv global ` = 'system' ] ; then
   export PYTHONPATH=$PYTHONPATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages
   alias pip="pip-2.7"
 fi
+
+#heroku
+export PATH=/usr/local/heroku/bin:$PATH
+
+#arm-toolchain
+export PATH=/opt/sat/bin:$PATH
