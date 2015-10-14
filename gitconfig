@@ -4,7 +4,7 @@
 	email = iharahiromasa@gmail.com
 	miettal = Hiromasa Ihara
 [core]
-	editor = vim
+	editor = /usr/bin/vi
 [alias]
 	co = checkout
 [url "https://github.com/"]

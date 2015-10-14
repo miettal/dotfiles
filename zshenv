@@ -5,7 +5,7 @@ alias ls='ls --color=auto'
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
 alias vimpager=$HOME/.vim/bundle/vimpager/vimpager
 alias each="find . -type f -print0 | xargs -n 1 -0"
-alias update_pip="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias update_pip="pip install --upgrade pip; pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 alias update_pyenv="cd $HOME/.pyenv;git pull;cd -"
 alias update_rbenv="cd $HOME/.rbenv;git pull;cd -"
 
@@ -38,3 +38,7 @@ export PATH=/usr/local/heroku/bin:$PATH
 
 #arm-toolchain
 export PATH=/opt/sat/bin:$PATH
+
+if [ `pyenv global ` = 'system' ] ; then
+fi
+

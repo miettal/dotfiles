@@ -4,8 +4,17 @@ SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 
 uname=`uname -s`
 
-printf "Choose your machine [ubuntu/debian/mac/cygwin/...]:"
-read distribution
+if [ $uname == 'Darwin' ]; then
+  distribution="mac"
+elif [ "$(expr substr $uname) 1 5)" == 'Linux' ]; then
+  printf "Choose your linux distribution[ubuntu/debian/...]:"
+  read distribution
+elif [ "$(expr substr $uname 1 10)" == 'MINGW32_NT' ]; then                                                                                           
+  distribution="cygwin"
+else
+  echo "Your platform ($uname) is not supported."
+  exit 1
+fi
 
 mkdir -p $HOME/.config/fontconfig
 
@@ -114,8 +123,8 @@ case "$yn" in
   export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
   eval "$(pyenv init -)"
   
-  yes n | pyenv install 2.7.8
-  pyenv global 2.7.8
+  yes n | pyenv install 2.7.10
+  pyenv global 2.7.10
   
   easy_install pip
   pip install gcalcli
