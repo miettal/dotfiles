@@ -76,9 +76,6 @@ fi
 ################################################################################
 # for git                                                                      #
 ################################################################################
-git config --global user.name "Hiromasa Ihara"
-git config --global user.mail iharahiromasa@gmail.com
-git config --global core.editor "/usr/bin/vi"
 git config --global alias.co checkout
 
 ################################################################################
@@ -136,6 +133,7 @@ case "$yn" in
   
   easy_install pip
   pip install gcalcli
+  pip install httplib2
  ;;
 *)
   # no
