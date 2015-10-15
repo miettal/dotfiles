@@ -6,7 +6,7 @@ uname=`uname -s`
 
 if [ $uname == 'Darwin' ]; then
   distribution="mac"
-elif [ "$(expr substr $uname) 1 5)" == 'Linux' ]; then
+elif [ $uname == 'Linux' ]; then
   printf "Choose your linux distribution[ubuntu/debian/...]:"
   read distribution
 elif [ "$(expr substr $uname 1 10)" == 'MINGW32_NT' ]; then                                                                                           
@@ -107,7 +107,13 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 ################################################################################
 # for tasky                                                                    #
 ################################################################################
+rm -rf $HOME/.tasky_
 git clone git@github.com:jrupac/tasky.git $HOME/.tasky_
+cp $HOME/.tasky_/tasky.py $HOME/.tasky_/tasky.py_
+echo 'import sys, codecs
+sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
+' > $HOME/.tasky_/tasky.py
+cat $HOME/.tasky_/tasky.py_ >> $HOME/.tasky_/tasky.py
 
 ################################################################################
 # for pyenv                                                                    #
