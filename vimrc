@@ -270,7 +270,9 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "syaberu.vim
 let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
 "vim-colors-solarized
-"let g:solarized_termcolors=256
+if has('mac')
+  let g:solarized_termcolors=256
+endif
 syntax enable
 set background=dark
 colorscheme solarized
