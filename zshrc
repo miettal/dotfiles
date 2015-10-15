@@ -1,5 +1,5 @@
 # LANG環境変数
-export LANG=ja_JP.UTF-8
+export LANG="ja_JP.UTF-8"
 
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
@@ -25,12 +25,12 @@ export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 #google calendar
-(zsh -c "gcalcli calw > /tmp/com.miettal.gcalcli.$$ && cp /tmp/com.miettal.gcalcli.$$ /tmp/com.miettal.gcalcli"&)
+(zsh -c 'gcalcli calw > /tmp/com.miettal.gcalcli.$$ && cp /tmp/com.miettal.gcalcli.$$ /tmp/com.miettal.gcalcli'&)
 ls /tmp/com.miettal.gcalcli > /dev/null 2>&1 || touch /tmp/com.miettal.gcalcli
 cat /tmp/com.miettal.gcalcli | tail -n $((`cat /tmp/com.miettal.gcalcli | wc -l ` - 1 ))
 
 #google task
-(zsh -c "python $HOME/.tasky_/tasky.py --list > /tmp/com.miettal.tasky.$$ && cp /tmp/com.miettal.tasky.$$ /tmp/com.miettal.tasky"&)
+(zsh -c 'python $HOME/.tasky_/tasky.py --list > /tmp/com.miettal.tasky.$$ && cp /tmp/com.miettal.tasky.$$ /tmp/com.miettal.tasky'&)
 ls /tmp/com.miettal.tasky > /dev/null 2>&1 || touch /tmp/com.miettal.tasky
 cat /tmp/com.miettal.tasky | tail -n $((`cat /tmp/com.miettal.tasky | wc -l ` - 1 ))
 
