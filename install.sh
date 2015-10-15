@@ -17,6 +17,7 @@ else
 fi
 
 mkdir -p $HOME/.config/fontconfig
+mkdir -p $HOME/.tasky
 
 # create new symblic link
 ln -f -s $SCRIPT_DIR/gitconfig $HOME/.gitconfig
@@ -29,6 +30,7 @@ ln -f -s $SCRIPT_DIR/vimperatorrc $HOME/.vimperatorrc
 ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
 ln -f -s $SCRIPT_DIR/gemrc $HOME/.gemrc
+ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky/keys.txt
 
 # remove old .zshenv
 rm -rf $HOME/.zshenv
