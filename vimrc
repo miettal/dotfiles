@@ -270,12 +270,15 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "syaberu.vim
 let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
 "vim-colors-solarized
+syntax enable
+try   
+  colorscheme solarized
+catch
+endtry
 if has('mac')
   let g:solarized_termcolors=256
 endif
-syntax enable
 set background=dark
-colorscheme solarized
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
@@ -315,4 +318,4 @@ autocmd FileType vimshell
 \| call vimshell#hook#add('notfound', 'my_vimshell_notfound', 'g:my_vimshell_notfound')
 
 " シンタックスハイライトオン
-"syntax on
+syntax on
