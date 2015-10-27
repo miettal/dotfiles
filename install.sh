@@ -104,13 +104,7 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 ################################################################################
 # for tasky                                                                    #
 ################################################################################
-rm -rf $HOME/.tasky_
-git clone git@github.com:jrupac/tasky.git $HOME/.tasky_
-cp $HOME/.tasky_/tasky.py $HOME/.tasky_/tasky.py_
-echo 'import sys, codecs
-sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
-' > $HOME/.tasky_/tasky.py
-cat $HOME/.tasky_/tasky.py_ >> $HOME/.tasky_/tasky.py
+git clone git@github.com:miettal/tasky.git $HOME/.tasky_
 
 ################################################################################
 # for pyenv                                                                    #
