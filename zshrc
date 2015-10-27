@@ -26,7 +26,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 if [ ! -e $HOME/dotfiles/dontprint ]; then
   #google calendar
-  (zsh -c 'gcalcli --military calw > /tmp/com.miettal.gcalcli.$$ && cp /tmp/com.miettal.gcalcli.$$ /tmp/com.miettal.gcalcli'&)
+  (zsh -c 'gcalcli --military --width $((($COLUMNS-8)/7)) calw 2 > /tmp/com.miettal.gcalcli.$$ && cp /tmp/com.miettal.gcalcli.$$ /tmp/com.miettal.gcalcli'&)
   ls /tmp/com.miettal.gcalcli > /dev/null 2>&1 || touch /tmp/com.miettal.gcalcli
   cat /tmp/com.miettal.gcalcli | tail -n $((`cat /tmp/com.miettal.gcalcli | wc -l ` - 1 ))
   

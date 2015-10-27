@@ -29,3 +29,6 @@ export PATH=/usr/local/heroku/bin:$PATH
 
 #arm-toolchain
 export PATH=/opt/sat/bin:$PATH
+
+#exiftool
+export PATH=/usr/local/bin:$PATH

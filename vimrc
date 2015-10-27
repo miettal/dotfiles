@@ -45,6 +45,8 @@ set ambiwidth=double
 " ステータスラインにフィアル名，文字コード，改行コードを表示
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
+colorscheme koehler
+
 "-------------------------------------------------------------------------------
 " カレントウィンドウにのみ罫線を引く
 "-------------------------------------------------------------------------------
@@ -133,7 +135,6 @@ NeoBundle 'Shougo/vimproc', {
 \}
 NeoBundle 'Arduino-syntax-file'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'HTML5-Syntax-File'
 NeoBundle 'TwitVim'
 NeoBundle 'Gist.vim'
@@ -269,16 +270,6 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "syaberu.vim
 let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
-"vim-colors-solarized
-syntax enable
-try   
-  colorscheme solarized
-catch
-endtry
-if has('mac')
-  let g:solarized_termcolors=256
-endif
-set background=dark
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
@@ -316,6 +307,4 @@ autocmd FileType vimshell
 \ call vimshell#hook#add('chpwd' , 'my_vimshell_chpwd' , 'g:my_vimshell_chpwd')
 \| call vimshell#hook#add('emptycmd', 'my_vimshell_emptycmd', 'g:my_vimshell_emptycmd')
 \| call vimshell#hook#add('notfound', 'my_vimshell_notfound', 'g:my_vimshell_notfound')
-
-" シンタックスハイライトオン
-syntax on
+syntax enable
