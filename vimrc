@@ -46,7 +46,7 @@ set ambiwidth=double
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
 syntax enable
-colorscheme elflord
+colorscheme koehler
 
 "-------------------------------------------------------------------------------
 " カレントウィンドウにのみ罫線を引く
