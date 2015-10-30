@@ -9,6 +9,7 @@ alias update_pip="pip install --upgrade pip; pip freeze --local | grep -v '^\-e'
 alias update_pyenv="cd $HOME/.pyenv;git pull;cd -"
 alias update_rbenv="cd $HOME/.rbenv;git pull;cd -"
 alias commit='git commit . -m "quick commit"; git push origin master'
+alias task='gcalcli --military --width $((($COLUMNS-8)/7)) calw 2;python $HOME/.tasky_/tasky.py --list'
 
 # Environment variable
 export PATH=$HOME/Dropbox/data/bin:$PATH

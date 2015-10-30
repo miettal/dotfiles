@@ -45,7 +45,6 @@ set ambiwidth=double
 " ステータスラインにフィアル名，文字コード，改行コードを表示
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
-syntax enable
 colorscheme koehler
 
 "-------------------------------------------------------------------------------
@@ -308,3 +307,4 @@ autocmd FileType vimshell
 \ call vimshell#hook#add('chpwd' , 'my_vimshell_chpwd' , 'g:my_vimshell_chpwd')
 \| call vimshell#hook#add('emptycmd', 'my_vimshell_emptycmd', 'g:my_vimshell_emptycmd')
 \| call vimshell#hook#add('notfound', 'my_vimshell_notfound', 'g:my_vimshell_notfound')
+syntax enable
