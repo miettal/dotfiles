@@ -24,7 +24,7 @@ eval `dircolors`
 export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-if [ ! -e $HOME/dotfiles/print ]; then
+if [ -e $HOME/dotfiles/print ]; then
   #google calendar
   (zsh -c 'gcalcli --military --width $((($COLUMNS-8)/7)) calw 2 > /tmp/com.miettal.gcalcli.$$ && cp /tmp/com.miettal.gcalcli.$$ /tmp/com.miettal.gcalcli'&)
   ls /tmp/com.miettal.gcalcli > /dev/null 2>&1 || touch /tmp/com.miettal.gcalcli
