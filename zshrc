@@ -24,7 +24,7 @@ eval `dircolors`
 export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-pyenv shell --unset
+pyenv shell 2.7.10
 if [ -e $HOME/dotfiles/print ]; then
   #google calendar
   (zsh -c 'gcalcli --military --width $((($COLUMNS-8)/7)) calw 2 > /tmp/com.miettal.gcalcli.$$ && cp /tmp/com.miettal.gcalcli.$$ /tmp/com.miettal.gcalcli'&)
@@ -36,6 +36,7 @@ if [ -e $HOME/dotfiles/print ]; then
   ls /tmp/com.miettal.tasky > /dev/null 2>&1 || touch /tmp/com.miettal.tasky
   cat /tmp/com.miettal.tasky | tail -n $((`cat /tmp/com.miettal.tasky | wc -l ` - 1 ))
 fi
+pyenv shell --unset
 
 #echo -n "\x1b[5;30m進捗どうですか？"
 echo -n "\x1b[1;4;5;31m進捗どうですか？"
