@@ -21,14 +21,16 @@ ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky/keys.txt
 
 rm -rf $HOME/.zshenv
 rm -rf $HOME/.vimrc_env
+rm -rf $HOME/.tmux_env
 
 echo "source $SCRIPT_DIR/zshenv" >> $HOME/.zshenv
 echo "source $SCRIPT_DIR/vimrc_env" >> $HOME/.vimrc_env
+echo "source $SCRIPT_DIR/tmux_env" >> $HOME/.tmux_env
 
 echo "source $SCRIPT_DIR/$platform/zshenv" >> $HOME/.zshenv
 echo "source $SCRIPT_DIR/$platform/vimrc_env" >> $HOME/.vimrc_env
+echo "source $SCRIPT_DIR/$platform/tmux_env" >> $HOME/.tmux_env
 sudo "$SCRIPT_DIR/$platform/install.sh"
-exit
 
 # change login shell
 if [[ $SHELL != "/bin/zsh" ]]; then
@@ -38,7 +40,6 @@ if [[ $SHELL != "/bin/zsh" ]]; then
     chsh -s /bin/zsh
   fi
   echo Re-login
-  exit
 fi
 
 

@@ -24,7 +24,7 @@ eval `dircolors`
 export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-pyenv shell 2.7.10
+pyenv shell 2.7-dev
 if [ -e $HOME/dotfiles/print ]; then
   #google calendar
   (zsh -c 'gcalcli --military --width $((($COLUMNS-8)/7)) calw 2 > /tmp/com.miettal.gcalcli.$$ && cp /tmp/com.miettal.gcalcli.$$ /tmp/com.miettal.gcalcli'&)
