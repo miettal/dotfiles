@@ -133,12 +133,13 @@ NeoBundle 'Shougo/vimproc', {
 \     'unix' : 'make -f make_unix.mak',
 \   },
 \}
-NeoBundle 'Arduino-syntax-file'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'HTML5-Syntax-File'
-NeoBundle 'TwitVim'
-NeoBundle 'Gist.vim'
-NeoBundle 'sudo.vim'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'vimpager', {
 \   'build' : {
 \     'windows' : 'chmod +x vimpager',
@@ -147,31 +148,14 @@ NeoBundle 'vimpager', {
 \     'unix' : 'chmod +x vimpager',
 \   },
 \}
-NeoBundle 'basyura/twibill.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'basyura/TweetVim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'kevinw/pyflakes-vim'
-NeoBundle 'osyo-manga/vim-gyazo'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'motemen/hatena-vim'
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'moznion/hateblo.vim'
-"NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'supermomonga/shaberu.vim'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'thinca/vim-template'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'sudo.vim'
+"NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'airblade/vim-gitgutter'
 call neobundle#end()
 NeoBundleCheck
@@ -181,13 +165,6 @@ NeoBundleCheck
 "-------------------------------------------------------------------------------
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
-" arduino-syntax
-autocmd BufNewFile,BufRead *.ino setlocal filetype=arduino
-autocmd BufNewFile,BufRead *.pde setlocal filetype=arduino
-autocmd BufNewFile,BufRead *.ino let b:quickrun_config={'exec': ['ino build && ino upload && ino serial']}
-autocmd BufNewFile,BufRead *.pde let b:quickrun_config={'exec': ['ino build && ino upload && ino serial']}
-" powerline
-let g:Powerline_symbols = 'compatible'
 " neosnippet
 imap <expr><TAB>
 \ neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ?
@@ -252,13 +229,6 @@ if has("unix")
     \   }
   endif
 endif
-" hateblo.vim
-let g:hateblo_vim = {
-     \ 'user':         'miettal',
-     \ 'api_key':      'hkoxbik8qe',
-     \ 'api_endpoint': 'https://blog.hatena.ne.jp/miettal/miettal.hatenablog.com/atom',
-     \ 'edit_command': 'edit'
-\ }
 "unite.vim
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
@@ -268,16 +238,16 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
-"syaberu.vim
-let g:shaberu_user_define_say_command = 'say -v Kyoko "%%TEXT%%"'
+" vim-indent-guides
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
 "-------------------------------------------------------------------------------
-" twitvim
-nnoremap <C-i><C-t> :<C-u>CPosttoTwitter<CR>
-nnoremap <C-i><C-f> :<C-u>Unite buffer file file_mru<CR>
-nnoremap <C-i><C-i> :<C-u>TagbarToggle<CR>
 " ref.vim
 nnoremap <Leader>en :<C-u>Ref webdict en<Space>
 nnoremap <Leader>en2 :<C-u>Ref webdict en2<Space>
@@ -308,3 +278,5 @@ autocmd FileType vimshell
 \| call vimshell#hook#add('emptycmd', 'my_vimshell_emptycmd', 'g:my_vimshell_emptycmd')
 \| call vimshell#hook#add('notfound', 'my_vimshell_notfound', 'g:my_vimshell_notfound')
 syntax enable
+source /Users/miettal/dotfiles/mac/vimrc
+source /Users/miettal/dotfiles/mac/vimrc
