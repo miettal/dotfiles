@@ -26,8 +26,9 @@ echo "source $SCRIPT_DIR/zshenv" >> $HOME/.zshenv
 echo "source $SCRIPT_DIR/vimrc_env" >> $HOME/.vimrc_env
 
 echo "source $SCRIPT_DIR/$platform/zshenv" >> $HOME/.zshenv
-echo "source $SCRIPT_DIR/$platform/vimrc" >> $HOME/.vimrc
+echo "source $SCRIPT_DIR/$platform/vimrc_env" >> $HOME/.vimrc_env
 sudo "$SCRIPT_DIR/$platform/install.sh"
+exit
 
 # change login shell
 if [[ $SHELL != "/bin/zsh" ]]; then
@@ -39,6 +40,7 @@ if [[ $SHELL != "/bin/zsh" ]]; then
   echo Re-login
   exit
 fi
+
 
 ################################################################################
 # for git                                                                      #
@@ -54,7 +56,6 @@ git clone git@github.com:robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 # for vim                                                                      #
 ################################################################################
 git clone git@github.com:Shougo/neobundle.vim.git vim/bundle/neobundle.vim
-yes | vim +quit +quit #todo
 
 ################################################################################
 # for trash                                                                    #

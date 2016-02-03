@@ -278,5 +278,3 @@ autocmd FileType vimshell
 \| call vimshell#hook#add('emptycmd', 'my_vimshell_emptycmd', 'g:my_vimshell_emptycmd')
 \| call vimshell#hook#add('notfound', 'my_vimshell_notfound', 'g:my_vimshell_notfound')
 syntax enable
-source /Users/miettal/dotfiles/mac/vimrc
-source /Users/miettal/dotfiles/mac/vimrc
