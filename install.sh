@@ -2,24 +2,11 @@
 
 SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 
-uname=`uname -s`
-
-if [ $uname == 'Darwin' ]; then
-  distribution="mac"
-elif [ $uname == 'Linux' ]; then
-  printf "Choose your linux distribution[ubuntu/debian/...]:"
-  read distribution
-elif [ "$(expr substr $uname 1 10)" == 'MINGW32_NT' ]; then                                                                                           
-  distribution="cygwin"
-else
-  echo "Your platform ($uname) is not supported."
-  exit 1
-fi
+platform=`python $SCRIPT_DIR/platformcheck.py`
 
 mkdir -p $HOME/.config/fontconfig
 mkdir -p $HOME/.tasky
 
-# create new symblic link
 ln -f -s $SCRIPT_DIR/gitconfig $HOME/.gitconfig
 ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc
 ln -f -s $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
@@ -32,39 +19,19 @@ ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts
 ln -f -s $SCRIPT_DIR/gemrc $HOME/.gemrc
 ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky/keys.txt
 
-# remove old .zshenv
 rm -rf $HOME/.zshenv
+rm -rf $HOME/.vimrc_env
 
-# create new .zshenv
-touch $HOME/.zshenv
 echo "source $SCRIPT_DIR/zshenv" >> $HOME/.zshenv
+echo "source $SCRIPT_DIR/vimrc_env" >> $HOME/.vimrc_env
 
-#create new .vimrc_env
-touch $HOME/.vimrc_env
-
-# install require package
-case "$distribution" in
-"mac") 
-  echo "source $SCRIPT_DIR/zshenv_mac" >> $HOME/.zshenv
-  echo "source $SCRIPT_DIR/vimrc_mac" >> $HOME/.vimrc_env
-  sudo ./install_mac.sh
- ;;
-"debian" | "ubuntu")
-  echo "source $SCRIPT_DIR/zshenv_debian" >> $HOME/.zshenv
-  sudo ./install_debian.sh
-  ;;
-"cygwin")
-  echo "source $SCRIPT_DIR/zshenv_cygwin" >> $HOME/.zshenv
-  ./install_cygwin.sh
-  ;;
-*)
-  ./install_other.sh
- ;;
-esac
+echo "source $SCRIPT_DIR/$platform/zshenv" >> $HOME/.zshenv
+echo "source $SCRIPT_DIR/$platform/vimrc" >> $HOME/.vimrc
+sudo "$SCRIPT_DIR/$platform/install.sh"
 
 # change login shell
 if [[ $SHELL != "/bin/zsh" ]]; then
-  if [[ $distribution = "cygwin" ]] ; then
+  if [[ $platform = "cygwin" ]] ; then
     echo "Please modify your shell manually"
   else
     chsh -s /bin/zsh
@@ -93,7 +60,7 @@ yes | vim +quit +quit #todo
 # for trash                                                                    #
 ################################################################################
 # create trash directory
-mkdir $HOME/.trash
+mkdir -p $HOME/.trash
 
 ################################################################################
 # for tmux                                                                     #
@@ -122,8 +89,8 @@ case "$yn" in
   export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
   eval "$(pyenv init -)"
   
-  yes n | pyenv install 2.7.10
-  pyenv global 2.7.10
+  yes n | pyenv install 2.7-dev
+  pyenv global 2.7-dev
   
   easy_install pip
   pip install gcalcli
