@@ -11,17 +11,18 @@
 import sys
 import platform
 
-uname = platform.uname()
-if uname[0] == 'Darwin' :
+system = platform.system()
+if system == 'Darwin' :
   print 'mac'
-elif uname[0] == 'Linux' :
-  if uname[1] == 'ubuntu' :
+elif system == 'Linux' :
+  dist = platform.linux_distribution()
+  if dist[0] == 'Ubuntu' :
     print 'ubuntu'
-  elif uname[1] == 'debian' :
+  elif dist[0] == 'Debian' :
     print 'debian'
   else :
     sys.exit(1)
-elif uname[0] == 'cygwin' :
+elif system == 'cygwin' :
   print 'cygwin'
 else :
   sys.exit(1)
