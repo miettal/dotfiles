@@ -129,3 +129,20 @@ case "$yn" in
  ;;
 esac
 
+################################################################################
+# for ctf                                                                      #
+################################################################################
+printf "do you want to instal ctf tools?[y/n]:"
+read yn
+case "$yn" in
+"y") 
+  mkdir -p $SCRIPT_DIR/ctf
+  wget -O - http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.10.tar.gz | tar zxf - -C $SCRIPT_DIR/ctf
+  git clone git@github.com:devttys0/binwalk.git $SCRIPT_DIR/ctf
+  git clone git@github.com:sqlmapproject/sqlmap.git $SCRIPT_DIR/ctf
+ ;;
+*)
+  # no
+ ;;
+esac
+

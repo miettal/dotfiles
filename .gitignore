@@ -5,11 +5,12 @@
 Session.vim
 .netrwhist
 *~
+tags
 
 # for my dotfiles
-tags
-vim/bundle/
 print
+ctf/
+vim/bundle/
 
 vim/vim
 vimperator/vimperator
