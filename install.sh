@@ -31,6 +31,7 @@ ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
 ln -f -s $SCRIPT_DIR/gemrc $HOME/.gemrc
 ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky/keys.txt
+ln -f -s $SCRIPT_DIR/gdbinit  $HOME/.gdbinit
 
 # remove old .zshenv
 rm -rf $HOME/.zshenv
@@ -86,8 +87,7 @@ git clone git@github.com:robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 ################################################################################
 # for vim                                                                      #
 ################################################################################
-git clone git@github.com:Shougo/neobundle.vim.git vim/bundle/neobundle.vim
-yes | vim +quit +quit #todo
+git clone git@github.com:Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim
 
 ################################################################################
 # for trash                                                                    #
@@ -107,6 +107,12 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 git clone git@github.com:miettal/tasky.git $HOME/.tasky_
 
 ################################################################################
+# for peda                                                                     #
+################################################################################
+git clone https://github.com/longld/peda.git $HOME/.peda
+echo "source ~/.peda/peda.py" >> $HOME/.gdbinit
+
+################################################################################
 # for pyenv                                                                    #
 ################################################################################
 printf "do you want to instal pyenv?[y/n]:"
@@ -123,6 +129,7 @@ case "$yn" in
   eval "$(pyenv init -)"
   
   yes n | pyenv install 2.7.10
+  yes n | pyenv install 3.5
   pyenv global 2.7.10
   
   easy_install pip
