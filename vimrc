@@ -151,7 +151,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'sudo.vim'
-NeoBundle 'nathanaelkane/vim-indent-guides'
+"NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'airblade/vim-gitgutter'
 call neobundle#end()

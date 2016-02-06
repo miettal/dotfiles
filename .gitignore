@@ -8,5 +8,8 @@ Session.vim
 
 # for my dotfiles
 tags
-vim/bundle
-dontprint
+vim/bundle/
+print
+
+vim/vim
+vimperator/vimperator

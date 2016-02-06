@@ -1,5 +1,5 @@
 alias open='xdg-open'
-alias update_system="sudo apt-get update && sudo apt-get -y dist-upgrade && sudo apt-get autoremove -y"
+alias update_system="sudo apt-get update && sudo apt-get autoremove -y && sudo apt-get -y dist-upgrade && sudo apt-get autoremove -y"
 
 alias play='/usr/share/nightingale/nightingale-bin -play'
 alias pause='/usr/share/nightingale/nightingale-bin -pause'

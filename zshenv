@@ -1,4 +1,5 @@
 # Alias
+alias emacs=vim
 alias tmux='[ ${TMUX} ] || tmux attach || tmux'
 alias vi='vim'
 alias gdb='gdb -q'
@@ -13,7 +14,7 @@ alias commit='git commit . -m "quick commit"; git push origin master'
 alias task='gcalcli --military --width $((($COLUMNS-8)/7)) calw 2;python $HOME/.tasky_/tasky.py --list'
 
 # Environment variable
-export PATH=$HOME/Dropbox/data/bin:$PATH
+export PATH=$HOME/dotfiles/myscripts:$PATH
 export PATH=$HOME/.vim/bundle/vimpager:$PATH
 export EDITOR=vim
 export PAGER=$HOME/.vim/bundle/vimpager/vimpager
