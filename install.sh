@@ -18,17 +18,20 @@ ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
 ln -f -s $SCRIPT_DIR/gemrc $HOME/.gemrc
 ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky/keys.txt
+ln -f -s $SCRIPT_DIR/gdbinit  $HOME/.gdbinit
 
 rm -rf $HOME/.zshenv
 rm -rf $HOME/.vimrc_env
+rm -rf $HOME/.tmux_env
 
 echo "source $SCRIPT_DIR/zshenv" >> $HOME/.zshenv
 echo "source $SCRIPT_DIR/vimrc_env" >> $HOME/.vimrc_env
+echo "source $SCRIPT_DIR/tmux_env" >> $HOME/.tmux_env
 
 echo "source $SCRIPT_DIR/$platform/zshenv" >> $HOME/.zshenv
 echo "source $SCRIPT_DIR/$platform/vimrc_env" >> $HOME/.vimrc_env
+echo "source $SCRIPT_DIR/$platform/tmux_env" >> $HOME/.tmux_env
 sudo "$SCRIPT_DIR/$platform/install.sh"
-exit
 
 # change login shell
 if [[ $SHELL != "/bin/zsh" ]]; then
@@ -38,7 +41,6 @@ if [[ $SHELL != "/bin/zsh" ]]; then
     chsh -s /bin/zsh
   fi
   echo Re-login
-  exit
 fi
 
 
@@ -55,7 +57,7 @@ git clone git@github.com:robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 ################################################################################
 # for vim                                                                      #
 ################################################################################
-git clone git@github.com:Shougo/neobundle.vim.git vim/bundle/neobundle.vim
+git clone git@github.com:Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim
 
 ################################################################################
 # for trash                                                                    #
@@ -73,6 +75,12 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 # for tasky                                                                    #
 ################################################################################
 git clone git@github.com:miettal/tasky.git $HOME/.tasky_
+
+################################################################################
+# for peda                                                                     #
+################################################################################
+git clone https://github.com/longld/peda.git $HOME/.peda
+echo "source ~/.peda/peda.py" >> $HOME/.gdbinit
 
 ################################################################################
 # for pyenv                                                                    #

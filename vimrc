@@ -35,23 +35,20 @@ set wildmode=list:longest
 set showcmd
 " タブをスペースで埋める
 set expandtab
-" カレント行に下線を引く
-"set cursorline
-"autocmd VimEnter,ColorScheme * highlight CursorLine term=reverse cterm=reverse
 " *.texはlatexファイルタイプで開く
 let g:tex_flavor = "latex"
 " 全角幅の記号正しく表示する
 set ambiwidth=double
 " ステータスラインにフィアル名，文字コード，改行コードを表示
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-
 colorscheme koehler
+set shortmess+=I
 
 "-------------------------------------------------------------------------------
 " カレントウィンドウにのみ罫線を引く
 "-------------------------------------------------------------------------------
-"autocmd WinLeave * set nocursorline
-"autocmd WinEnter,BufRead * set cursorline
+autocmd WinLeave * set nocursorline
+autocmd WinEnter,BufRead * set cursorline
 
 "-------------------------------------------------------------------------------
 " ショートカットを設定
