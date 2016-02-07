@@ -18,7 +18,7 @@ ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
 ln -f -s $SCRIPT_DIR/gemrc $HOME/.gemrc
 ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky/keys.txt
-ln -f -s $SCRIPT_DIR/gdbinit  $HOME/.gdbinit
+ln -f -s $SCRIPT_DIR/gdbinit $HOME/.gdbinit
 
 rm -rf $HOME/.zshenv
 rm -rf $HOME/.vimrc_env
@@ -75,12 +75,6 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 # for tasky                                                                    #
 ################################################################################
 git clone git@github.com:miettal/tasky.git $HOME/.tasky_
-
-################################################################################
-# for peda                                                                     #
-################################################################################
-git clone https://github.com/longld/peda.git $HOME/.peda
-echo "source ~/.peda/peda.py" >> $HOME/.gdbinit
 
 ################################################################################
 # for pyenv                                                                    #
@@ -145,9 +139,18 @@ read yn
 case "$yn" in
 "y") 
   mkdir -p $SCRIPT_DIR/ctf
+  ln -f -s $SCRIPT_DIR/ctf $HOME/.ctf
+
+  echo 'export PATH=$HOME/.ctf/exiftool:$PATH' >> $HOME/.zshenv
+  echo 'export PATH=$HOME/.ctf/binwalk:$PATH' >> $HOME/.zshenv
+  echo 'export PATH=$HOME/.ctf/sqlmap:$PATH' >> $HOME/.zshenv
+  echo 'source $HOME/.ctf/peda/peda.py' >> $HOME/.gdbinit
+  
+
   wget -O - http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.10.tar.gz | tar zxf - -C $SCRIPT_DIR/ctf
-  git clone git@github.com:devttys0/binwalk.git $SCRIPT_DIR/ctf
-  git clone git@github.com:sqlmapproject/sqlmap.git $SCRIPT_DIR/ctf
+  git clone git@github.com:devttys0/binwalk.git $SCRIPT_DIR/ctf/binwalk
+  git clone git@github.com:sqlmapproject/sqlmap.git $SCRIPT_DIR/ctf/sqlmap
+  git clone git@github.com:longld/peda.git $SCRIPT_DIR/ctf/peda
  ;;
 *)
   # no
