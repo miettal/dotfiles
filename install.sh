@@ -18,12 +18,13 @@ ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
 ln -f -s $SCRIPT_DIR/gemrc $HOME/.gemrc
 ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky/keys.txt
-ln -f -s $SCRIPT_DIR/gdbinit $HOME/.gdbinit
 
+rm -rf $HOME/.gdbinit
 rm -rf $HOME/.zshenv
 rm -rf $HOME/.vimrc_env
 rm -rf $HOME/.tmux_env
 
+echo "source $SCRIPT_DIR/gdbinit" >> $HOME/.gdbinit
 echo "source $SCRIPT_DIR/zshenv" >> $HOME/.zshenv
 echo "source $SCRIPT_DIR/vimrc_env" >> $HOME/.vimrc_env
 echo "source $SCRIPT_DIR/tmux_env" >> $HOME/.tmux_env

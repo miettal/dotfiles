@@ -18,7 +18,7 @@ elif system == 'Linux' :
   dist = platform.linux_distribution()
   if dist[0] == 'Ubuntu' :
     print 'ubuntu'
-  elif dist[0] == 'Debian' :
+  elif dist[0] == 'debian' :
     print 'debian'
   else :
     sys.exit(1)
