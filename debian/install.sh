@@ -1,6 +1,7 @@
 #!/bin/bash
 apt-get install --assume-yes git
 apt-get install --assume-yes mercurial
+apt-get install --assume-yes mercurial
 apt-get install --assume-yes tmux
 apt-get install --assume-yes zsh
 apt-get install --assume-yes vim
