@@ -12,6 +12,9 @@ alias update_pyenv='cd $HOME/.pyenv;git pull;cd -'
 alias update_rbenv='cd $HOME/.rbenv;git pull;cd -'
 alias commit='git commit . -m "quick commit"; git push origin master'
 alias task='gcalcli --military --width $((($COLUMNS-8)/7)) calw 2;python $HOME/.tasky_/tasky.py --list'
+alias shutdown='yes'
+alias reboot='yes'
+alias halt='yes'
 
 # Environment variable
 export PATH=$HOME/dotfiles/myscripts:$PATH
