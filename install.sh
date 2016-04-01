@@ -42,7 +42,12 @@ if [[ $SHELL != "/bin/zsh" ]]; then
   fi
   echo Re-login
 fi
-
+################################################################################
+# for private dotfiles                                                         #
+################################################################################
+mkdir -p $HOME/.ssh
+git clone git@github.com:miettal/dotfiles_private.git $SCRIPT_DIR/dotfiles_private
+ln -f -s $SCRIPT_DIR/dotfiles_private/ssh/* $HOME/.ssh/
 
 ################################################################################
 # for git                                                                      #

@@ -8,6 +8,7 @@ Session.vim
 tags
 
 # for my dotfiles
+dotfiles_private/
 print
 ctf/
 vim/bundle/
