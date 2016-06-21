@@ -9,6 +9,7 @@ apt-get install --assume-yes zsh
 apt-get install --assume-yes tmux
 apt-get install --assume-yes vim
 apt-get install --assume-yes ctags
+apt-get install --assume-yes build-essential
 
 apt-get install --assume-yes wget
 apt-get install --assume-yes curl
