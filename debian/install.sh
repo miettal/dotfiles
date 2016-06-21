@@ -1,8 +1,12 @@
 #!/bin/bash
 apt-get install --assume-yes git
 apt-get install --assume-yes mercurial
-apt-get install --assume-yes tmux
+apt-get instlal --assume-yes build-essential
+apt-get instlal --assume-yes make
+apt-get instlal --assume-yes automake
+apt-get instlal --assume-yes autoconf
 apt-get install --assume-yes zsh
+apt-get install --assume-yes tmux
 apt-get install --assume-yes vim
 apt-get install --assume-yes ctags
 

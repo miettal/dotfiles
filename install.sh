@@ -126,8 +126,8 @@ case "$yn" in
   export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
   eval "$(rbenv init -)"
   
-  yes n | rbenv install 2.0.0-p481
-  rbenv global 2.0.0-p481
+  yes n | rbenv install 2.4.0-dev
+  rbenv global 2.4.0-dev
   
   gem update --system
   gem install bundler
