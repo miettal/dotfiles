@@ -22,5 +22,7 @@ apt-get install --assume-yes libreadline-dev
 apt-get install --assume-yes libsqlite3-dev
 
 # for ruby
+apt-get install --assume-yes ruby
+apt-get install --assume-yes bison
 apt-get install --assume-yes libssl-dev
 apt-get install --assume-yes libreadline-dev
