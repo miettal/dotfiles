@@ -58,12 +58,12 @@ git config --global alias.co checkout
 ################################################################################
 # for zsh                                                                      #
 ################################################################################
-git clone git@github.com:robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 
 ################################################################################
 # for vim                                                                      #
 ################################################################################
-git clone git@github.com:Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim
+git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim
 
 ################################################################################
 # for trash                                                                    #
@@ -80,7 +80,7 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 ################################################################################
 # for tasky                                                                    #
 ################################################################################
-git clone git@github.com:miettal/tasky.git $HOME/.tasky_
+git clone https://github.com/miettal/tasky.git $HOME/.tasky_
 
 ################################################################################
 # for pyenv                                                                    #
@@ -89,10 +89,10 @@ printf "do you want to instal pyenv?[y/n]:"
 read yn
 case "$yn" in
 "y") 
-  git clone git@github.com:yyuu/pyenv.git $HOME/.pyenv
-  git clone git@github.com:yyuu/pyenv-virtualenv.git \
+  git clone https://github.com/yyuu/pyenv.git $HOME/.pyenv
+  git clone https://github.com/yyuu/pyenv-virtualenv.git \
     $HOME/.pyenv/plugins/pyenv-virtualenv
-  git clone git@github.com:yyuu/pyenv-pip-rehash.git \
+  git clone https://github.com/yyuu/pyenv-pip-rehash.git \
     $HOME/.pyenv/plugins/pyenv-pip-rehash
   
   export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
@@ -117,10 +117,10 @@ printf "do you want to instal rbenv?[y/n]:"
 read yn
 case "$yn" in
 "y") 
-  git clone git@github.com:sstephenson/rbenv.git $HOME/.rbenv
-  git clone git@github.com:sstephenson/ruby-build.git \
+  git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+  git clone https://github.com/sstephenson/ruby-build.git \
     $HOME/.rbenv/plugins/ruby-build
-  git clone git@github.com:sstephenson/rbenv-gem-rehash.git \
+  git clone https://github.com/sstephenson/rbenv-gem-rehash.git \
     $HOME/.rbenv/plugins/rbenv-gem-rehash
   
   export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
@@ -154,9 +154,9 @@ case "$yn" in
   
 
   wget -O - http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.10.tar.gz | tar zxf - -C $SCRIPT_DIR/ctf
-  git clone git@github.com:devttys0/binwalk.git $SCRIPT_DIR/ctf/binwalk
-  git clone git@github.com:sqlmapproject/sqlmap.git $SCRIPT_DIR/ctf/sqlmap
-  git clone git@github.com:longld/peda.git $SCRIPT_DIR/ctf/peda
+  git clone https://github.com/devttys0/binwalk.git $SCRIPT_DIR/ctf/binwalk
+  git clone https://github.com/sqlmapproject/sqlmap.git $SCRIPT_DIR/ctf/sqlmap
+  git clone https://github.com/longld/peda.git $SCRIPT_DIR/ctf/peda
  ;;
 *)
   # no
