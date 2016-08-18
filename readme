@@ -2,8 +2,8 @@ My setting files
 https://github.com/miettal/dotfiles
 
 How to use
-$chmod +x install.sh
-$./install.sh
+$ sudo apt-get install python-minimal git # optional
+$ git clone https://github.com/miettal/dotfiles.git; cd dotfiles; ./install.sh
 
 Copyright 2012, Hiromasa Ihara
 Licensed under the WTFPL license.
