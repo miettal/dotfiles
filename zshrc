@@ -26,26 +26,21 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 if [ -e $HOME/dotfiles/print ]; then
   pyenv shell 2.7-dev
+  (zsh -c 'curl -s wttr.in > /tmp/com.miettal.weather.$$ && cp /tmp/com.miettal.weather.$$ /tmp/com.miettal.weather'&)
+  ls /tmp/com.miettal.weather > /dev/null 2>&1 || touch /tmp/com.miettal.weather
+  cat /tmp/com.miettal.weather | head -n 7
+
   #google calendar
   (zsh -c 'gcalcli agenda > /tmp/com.miettal.gcalcli.$$ && cp /tmp/com.miettal.gcalcli.$$ /tmp/com.miettal.gcalcli'&)
   ls /tmp/com.miettal.gcalcli > /dev/null 2>&1 || touch /tmp/com.miettal.gcalcli
-  cat /tmp/com.miettal.gcalcli | tail -n $((`cat /tmp/com.miettal.gcalcli | wc -l ` - 1 ))
+  cat /tmp/com.miettal.gcalcli | tail -n $((`cat /tmp/com.miettal.gcalcli | wc -l ` - 1 )) | head -n $((`cat /tmp/com.miettal.gcalcli | wc -l ` - 2 ))
   
   #google task
   (zsh -c 'python $HOME/.tasky_/tasky.py --list > /tmp/com.miettal.tasky.$$ && cp /tmp/com.miettal.tasky.$$ /tmp/com.miettal.tasky'&)
   ls /tmp/com.miettal.tasky > /dev/null 2>&1 || touch /tmp/com.miettal.tasky
   cat /tmp/com.miettal.tasky | tail -n $((`cat /tmp/com.miettal.tasky | wc -l ` - 1 ))
+
   pyenv shell --unset
 fi
-
-#echo -n "\x1b[5;30m進捗どうですか？"
-echo -n "\x1b[1;4;5;31m進捗どうですか？"
-echo -n "\x1b[1;4;5;32m進捗どうですか？"
-echo -n "\x1b[1;4;5;33m進捗どうですか？"
-echo
-echo -n "\x1b[1;4;5;34m進捗どうですか？"
-echo -n "\x1b[1;4;5;35m進捗どうですか？"
-echo -n "\x1b[1;4;5;36m進捗どうですか？"
-echo
 
 source $HOME/Dropbox/5.vm/env.zsh
