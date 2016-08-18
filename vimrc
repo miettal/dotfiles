@@ -39,8 +39,7 @@ set expandtab
 let g:tex_flavor = "latex"
 " 全角幅の記号正しく表示する
 set ambiwidth=double
-" ステータスラインにフィアル名，文字コード，改行コードを表示
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+"colorscheme elflord
 colorscheme koehler
 set shortmess+=I
 
@@ -105,6 +104,22 @@ augroup BinaryXXD
 augroup END
 
 "-------------------------------------------------------------------------------
+" HTML閉じタグ自動挿入
+"-------------------------------------------------------------------------------
+augroup MyXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+augroup END
+
+"-------------------------------------------------------------------------------
+" 閉じ括弧自動挿入
+"-------------------------------------------------------------------------------
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+"-------------------------------------------------------------------------------
 " TODO設定
 "-------------------------------------------------------------------------------
 " TODOを\-tで一覧表示
@@ -154,6 +169,9 @@ NeoBundle 'sudo.vim'
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'tomasr/molokai'
 call neobundle#end()
 NeoBundleCheck
 
@@ -227,8 +245,8 @@ if has("unix")
   endif
 endif
 "unite.vim
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
+let g:unite_enable_start_insert = 1
+let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_mru_limit = 200
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
@@ -236,11 +254,18 @@ nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 " vim-indent-guides
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_guide_size=1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+" molokai
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+"colorscheme molokai
+"set t_Co=256
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
@@ -275,3 +300,4 @@ autocmd FileType vimshell
 \| call vimshell#hook#add('emptycmd', 'my_vimshell_emptycmd', 'g:my_vimshell_emptycmd')
 \| call vimshell#hook#add('notfound', 'my_vimshell_notfound', 'g:my_vimshell_notfound')
 syntax enable
+

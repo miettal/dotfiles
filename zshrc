@@ -27,7 +27,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 if [ -e $HOME/dotfiles/print ]; then
   pyenv shell 2.7-dev
   #google calendar
-  (zsh -c 'gcalcli --military --width $((($COLUMNS-8)/7)) calw 2 > /tmp/com.miettal.gcalcli.$$ && cp /tmp/com.miettal.gcalcli.$$ /tmp/com.miettal.gcalcli'&)
+  (zsh -c 'gcalcli agenda > /tmp/com.miettal.gcalcli.$$ && cp /tmp/com.miettal.gcalcli.$$ /tmp/com.miettal.gcalcli'&)
   ls /tmp/com.miettal.gcalcli > /dev/null 2>&1 || touch /tmp/com.miettal.gcalcli
   cat /tmp/com.miettal.gcalcli | tail -n $((`cat /tmp/com.miettal.gcalcli | wc -l ` - 1 ))
   
@@ -47,3 +47,5 @@ echo -n "\x1b[1;4;5;34m進捗どうですか？"
 echo -n "\x1b[1;4;5;35m進捗どうですか？"
 echo -n "\x1b[1;4;5;36m進捗どうですか？"
 echo
+
+source $HOME/Dropbox/5.vm/env.zsh
