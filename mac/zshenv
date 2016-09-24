@@ -6,6 +6,9 @@ alias lsusb="system_profiler SPUSBDataType"
 # for arduino
 alias arduino='open /Applications/Arduino.app'
 
+# for gnu-coreutils
+export PATH=/opt/local/libexec/gnubin/:$PATH
+
 # for ps
 alias ps='ps -T'
 
