@@ -7,6 +7,8 @@ platform=`python $SCRIPT_DIR/platformcheck.py`
 mkdir -p $HOME/.config/fontconfig
 mkdir -p $HOME/.tasky
 
+ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
+ln -f -s $SCRIPT_DIR/zpreztorc $HOME/.zpreztorc
 ln -f -s $SCRIPT_DIR/gitconfig $HOME/.gitconfig
 ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc
 ln -f -s $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
@@ -14,7 +16,6 @@ ln -f -s $SCRIPT_DIR/vim $HOME/.vim
 ln -f -s $SCRIPT_DIR/vimrc $HOME/.vimrc
 ln -f -s $SCRIPT_DIR/vimperator $HOME/.vimperator
 ln -f -s $SCRIPT_DIR/vimperatorrc $HOME/.vimperatorrc
-ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
 ln -f -s $SCRIPT_DIR/gemrc $HOME/.gemrc
 ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky/keys.txt
@@ -58,7 +59,7 @@ git config --global alias.co checkout
 ################################################################################
 # for zsh                                                                      #
 ################################################################################
-git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
 
 ################################################################################
 # for vim                                                                      #
