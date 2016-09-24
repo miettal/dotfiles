@@ -24,5 +24,3 @@ if [ -e $HOME/dotfiles/print ]; then
 
   pyenv shell --unset
 fi
-
-source $HOME/Dropbox/5.vm/env.zsh
