@@ -1,5 +1,4 @@
 export LANG="ja_JP.UTF-8"
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -23,3 +22,8 @@ if [ -e $HOME/dotfiles/print ]; then
 
   pyenv shell --unset
 fi
+
+if [[ ! -n $TMUX ]]; then
+  tmux attach-session -t "zshrc" || tmux new-session -s "zshrc"
+fi
+
