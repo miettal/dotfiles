@@ -6,9 +6,6 @@ alias lsusb="system_profiler SPUSBDataType"
 # for arduino
 alias arduino='open /Applications/Arduino.app'
 
-# for gnu-coreutils
-export PATH=/opt/local/libexec/gnubin/:$PATH
-
 # for ps
 alias ps='ps -T'
 
@@ -26,12 +23,3 @@ export CPATH=/opt/local/include:$INCLUDE
 #  export PYTHONPATH=$PYTHONPATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages
 #  alias pip="pip-2.7"
 #fi
-
-#heroku
-export PATH=/usr/local/heroku/bin:$PATH
-
-#arm-toolchain
-export PATH=/opt/sat/bin:$PATH
-
-#exiftool
-export PATH=/usr/local/bin:$PATH

@@ -37,7 +37,7 @@ export PYTHONPATH=$HOME/Dropbox/data/lib/pymodule:$PYTHONPATH
 
 #pyenv
 if [[ -e $HOME/.pyenv ]]; then
-  export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
+  export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH
   eval "$(pyenv init -)"
 fi
 
@@ -46,9 +46,3 @@ if [[ -e $HOME/.rbenv ]]; then
   export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
   eval "$(rbenv init -)"
 fi
-
-#heroku
-export PATH=/usr/local/heroku/bin:$PATH
-
-#arm-toolchain
-export PATH=/opt/sat/bin:$PATH

@@ -33,7 +33,7 @@ echo "source $SCRIPT_DIR/tmux_env" >> $HOME/.tmux_env
 echo "source $SCRIPT_DIR/$platform/zshenv" >> $HOME/.zshenv
 echo "source $SCRIPT_DIR/$platform/vimrc_env" >> $HOME/.vimrc_env
 echo "source $SCRIPT_DIR/$platform/tmux_env" >> $HOME/.tmux_env
-sudo "$SCRIPT_DIR/$platform/install.sh"
+$SCRIPT_DIR/$platform/install.sh
 
 # change login shell
 if [[ $SHELL != "/bin/zsh" ]]; then

@@ -1,3 +1,4 @@
+echo $PATH
 export LANG="ja_JP.UTF-8"
 
 # Prezto
@@ -28,3 +29,6 @@ if [[ ! -n $TMUX ]]; then
   tmux attach-session -t "zshrc" || tmux new-session -s "zshrc"
 fi
 
+# for gnu-coreutils
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
