@@ -20,12 +20,12 @@ export PATH=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Re
 #C
 export CPATH=/opt/local/include:$INCLUDE
 
-# Python
-if [ `pyenv global ` = 'system' ] ; then
-  export PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
-  export PYTHONPATH=$PYTHONPATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages
-  alias pip="pip-2.7"
-fi
+## Python
+#if [ `pyenv global ` = 'system' ] ; then
+#  export PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
+#  export PYTHONPATH=$PYTHONPATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages
+#  alias pip="pip-2.7"
+#fi
 
 #heroku
 export PATH=/usr/local/heroku/bin:$PATH

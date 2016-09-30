@@ -48,7 +48,7 @@ fi
 # for private dotfiles                                                         #
 ################################################################################
 mkdir -p $HOME/.ssh
-git clone git@github.com:miettal/dotfiles_private.git $SCRIPT_DIR/dotfiles_private
+git clone https://github.com/miettal/dotfiles_private.git $SCRIPT_DIR/dotfiles_private
 ln -f -s $SCRIPT_DIR/dotfiles_private/ssh/* $HOME/.ssh/
 
 ################################################################################
@@ -71,12 +71,6 @@ git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundl
 ################################################################################
 # create trash directory
 mkdir -p $HOME/.trash
-
-################################################################################
-# for tmux                                                                     #
-################################################################################
-# tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
 ################################################################################
 # for tasky                                                                    #
