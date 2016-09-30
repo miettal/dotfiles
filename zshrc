@@ -26,7 +26,7 @@ if [ -e $HOME/dotfiles/print ]; then
 fi
 
 if [[ ! -n $TMUX ]]; then
-  tmux attach-session -t "zshrc" || tmux new-session -s "zshrc"
+  tmux attach-session || tmux new-session -s "zshrc"
 fi
 
 # for gnu-coreutils
