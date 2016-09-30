@@ -5,7 +5,6 @@ SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 platform=`python $SCRIPT_DIR/platformcheck.py`
 
 mkdir -p $HOME/.config/fontconfig
-mkdir -p $HOME/.tasky
 
 ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_DIR/zpreztorc $HOME/.zpreztorc
@@ -18,7 +17,6 @@ ln -f -s $SCRIPT_DIR/vimperator $HOME/.vimperator
 ln -f -s $SCRIPT_DIR/vimperatorrc $HOME/.vimperatorrc
 ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
 ln -f -s $SCRIPT_DIR/gemrc $HOME/.gemrc
-ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky/keys.txt
 
 rm -rf $HOME/.gdbinit
 rm -rf $HOME/.zshenv
@@ -75,7 +73,7 @@ mkdir -p $HOME/.trash
 ################################################################################
 # for tasky                                                                    #
 ################################################################################
-git clone https://github.com/miettal/tasky.git $HOME/.tasky_
+git clone https://github.com/miettal/tasky.git $HOME/.tasky
 
 ################################################################################
 # for pyenv                                                                    #

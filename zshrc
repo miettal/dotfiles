@@ -1,3 +1,4 @@
+export LC_ALL='ja_JP.UTF-8'
 export LANG="ja_JP.UTF-8"
 
 # Prezto
@@ -17,7 +18,7 @@ if [ -e $HOME/dotfiles/print ]; then
   cat /tmp/com.miettal.gcalcli | tail -n $((`cat /tmp/com.miettal.gcalcli | wc -l ` - 1 )) | head -n $((`cat /tmp/com.miettal.gcalcli | wc -l ` - 2 ))
   
   #google task
-  (zsh -c 'python $HOME/.tasky_/tasky.py --list > /tmp/com.miettal.tasky.$$ && cp -f /tmp/com.miettal.tasky.$$ /tmp/com.miettal.tasky'&)
+  (zsh -c 'python $HOME/.tasky/tasky.py --list > /tmp/com.miettal.tasky.$$ && cp -f /tmp/com.miettal.tasky.$$ /tmp/com.miettal.tasky'&)
   ls /tmp/com.miettal.tasky > /dev/null 2>&1 || touch /tmp/com.miettal.tasky
   cat /tmp/com.miettal.tasky | tail -n $((`cat /tmp/com.miettal.tasky | wc -l ` - 1 ))
 
@@ -27,7 +28,3 @@ fi
 if [[ ! -n $TMUX ]]; then
   tmux attach-session || tmux new-session -s "zshrc"
 fi
-
-# for gnu-coreutils
-#export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-#export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
