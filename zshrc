@@ -25,7 +25,4 @@ if [ -e $HOME/dotfiles/print ]; then
   pyenv shell --unset
 fi
 
-if [[ ! -n $TMUX ]]; then
-  tmux a -d -t "zshrc"|| tmux new-session -s "zshrc"
-fi
-
+alias rm='mv -f --backup=numbered --target-directory ~/.trash'

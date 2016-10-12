@@ -7,6 +7,9 @@ platform=`python $SCRIPT_DIR/platformcheck.py`
 mkdir -p $HOME/.config/fontconfig
 
 ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
+ln -f -s $SCRIPT_DIR/zlogin $HOME/.zlogin
+ln -f -s $SCRIPT_DIR/zlogout $HOME/.zlogout
+ln -f -s $SCRIPT_DIR/zprofile $HOME/.zprofile
 ln -f -s $SCRIPT_DIR/zpreztorc $HOME/.zpreztorc
 ln -f -s $SCRIPT_DIR/gitconfig $HOME/.gitconfig
 ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc

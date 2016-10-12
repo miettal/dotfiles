@@ -1,13 +1,9 @@
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
 # Alias
-unalias cd
-unalias cp
-unalias mv
-unalias rm
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
 alias emacs=vim
 alias vi=vim
