@@ -47,3 +47,9 @@ fi
 if [ -f $HOME/google-cloud-sdk/path.zsh.inc ]; then
   source "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
+
+function addtask (){
+  pyenv shell 2.7-dev
+  (zsh -c "python $HOME/.tasky/tasky.py --add --title '$1' --note '$2' --date `date +%m/%d/%Y`")
+  pyenv shell --unset
+}

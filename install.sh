@@ -143,8 +143,8 @@ case "$yn" in
   mkdir -p $SCRIPT_DIR/ctf
   ln -f -s $SCRIPT_DIR/ctf $HOME/.ctf
 
-  echo 'export PATH=$HOME/.ctf/exiftool:$PATH' >> $HOME/.zshenv
-  echo 'export PATH=$HOME/.ctf/binwalk:$PATH' >> $HOME/.zshenv
+  echo 'export PATH=$HOME/.ctf/exiftool/Image-ExifTool-10.10:$PATH' >> $HOME/.zshenv
+  echo 'export PATH=$HOME/.ctf/binwalk/src/scripts:$PATH' >> $HOME/.zshenv
   echo 'export PATH=$HOME/.ctf/sqlmap:$PATH' >> $HOME/.zshenv
   echo 'source $HOME/.ctf/peda/peda.py' >> $HOME/.gdbinit
   
