@@ -2,7 +2,7 @@
  * <+FILENAME+>.c
  *
  * Author:   Hiromasa Ihara (miettal)
- * URL:      http://miettal.com
+ * URL:      https://github.com/miettal
  * License:  MIT License
  * Created:  <+DATE+>
  */
