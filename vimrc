@@ -99,6 +99,7 @@ augroup END
 " 環境変数
 "-------------------------------------------------------------------------------
 let PATH = expand("~/.pyenv/shims") . ":" . $PATH
+let PATH = expand("~/.rbenv/shims") . ":" . $PATH
 
 "-------------------------------------------------------------------------------
 " neovundle設定
@@ -140,10 +141,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle "davidhalter/jedi-vim", {
-      \ "autoload": {
-      \   "filetypes": ["python"]
-      \ }}
+NeoBundle "davidhalter/jedi-vim"
 
 call neobundle#end()
 NeoBundleCheck
