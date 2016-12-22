@@ -26,3 +26,5 @@ if [ -e $HOME/dotfiles/print ]; then
 fi
 
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
+
+eval $(thefuck --alias)

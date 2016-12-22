@@ -26,3 +26,7 @@ apt-get install --assume-yes ruby
 apt-get install --assume-yes bison
 apt-get install --assume-yes libssl-dev
 apt-get install --assume-yes libreadline-dev
+
+# for thefuck
+apt-get install --assume-yes python3-dev python3-pip
+sudo -H pip3 install thefuck

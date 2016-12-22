@@ -141,7 +141,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle "davidhalter/jedi-vim"
+"NeoBundle "davidhalter/jedi-vim"
 
 call neobundle#end()
 NeoBundleCheck
