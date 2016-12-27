@@ -6,6 +6,18 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+#pyenv
+if [[ -e $HOME/.pyenv ]]; then
+  export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH
+  eval "$(pyenv init -)"
+fi
+
+#rbenv
+if [[ -e $HOME/.rbenv ]]; then
+  export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
+  eval "$(rbenv init -)"
+fi
+
 if [ -e $HOME/dotfiles/print ]; then
   pyenv shell 2.7-dev
   (zsh -c 'curl -s wttr.in > /tmp/com.miettal.weather.$$ && cp -f /tmp/com.miettal.weather.$$ /tmp/com.miettal.weather'&)
@@ -13,12 +25,12 @@ if [ -e $HOME/dotfiles/print ]; then
   cat /tmp/com.miettal.weather | head -n 7
 
   #google calendar
-  (zsh -c 'gcalcli agenda > /tmp/com.miettal.gcalcli.$$ && cp -f /tmp/com.miettal.gcalcli.$$ /tmp/com.miettal.gcalcli'&)
+  (zsh -c '$HOME/dotfiles/back_task/gcalcli.sh'&)
   ls /tmp/com.miettal.gcalcli > /dev/null 2>&1 || touch /tmp/com.miettal.gcalcli
   cat /tmp/com.miettal.gcalcli | tail -n $((`cat /tmp/com.miettal.gcalcli | wc -l ` - 1 )) | head -n $((`cat /tmp/com.miettal.gcalcli | wc -l ` - 2 ))
   
   #google task
-  (zsh -c 'python $HOME/.tasky/tasky.py --list > /tmp/com.miettal.tasky.$$ && cp -f /tmp/com.miettal.tasky.$$ /tmp/com.miettal.tasky'&)
+  (zsh -c '$HOME/dotfiles/back_task/tasky.sh'&)
   ls /tmp/com.miettal.tasky > /dev/null 2>&1 || touch /tmp/com.miettal.tasky
   cat /tmp/com.miettal.tasky | tail -n $((`cat /tmp/com.miettal.tasky | wc -l ` - 1 ))
 
