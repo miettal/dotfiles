@@ -20,7 +20,7 @@ fi
 
 if [ -e $HOME/dotfiles/print ]; then
   pyenv shell 2.7-dev
-  (zsh -c 'curl -s wttr.in > /tmp/com.miettal.weather.$$ && cp -f /tmp/com.miettal.weather.$$ /tmp/com.miettal.weather'&)
+  (zsh -c 'curl -s wttr.in/Tokyo > /tmp/com.miettal.weather.$$ && cp -f /tmp/com.miettal.weather.$$ /tmp/com.miettal.weather'&)
   ls /tmp/com.miettal.weather > /dev/null 2>&1 || touch /tmp/com.miettal.weather
   cat /tmp/com.miettal.weather | head -n 7
 

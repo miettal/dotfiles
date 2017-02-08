@@ -213,7 +213,7 @@ if has("unix")
     \                '%c %s',
     \                'dvipdfmx -o %s:r.pdf %s:r.dvi',
     \                'rm -rf %s:r.dvi %s:r.log %s:r.aux %s:r.toc',
-    \                'open -g %s:r.pdf || true'],
+    \                'open -g %s:r.pdf'],
     \   }
   endif
 endif
