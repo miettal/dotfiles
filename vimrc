@@ -140,10 +140,10 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle "davidhalter/jedi-vim", {
-      \ "autoload": {
-      \   "filetypes": ["python"]
-      \ }}
+"NeoBundle "davidhalter/jedi-vim", {
+"      \ "autoload": {
+"      \   "filetypes": ["python"]
+"      \ }}
 
 call neobundle#end()
 NeoBundleCheck

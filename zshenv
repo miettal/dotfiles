@@ -13,7 +13,7 @@ alias each="find . -type f -print0 | xargs -n 1 -0"
 alias update_pip='pip install --upgrade pip; pip freeze --local | grep -v "^\-e" | cut -d = -f 1  | xargs -n1 pip install -U'
 alias update_pyenv='cd $HOME/.pyenv;git pull;cd -'
 alias update_rbenv='cd $HOME/.rbenv;git pull;cd -'
-alias commit='git commit . -m "quick commit"; git push origin master'
+alias commit='git add .; git commit . -m "quick commit"; git push origin master'
 alias task='gcalcli --military --width $((($COLUMNS-8)/7)) calw 2;python $HOME/.tasky_/tasky.py --list'
 alias shutdown='yes'
 alias reboot='yes'

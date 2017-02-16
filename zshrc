@@ -26,3 +26,9 @@ if [ -e $HOME/dotfiles/print ]; then
 fi
 
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/taisyo/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/home/taisyo/google-cloud-sdk/completion.zsh.inc'
