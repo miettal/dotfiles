@@ -31,17 +31,6 @@ export CPATH=$HOME/Dropbox/data/lib/cmodule/include:$CPATH
 #python
 export PYTHONPATH=$HOME/Dropbox/data/lib/pymodule:$PYTHONPATH
 
-#pyenv
-if [[ -e $HOME/.pyenv ]]; then
-  export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH
-  eval "$(pyenv init -)"
-fi
-
-#rbenv
-if [[ -e $HOME/.rbenv ]]; then
-  export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
-  eval "$(rbenv init -)"
-fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f $HOME/google-cloud-sdk/path.zsh.inc ]; then
@@ -50,6 +39,6 @@ fi
 
 function addtask (){
   pyenv shell 2.7-dev
-  (zsh -c "python $HOME/.tasky/tasky.py --add --title '$1' --note '$2' --date `date +%m/%d/%Y`")
+  python $HOME/.tasky/tasky.py --add --title $1 --date `date +%m/%d/%Y`
   pyenv shell --unset
 }

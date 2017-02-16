@@ -26,14 +26,15 @@ rm -rf $HOME/.zshenv
 rm -rf $HOME/.vimrc_env
 rm -rf $HOME/.tmux_env
 
+echo "source $SCRIPT_DIR/$platform/zshenv" >> $HOME/.zshenv
+echo "source $SCRIPT_DIR/$platform/vimrc_env" >> $HOME/.vimrc_env
+echo "source $SCRIPT_DIR/$platform/tmux_env" >> $HOME/.tmux_env
+
 echo "source $SCRIPT_DIR/gdbinit" >> $HOME/.gdbinit
 echo "source $SCRIPT_DIR/zshenv" >> $HOME/.zshenv
 echo "source $SCRIPT_DIR/vimrc_env" >> $HOME/.vimrc_env
 echo "source $SCRIPT_DIR/tmux_env" >> $HOME/.tmux_env
 
-echo "source $SCRIPT_DIR/$platform/zshenv" >> $HOME/.zshenv
-echo "source $SCRIPT_DIR/$platform/vimrc_env" >> $HOME/.vimrc_env
-echo "source $SCRIPT_DIR/$platform/tmux_env" >> $HOME/.tmux_env
 $SCRIPT_DIR/$platform/install.sh
 
 # change login shell
@@ -45,42 +46,28 @@ if [[ $SHELL != "/bin/zsh" ]]; then
   fi
   echo Re-login
 fi
-################################################################################
-# for private dotfiles                                                         #
-################################################################################
+
+# private dotfiles
 mkdir -p $HOME/.ssh
 git clone https://github.com/miettal/dotfiles_private.git $SCRIPT_DIR/dotfiles_private
 ln -f -s $SCRIPT_DIR/dotfiles_private/ssh/* $HOME/.ssh/
 
-################################################################################
-# for git                                                                      #
-################################################################################
+# git
 git config --global alias.co checkout
 
-################################################################################
-# for zsh                                                                      #
-################################################################################
+# zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
 
-################################################################################
-# for vim                                                                      #
-################################################################################
+# vim
 git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim
 
-################################################################################
-# for trash                                                                    #
-################################################################################
-# create trash directory
+# trash directory
 mkdir -p $HOME/.trash
 
-################################################################################
-# for tasky                                                                    #
-################################################################################
+# tasky
 git clone https://github.com/miettal/tasky.git $HOME/.tasky
 
-################################################################################
-# for pyenv                                                                    #
-################################################################################
+# pyenv
 printf "do you want to instal pyenv?[y/n]:"
 read yn
 case "$yn" in
@@ -106,9 +93,7 @@ case "$yn" in
  ;;
 esac
 
-################################################################################
-# for rbenv                                                                    #
-################################################################################
+# rbenv
 printf "do you want to instal rbenv?[y/n]:"
 read yn
 case "$yn" in
@@ -133,9 +118,7 @@ case "$yn" in
  ;;
 esac
 
-################################################################################
-# for ctf                                                                      #
-################################################################################
+# ctf tools
 printf "do you want to instal ctf tools?[y/n]:"
 read yn
 case "$yn" in
