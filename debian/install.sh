@@ -9,6 +9,9 @@ apt-get install --assume-yes ctags
 apt-get install --assume-yes wget
 apt-get install --assume-yes curl
 
+# for c
+apt-get install --assume-yes build-essential
+
 # for python
 apt-get install --assume-yes libssl-dev
 apt-get install --assume-yes zlib1g-dev
