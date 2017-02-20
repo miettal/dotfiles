@@ -1,34 +1,16 @@
+script_dir=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+
+#source
+source $script_dir/iterm2_shell_integration.zsh
+
 # Alias
 alias open="open -g"
-alias update_system="sudo port selfupdate; sudo port sync; sudo port upgrade outdated; sudo port uninstall inactive; sudo port clean --all installed"
+alias update_system="brew update; brew upgrade; brew cleanup; brew doctor"
 alias lsusb="system_profiler SPUSBDataType"
-
-# for arduino
 alias arduino='open /Applications/Arduino.app'
-
-# for ps
 alias ps='ps -T'
 
 # Environment variable
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export LD_LIBRARY_PATH=/opt/local/lib:$LD_LIBRARY_PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-export PATH=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:$PATH
-#C
-export CPATH=/opt/local/include:$INCLUDE
-
-# Python
-if [ `pyenv global ` = 'system' ] ; then
-  export PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
-  export PYTHONPATH=$PYTHONPATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages
-  alias pip="pip-2.7"
-fi
-
-#heroku
-export PATH=/usr/local/heroku/bin:$PATH
-
-#arm-toolchain
-export PATH=/opt/sat/bin:$PATH
-
-#exiftool
-export PATH=/usr/local/bin:$PATH
+export PATH="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/texlive/2016/bin/x86_64-darwin/:$PATH"

@@ -39,8 +39,6 @@ set expandtab
 let g:tex_flavor = "latex"
 " 全角幅の記号正しく表示する
 set ambiwidth=double
-" ステータスラインにフィアル名，文字コード，改行コードを表示
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 colorscheme koehler
 set shortmess+=I
 
@@ -48,16 +46,12 @@ set shortmess+=I
 " カレントウィンドウにのみ罫線を引く
 "-------------------------------------------------------------------------------
 autocmd WinLeave * set nocursorline
-autocmd WinEnter,BufRead * set cursorline
+autocmd WinEnter * set cursorline
 
 "-------------------------------------------------------------------------------
 " ショートカットを設定
 "-------------------------------------------------------------------------------
-" Escの2回押しでハイライト消去
-nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
-" カーソル下のキーワードをヘルプでひく
-nnoremap <C-i><C-h> :<C-u>help<Space><C-r><C-w><CR>
-" ペイン移動を楽にする
+" ペイン移動
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
@@ -66,16 +60,18 @@ nnoremap <C-h> <C-w>h
 "-------------------------------------------------------------------------------
 " ファイルの種別によってコマンドを実行
 "-------------------------------------------------------------------------------
-" Cのファイルはcindentにする
+" C
 autocmd Filetype c setlocal cindent
-autocmd Filetype cuda setlocal cindent
+autocmd Filetype h setlocal cindent
+" C++
 autocmd Filetype cpp setlocal cindent
-" pythonのファイルはautoindentとsmartindentにする
+autocmd Filetype hpp setlocal cindent
+" Python
 autocmd FileType python setlocal autoindent
 autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-" Javaのファイルはcindentにする
+" Java
 autocmd Filetype java setlocal cindent
-" Makefileではスペースをタブ代わりに使わない
+" Makefile
 autocmd Filetype make setlocal noexpandtab
 
 "-------------------------------------------------------------------------------
@@ -84,11 +80,6 @@ autocmd Filetype make setlocal noexpandtab
 " .vimperatorrc,_vimpeartorrc
 autocmd BufNewFile,BufRead .vimperatorrc setlocal filetype=vim
 autocmd BufNewFile,BufRead _vimperatorrc setlocal filetype=vim
-" Arduino
-autocmd BufNewFile,BufRead *.ino setlocal cindent
-autocmd BufNewFile,BufRead *.pde setlocal cindent
-" Markdown
-autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
 "-------------------------------------------------------------------------------
 " バイナリエディタ設定
@@ -105,16 +96,10 @@ augroup BinaryXXD
 augroup END
 
 "-------------------------------------------------------------------------------
-" TODO設定
+" 環境変数
 "-------------------------------------------------------------------------------
-" TODOを\-tで一覧表示
-noremap <Leader>t :noautocmd vimgrep /TODO/j * <CR>:cw<CR>
-
-"-------------------------------------------------------------------------------
-" brainfuck.vim設定
-"-------------------------------------------------------------------------------
-set runtimepath+=~/.vim/brainfuck
-nnoremap <C-i><C-f> :<C-u>call<Space>Bfrun_current_buffer()<CR>
+let PATH = expand("~/.pyenv/shims") . ":" . $PATH
+let PATH = expand("~/.rbenv/shims") . ":" . $PATH
 
 "-------------------------------------------------------------------------------
 " neovundle設定
@@ -135,9 +120,10 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'vimpager', {
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'rkitover/vimpager', {
 \   'build' : {
 \     'windows' : 'chmod +x vimpager',
 \     'cygwin' : 'chmod +x vimpager',
@@ -151,9 +137,11 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'sudo.vim'
-"NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'itchyny/lightline.vim'
+
 call neobundle#end()
 NeoBundleCheck
 
@@ -168,6 +156,8 @@ imap <expr><TAB>
 \ "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 " vimdoc-ja
 set helplang=ja,en
+" nerdtree
+let g:NERDTreeShowHidden = 1
 " ref.vim
 let g:ref_source_webdict_sites = {}
 let g:ref_source_webdict_sites.default = 'ej'
@@ -222,36 +212,34 @@ if has("unix")
     \                '%c %s',
     \                'dvipdfmx -o %s:r.pdf %s:r.dvi',
     \                'rm -rf %s:r.dvi %s:r.log %s:r.aux %s:r.toc',
-    \                'open -g %s:r.pdf || true'],
+    \                'open -g %s:r.pdf'],
     \   }
   endif
 endif
 "unite.vim
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
+let g:unite_enable_start_insert = 1
+let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_mru_limit = 200
-nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 " vim-indent-guides
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
 let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_guide_size=1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+" jedi-vim
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
 "-------------------------------------------------------------------------------
-" ref.vim
-nnoremap <Leader>en :<C-u>Ref webdict en<Space>
-nnoremap <Leader>en2 :<C-u>Ref webdict en2<Space>
-"nnoremap <Leader>e :<C-u>call ref#jump('normal', 'webdict', 'en')<CR>
-nnoremap <Leader>wiki :<C-u>Ref webdict wiki<Space>
-
-source $HOME/.vimrc_env
+"nothing
 
 "-------------------------------------------------------------------------------
 " テンプレート
@@ -269,9 +257,13 @@ autocmd User plugin-template-loaded
   \ |   silent! execute 'normal! "_da>'
   \ | endif
 
-" VimShell
-autocmd FileType vimshell
-\ call vimshell#hook#add('chpwd' , 'my_vimshell_chpwd' , 'g:my_vimshell_chpwd')
-\| call vimshell#hook#add('emptycmd', 'my_vimshell_emptycmd', 'g:my_vimshell_emptycmd')
-\| call vimshell#hook#add('notfound', 'my_vimshell_notfound', 'g:my_vimshell_notfound')
-syntax enable
+"-------------------------------------------------------------------------------
+" Load other vimrc
+"-------------------------------------------------------------------------------
+source $HOME/.vimrc_env
+
+"-------------------------------------------------------------------------------
+" Autostart
+"-------------------------------------------------------------------------------
+"autocmd VimEnter * NERDTree
+syntax on

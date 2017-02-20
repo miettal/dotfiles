@@ -1,8 +1,12 @@
 #!/bin/bash
 
-port install git
-port install mercurial
-port install tmux
-port install vim +python27
-port install coreutils
-port install tmux-pasteboard
+brew install git
+brew install mercurial
+brew install tmux
+brew install vim --HEAD
+brew install coreutils
+brew install reattach-to-user-namespace
+brew tap brona/iproute2mac
+brew install iproute2mac
+brew install thefuck
+
