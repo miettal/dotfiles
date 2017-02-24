@@ -40,8 +40,12 @@ fi
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
 
 #google-cloud-sdk
-source '$HOME/local/google-cloud-sdk/path.zsh.inc'
-source '$HOME/local/google-cloud-sdk/completion.zsh.inc'
+if [[ -s "$HOME/local/google-cloud-sdk/path.zsh.inc" ]]; then
+  source "$HOME/local/google-cloud-sdk/path.zsh.inc"
+fi
+if [[ -s "$HOME/local/google-cloud-sdk/completion.zsh.inc" ]]; then
+  source "$HOME/local/google-cloud-sdk/completion.zsh.inc"
+fi
 
 #thefuck
 eval $(thefuck --alias)
