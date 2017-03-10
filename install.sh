@@ -49,7 +49,7 @@ fi
 
 # private dotfiles
 mkdir -p $HOME/.ssh
-git clone https://github.com/miettal/dotfiles_private.git $SCRIPT_DIR/dotfiles_private
+git clone git@github.com:miettal/dotfiles_private.git $SCRIPT_DIR/dotfiles_private
 ln -f -s $SCRIPT_DIR/dotfiles_private/ssh/* $HOME/.ssh/
 
 # git
