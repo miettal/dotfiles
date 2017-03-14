@@ -13,9 +13,9 @@ set incsearch
 set hlsearch
 " vi互換モードを切る
 set nocompatible
-" タブ幅2
-set tabstop=2
-set shiftwidth=2
+" タブ幅4
+set tabstop=4
+set shiftwidth=4
 set softtabstop=0
 " バックスペース設定
 set backspace=indent,eol,start
