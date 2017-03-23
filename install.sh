@@ -12,6 +12,7 @@ ln -f -s $SCRIPT_DIR/zlogout $HOME/.zlogout
 ln -f -s $SCRIPT_DIR/zprofile $HOME/.zprofile
 ln -f -s $SCRIPT_DIR/zpreztorc $HOME/.zpreztorc
 ln -f -s $SCRIPT_DIR/gitconfig $HOME/.gitconfig
+ln -f -s $SCRIPT_DIR/gitignore $HOME/.gitignore
 ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc
 ln -f -s $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
 ln -f -s $SCRIPT_DIR/vim $HOME/.vim

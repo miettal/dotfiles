@@ -1,4 +1,6 @@
-.DS_Store
+################################################################################
+# macOS
+*.DS_Store
 .AppleDouble
 .LSOverride
 
@@ -16,6 +18,7 @@ Icon
 .TemporaryItems
 .Trashes
 .VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
 # Directories potentially created on remote AFP share
 .AppleDB
@@ -24,5 +27,17 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-tags.lock
+################################################################################
+# vim 
+# swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
 tags

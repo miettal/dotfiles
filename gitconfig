@@ -1,10 +1,11 @@
 [user]
-	name = Hiromasa Ihara
-	email = iharahiromasa@gmail.com
+    name = Hiromasa Ihara
+    email = iharahiromasa@gmail.com
 [core]
-	editor = /usr/bin/vim
+    editor = /usr/bin/vim
+    excludesfile = ~/.gitignore
 [alias]
-	co = checkout
-	conflicts = !git ls-files -u | cut -f 2 | sort -u
+    co = checkout
+    conflicts = !git ls-files -u | cut -f 2 | sort -u
 [url "https://github.com/"]
-	insteadOf = git://github.com/
+    insteadOf = git://github.com/
