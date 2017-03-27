@@ -1,11 +1,12 @@
 #!/usr/bin/env python
-# coding:utf-8
+# coding=utf-8
 #
 # <+FILENAME+>.py
 #
-# Author:   Hiromasa Ihara (miettal)
+# Author:   Hiromasa Ihara (miettal a.k.a taisyo)
 # URL:      https://github.com/miettal
-# License:  MIT License
 # Created:  <+DATE+>
 #
+from __future__ import division, print_function, absolute_import, unicode_literals
+
 <+CURSOR+>
