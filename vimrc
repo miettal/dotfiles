@@ -13,7 +13,6 @@ set incsearch
 set hlsearch
 " vi互換モードを切る
 set nocompatible
-<<<<<<< HEAD
 " タブ幅4
 set tabstop=4
 set shiftwidth=4
