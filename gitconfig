@@ -10,4 +10,4 @@
 [url "https://github.com/"]
     insteadOf = git://github.com/
 [push]
-	default = matching
+    default = current
