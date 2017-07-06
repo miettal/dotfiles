@@ -66,7 +66,8 @@ git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundl
 mkdir -p $HOME/.trash
 
 # tasky
-git clone https://github.com/miettal/tasky.git $HOME/.tasky
+git clone https://github.com/jrupac/tasky.git $HOME/.tasky
+ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky
 
 # pyenv
 printf "do you want to instal pyenv?[y/n]:"
