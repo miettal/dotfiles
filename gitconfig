@@ -5,7 +5,9 @@
     editor = /usr/bin/vim
     excludesfile = ~/.gitignore
 [alias]
-    co = checkout
+	co = checkout
     conflicts = !git ls-files -u | cut -f 2 | sort -u
 [url "https://github.com/"]
     insteadOf = git://github.com/
+[push]
+    default = current
