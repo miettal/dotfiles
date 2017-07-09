@@ -11,3 +11,5 @@
     insteadOf = git://github.com/
 [push]
     default = current
+[pull]
+    default = current
