@@ -1,22 +1,15 @@
-export LC_ALL='ja_JP.UTF-8'
-export LANG="ja_JP.UTF-8"
-
 # Prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 #pyenv
-if [[ -e $HOME/.pyenv ]]; then
-  export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH
-  eval "$(pyenv init -)"
-fi
+export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH
+eval "$(pyenv init - --no-rehash)"
 
 #rbenv
-if [[ -e $HOME/.rbenv ]]; then
-  export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
-  eval "$(rbenv init -)"
-fi
+export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
+eval "$(rbenv init - --no-rehash)"
 
 if [ -e $HOME/dotfiles/print ]; then
   pyenv shell 2.7-dev
@@ -38,14 +31,3 @@ if [ -e $HOME/dotfiles/print ]; then
 fi
 
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
-
-#google-cloud-sdk
-if [[ -s "$HOME/local/google-cloud-sdk/path.zsh.inc" ]]; then
-  source "$HOME/local/google-cloud-sdk/path.zsh.inc"
-fi
-if [[ -s "$HOME/local/google-cloud-sdk/completion.zsh.inc" ]]; then
-  source "$HOME/local/google-cloud-sdk/completion.zsh.inc"
-fi
-
-#thefuck
-eval $(thefuck --alias)

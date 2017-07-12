@@ -14,7 +14,6 @@ alias update_pip='pip install --upgrade pip; pip freeze --local | grep -v "^\-e"
 alias update_pyenv='cd $HOME/.pyenv;git pull;cd -'
 alias update_rbenv='cd $HOME/.rbenv;git pull;cd -'
 alias commit='git add .; git commit . -m "quick commit"; git push'
-alias task='gcalcli --military --width $((($COLUMNS-8)/7)) calw 2;python $HOME/.tasky_/tasky.py --list'
 alias shutdown='yes'
 alias reboot='yes'
 alias halt='yes'
@@ -24,18 +23,6 @@ export PATH=$HOME/dotfiles/myscripts:$PATH
 export PATH=$HOME/.vim/bundle/vimpager:$PATH
 export EDITOR=vim
 export PAGER=$HOME/.vim/bundle/vimpager/vimpager
-
-#C
-export CPATH=$HOME/Dropbox/data/lib/cmodule/include:$CPATH
-
-#python
-export PYTHONPATH=$HOME/Dropbox/data/lib/pymodule:$PYTHONPATH
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f $HOME/google-cloud-sdk/path.zsh.inc ]; then
-  source "$HOME/google-cloud-sdk/path.zsh.inc"
-fi
 
 function addtask (){
   pyenv shell 2.7-dev
