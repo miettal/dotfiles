@@ -1,5 +1,4 @@
 export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH
-export LC_ALL="ja_JP.UTF-8"
 eval "$(pyenv init -)"
 
 gcalcli agenda --military > /tmp/com.miettal.gcalcli.$$
