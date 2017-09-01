@@ -48,13 +48,15 @@ if [[ $SHELL != "/bin/zsh" ]]; then
   echo Re-login
 fi
 
+# tasky
+git clone https://github.com/jrupac/tasky $HOME/.tasky
+ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky
+
 # private dotfiles
 mkdir -p $HOME/.ssh
 git clone git@github.com:miettal/dotfiles_private.git $SCRIPT_DIR/dotfiles_private
 ln -f -s $SCRIPT_DIR/dotfiles_private/ssh/* $HOME/.ssh/
-
-# git
-git config --global alias.co checkout
+ln -f -s $SCRIPT_DIR/dotfiles_private/tasky/* $HOME/.tasky/
 
 # zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
@@ -64,10 +66,6 @@ git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundl
 
 # trash directory
 mkdir -p $HOME/.trash
-
-# tasky
-git clone https://github.com/jrupac/tasky.git $HOME/.tasky
-ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky
 
 # pyenv
 printf "do you want to instal pyenv?[y/n]:"
@@ -88,7 +86,7 @@ case "$yn" in
   
   easy_install pip
   pip install gcalcli
-  pip install httplib2
+  pip install -r $HOME/.tasky/requirements.txt
  ;;
 *)
   # no
