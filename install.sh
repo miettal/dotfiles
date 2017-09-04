@@ -48,15 +48,10 @@ if [[ $SHELL != "/bin/zsh" ]]; then
   echo Re-login
 fi
 
-# tasky
-git clone https://github.com/jrupac/tasky $HOME/.tasky
-ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky
-
 # private dotfiles
 mkdir -p $HOME/.ssh
 git clone git@github.com:miettal/dotfiles_private.git $SCRIPT_DIR/dotfiles_private
 ln -f -s $SCRIPT_DIR/dotfiles_private/ssh/* $HOME/.ssh/
-ln -f -s $SCRIPT_DIR/dotfiles_private/tasky/* $HOME/.tasky/
 
 # zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
@@ -72,21 +67,31 @@ printf "do you want to instal pyenv?[y/n]:"
 read yn
 case "$yn" in
 "y") 
-  git clone https://github.com/yyuu/pyenv.git $HOME/.pyenv
-  git clone https://github.com/yyuu/pyenv-virtualenv.git \
-    $HOME/.pyenv/plugins/pyenv-virtualenv
-  git clone https://github.com/yyuu/pyenv-pip-rehash.git \
-    $HOME/.pyenv/plugins/pyenv-pip-rehash
+  git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+  git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
+  git clone https://github.com/pyenv/pyenv-pip-rehash.git $HOME/.pyenv/plugins/pyenv-pip-rehash
+  git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
   
   export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
   eval "$(pyenv init -)"
   
   yes n | pyenv install 2.7-dev
-  pyenv global 2.7-dev
+  yes n | pyenv install 3.6-dev
+  pyenv global 3.6-dev
+
+  pyenv virtualenv 2.7-dev gcalcli
+  pyenv virtualenv 2.7-dev tasky
   
-  easy_install pip
+  pyenv shell gcalcli
   pip install gcalcli
+  pyenv shell --unset
+
+  pyenv shell tasky
+  ln -f -s $SCRIPT_DIR/dotfiles_private/tasky/* $HOME/.tasky/
+  git clone https://github.com/jrupac/tasky $HOME/.tasky
+  ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky
   pip install -r $HOME/.tasky/requirements.txt
+  pyenv shell --unset
  ;;
 *)
   # no
