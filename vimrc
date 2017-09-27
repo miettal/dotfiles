@@ -41,6 +41,8 @@ let g:tex_flavor = "latex"
 set ambiwidth=double
 colorscheme koehler
 set shortmess+=I
+" 80文字目に赤いラインを入れる
+set colorcolumn=80
 
 "-------------------------------------------------------------------------------
 " カレントウィンドウにのみ罫線を引く

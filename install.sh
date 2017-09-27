@@ -89,7 +89,6 @@ case "$yn" in
   pyenv shell tasky
   ln -f -s $SCRIPT_DIR/dotfiles_private/tasky/* $HOME/.tasky/
   git clone https://github.com/jrupac/tasky $HOME/.tasky
-  ln -f -s $SCRIPT_DIR/tasky/keys.txt $HOME/.tasky
   pip install -r $HOME/.tasky/requirements.txt
   pyenv shell --unset
  ;;
@@ -137,7 +136,7 @@ case "$yn" in
   echo 'source $HOME/.ctf/peda/peda.py' >> $HOME/.gdbinit
   
 
-  wget -O - http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.10.tar.gz | tar zxf - -C $SCRIPT_DIR/ctf
+  wget -O - https://sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.10.tar.gz | tar zxf - -C $SCRIPT_DIR/ctf
   git clone https://github.com/devttys0/binwalk.git $SCRIPT_DIR/ctf/binwalk
   git clone https://github.com/sqlmapproject/sqlmap.git $SCRIPT_DIR/ctf/sqlmap
   git clone https://github.com/longld/peda.git $SCRIPT_DIR/ctf/peda

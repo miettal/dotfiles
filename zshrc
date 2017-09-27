@@ -35,3 +35,5 @@ if [ -e $HOME/dotfiles/print ]; then
 fi
 
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
