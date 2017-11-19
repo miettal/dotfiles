@@ -11,7 +11,7 @@ tags
 dotfiles_private/
 print
 ctf/
-vim/bundle/
+vim/dein/
 
 vim/vim
 vimperator/vimperator
