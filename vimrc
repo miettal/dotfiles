@@ -113,6 +113,7 @@ set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.vim/dein')
   call dein#begin('~/.vim/dein')
+
   call dein#add('~/.vim/dein//repos/github.com/Shougo/dein.vim')
   call dein#add('vim-jp/vimdoc-ja')
   call dein#add('Shougo/deoplete.nvim')
@@ -120,27 +121,21 @@ if dein#load_state('~/.vim/dein')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
-  call dein#add('Shougo/neosnippet')
-  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/deoppet.nvim')
   call dein#add('Shougo/vimproc', {'build': 'make'})
-  call dein#add('Shougo/vimshell')
-  call dein#add('Shougo/unite.vim')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
+  call dein#add('Shougo/denite.nvim')
   call dein#add('Shougo/context_filetype.vim')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('honza/vim-snippets')
-  call dein#add('rkitover/vimpager', {'build': 'chmod +x vimpager'})
+  call dein#add('cocopon/vaffle.vim')
   call dein#add('thinca/vim-template')
   call dein#add('thinca/vim-quickrun')
-  call dein#add('mattn/webapi-vim')
-  call dein#add('mattn/emmet-vim')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('zchee/deoplete-jedi')
+  call dein#add('w0rp/ale')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('honza/vim-snippets')
+  call dein#add('rkitover/vimpager', {'build': 'chmod +x vimpager'})
   call dein#add('vim-scripts/sudo.vim')
   call dein#add('nathanaelkane/vim-indent-guides')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('davidhalter/jedi-vim')
 
   call dein#end()
   call dein#save_state()
@@ -160,6 +155,19 @@ endif
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
 "-------------------------------------------------------------------------------
+" ale
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_column_always = 0
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 0
+let g:ale_open_list = 0
+let g:ale_keep_list_window_open = 0
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
 " nerdtree
 let g:NERDTreeShowHidden = 1
 " deoplete
@@ -218,14 +226,6 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-" jedi-vim
-autocmd FileType python setlocal omnifunc=jedi#completions
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
@@ -252,9 +252,3 @@ autocmd User plugin-template-loaded
 " Load other vimrc
 "-------------------------------------------------------------------------------
 source $HOME/.vimrc_env
-
-"-------------------------------------------------------------------------------
-" Autostart
-"-------------------------------------------------------------------------------
-"autocmd VimEnter * NERDTree
-syntax on
