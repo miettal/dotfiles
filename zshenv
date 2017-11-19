@@ -5,8 +5,9 @@ fi
 
 # Alias
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
-alias emacs=vim
-alias vi=vim
+alias emacs=nvim
+alias vi=nvim
+alias vim=nvim
 alias gdb='gdb -q'
 alias vimpager='$HOME/.vim/bundle/vimpager/vimpager'
 alias each="find . -type f -print0 | xargs -n 1 -0"
@@ -23,6 +24,8 @@ export PATH=$HOME/dotfiles/myscripts:$PATH
 export PATH=$HOME/.vim/bundle/vimpager:$PATH
 export EDITOR=vim
 export PAGER=$HOME/.vim/bundle/vimpager/vimpager
+export XDG_CONFIG_HOME=$HOME/.config
+export PYENV_ROOT=$HOME/.pyenv
 
 function addtask (){
   pyenv shell 2.7-dev

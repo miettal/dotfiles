@@ -104,83 +104,82 @@ let PATH = expand("~/.pyenv/shims") . ":" . $PATH
 let PATH = expand("~/.rbenv/shims") . ":" . $PATH
 
 "-------------------------------------------------------------------------------
-" neovundle設定
+" dein.vim設定
 "-------------------------------------------------------------------------------
-set runtimepath+=~/.vim/bundle/neobundle.vim
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc', {
+if &compatible
+  set nocompatible
+endif
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+
+if dein#load_state('~/.vim/dein')
+  call dein#begin('~/.vim/dein')
+  call dein#add('~/.vim/dein//repos/github.com/Shougo/dein.vim')
+  call dein#add('vim-jp/vimdoc-ja')
+  call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/vimproc', {
 \   'build' : {
 \     'windows' : 'make -f make_mingw32.mak',
 \     'cygwin' : 'make -f make_cygwin.mak',
 \     'mac' : 'make -f make_mac.mak',
 \     'unix' : 'make -f make_unix.mak',
 \   },
-\}
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'rkitover/vimpager', {
+\})
+  call dein#add('Shougo/vimshell')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+  call dein#add('Shougo/context_filetype.vim')
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('honza/vim-snippets')
+  call dein#add('rkitover/vimpager', {
 \   'build' : {
 \     'windows' : 'chmod +x vimpager',
 \     'cygwin' : 'chmod +x vimpager',
 \     'mac' : 'chmod +x vimpager',
 \     'unix' : 'chmod +x vimpager',
 \   },
-\}
-NeoBundle 'thinca/vim-template'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'sudo.vim'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'itchyny/lightline.vim'
+\})
+  call dein#add('thinca/vim-template')
+  call dein#add('thinca/vim-quickrun')
+  call dein#add('mattn/webapi-vim')
+  call dein#add('mattn/emmet-vim')
+  call dein#add('vim-scripts/sudo.vim')
+  call dein#add('nathanaelkane/vim-indent-guides')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('itchyny/lightline.vim')
 
-call neobundle#end()
-NeoBundleCheck
+  call dein#end()
+  call dein#save_state()
+endif
+
+filetype plugin indent on
+syntax enable
+
+if dein#check_install()
+  call dein#install()
+endif
+
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
 "-------------------------------------------------------------------------------
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
+" nerdtree
+let g:NERDTreeShowHidden = 1
+" deoplete
+let g:deoplete#enable_at_startup = 1
+" vimdoc-ja
+set helplang=ja,en
 " neosnippet
 imap <expr><TAB>
 \ neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-" vimdoc-ja
-set helplang=ja,en
-" nerdtree
-let g:NERDTreeShowHidden = 1
-" ref.vim
-let g:ref_source_webdict_sites = {}
-let g:ref_source_webdict_sites.default = 'ej'
-let g:ref_source_webdict_sites.en = {
-\     'url': 'http://dictionary.infoseek.ne.jp/jeword/%s',
-\   }
-let g:ref_source_webdict_sites.en2 = {
-\     'url': 'http://ejje.weblio.jp/content/%s',
-\   }
-let g:ref_source_webdict_sites.wiki = {
-\     'url': 'http://ja.wikipedia.org/wiki/%s',
-\   }
-function! g:ref_source_webdict_sites.en.filter(output)
-  return join(split(a:output, "\n")[15 :], "\n")
-endfunction
-function! g:ref_source_webdict_sites.en2.filter(output)
-  return join(split(a:output, "\n")[57 :], "\n")
-endfunction
-function! g:ref_source_webdict_sites.wiki.filter(output)
-  return join(split(a:output, "\n")[17 :], "\n")
-endfunction
 " quickrun
 let g:quickrun_config = {}
 let g:quickrun_config._ = {

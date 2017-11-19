@@ -5,6 +5,7 @@ SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 platform=`python $SCRIPT_DIR/platformcheck.py`
 
 mkdir -p $HOME/.config/fontconfig
+mkdir -p $HOME/.config/nvim
 
 ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_DIR/zlogin $HOME/.zlogin
@@ -17,6 +18,8 @@ ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc
 ln -f -s $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
 ln -f -s $SCRIPT_DIR/vim $HOME/.vim
 ln -f -s $SCRIPT_DIR/vimrc $HOME/.vimrc
+ln -f -s $SCRIPT_DIR/vim $HOME/.config/nvim/
+ln -f -s $SCRIPT_DIR/vimrc $HOME/.config/nvim/init.vim
 ln -f -s $SCRIPT_DIR/vimperator $HOME/.vimperator
 ln -f -s $SCRIPT_DIR/vimperatorrc $HOME/.vimperatorrc
 ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
@@ -57,7 +60,8 @@ ln -f -s $SCRIPT_DIR/dotfiles_private/ssh/* $HOME/.ssh/
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
 
 # vim
-git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim
+mkdir -p $HOME/.vim/dein/repos/github.com/Shougo/dein.vim
+git clone https://github.com/Shougo/dein.vim.git $HOME/.vim/dein/repos/github.com/Shougo/dein.vim
 
 # trash directory
 mkdir -p $HOME/.trash

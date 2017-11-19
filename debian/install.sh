@@ -9,6 +9,7 @@ sudo apt-get install --assume-yes automake
 sudo apt-get install --assume-yes autoconf
 sudo apt-get install --assume-yes zsh
 sudo apt-get install --assume-yes tmux
+sudo apt-get install --assume-yes noevim
 sudo apt-get install --assume-yes vim
 sudo apt-get install --assume-yes ctags
 sudo apt-get install --assume-yes build-essential
