@@ -122,14 +122,7 @@ if dein#load_state('~/.vim/dein')
   endif
   call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/vimproc', {
-\   'build' : {
-\     'windows' : 'make -f make_mingw32.mak',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'unix' : 'make -f make_unix.mak',
-\   },
-\})
+  call dein#add('Shougo/vimproc', {'build': 'make'})
   call dein#add('Shougo/vimshell')
   call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/deoplete.nvim')
@@ -138,14 +131,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('Shougo/context_filetype.vim')
   call dein#add('scrooloose/nerdtree')
   call dein#add('honza/vim-snippets')
-  call dein#add('rkitover/vimpager', {
-\   'build' : {
-\     'windows' : 'chmod +x vimpager',
-\     'cygwin' : 'chmod +x vimpager',
-\     'mac' : 'chmod +x vimpager',
-\     'unix' : 'chmod +x vimpager',
-\   },
-\})
+  call dein#add('rkitover/vimpager', {'build': 'chmod +x vimpager'})
   call dein#add('thinca/vim-template')
   call dein#add('thinca/vim-quickrun')
   call dein#add('mattn/webapi-vim')
@@ -154,6 +140,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('itchyny/lightline.vim')
+  call dein#add('davidhalter/jedi-vim')
 
   call dein#end()
   call dein#save_state()
@@ -162,10 +149,13 @@ endif
 filetype plugin indent on
 syntax enable
 
+if dein#check_install(['vimproc'])
+  call dein#install(['vimproc'])
+endif
+
 if dein#check_install()
   call dein#install()
 endif
-
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
