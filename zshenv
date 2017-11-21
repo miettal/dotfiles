@@ -9,7 +9,7 @@ alias emacs=nvim
 alias vi=nvim
 alias vim=nvim
 alias gdb='gdb -q'
-alias vimpager='$HOME/.vim/bundle/vimpager/vimpager'
+alias vimpager='$HOME/dotfiles/vim/dein/repos/github.com/rkitover/vimpager/vimpager'
 alias each="find . -type f -print0 | xargs -n 1 -0"
 alias update_pip='pip install --upgrade pip; pip freeze --local | grep -v "^\-e" | cut -d = -f 1  | xargs -n1 pip install -U'
 alias update_pyenv='cd $HOME/.pyenv;git pull;cd -'
