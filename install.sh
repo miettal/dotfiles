@@ -70,31 +70,19 @@ mkdir -p $HOME/.trash
 printf "do you want to instal pyenv?[y/n]:"
 read yn
 case "$yn" in
-"y") 
+"y")
   git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
   git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
   git clone https://github.com/pyenv/pyenv-pip-rehash.git $HOME/.pyenv/plugins/pyenv-pip-rehash
   git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
-  
+
   export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
   eval "$(pyenv init -)"
-  
+
   yes n | pyenv install 2.7-dev
   yes n | pyenv install 3.6-dev
   pyenv global 3.6-dev
 
-  pyenv virtualenv 2.7-dev gcalcli
-  pyenv virtualenv 2.7-dev tasky
-  
-  pyenv shell gcalcli
-  pip install gcalcli
-  pyenv shell --unset
-
-  pyenv shell tasky
-  ln -f -s $SCRIPT_DIR/dotfiles_private/tasky/* $HOME/.tasky/
-  git clone https://github.com/jrupac/tasky $HOME/.tasky
-  pip install -r $HOME/.tasky/requirements.txt
-  pyenv shell --unset
  ;;
 *)
   # no

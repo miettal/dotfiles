@@ -26,9 +26,3 @@ export EDITOR=vim
 export PAGER=$HOME/.vim/bundle/vimpager/vimpager
 export XDG_CONFIG_HOME=$HOME/.config
 export PYENV_ROOT=$HOME/.pyenv
-
-function addtask (){
-  pyenv shell 2.7-dev
-  python $HOME/.tasky/tasky.py --add --title $1 --date `date +%m/%d/%Y`
-  pyenv shell --unset
-}
