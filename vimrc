@@ -174,10 +174,6 @@ let g:NERDTreeShowHidden = 1
 let g:deoplete#enable_at_startup = 1
 " vimdoc-ja
 set helplang=ja,en
-" neosnippet
-imap <expr><TAB>
-\ neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 " quickrun
 let g:quickrun_config = {}
 let g:quickrun_config._ = {
