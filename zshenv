@@ -4,7 +4,7 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
 fi
 
 # Alias
-alias rm='mv -f --backup=numbered --target-directory ~/.trash'
+alias trash='mv -f --backup=numbered --target-directory ~/.trash'
 alias emacs=nvim
 alias vi=nvim
 alias vim=nvim
