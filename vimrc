@@ -116,7 +116,6 @@ if dein#load_state('~/.vim/dein')
 
   call dein#add('~/.vim/dein//repos/github.com/Shougo/dein.vim')
   call dein#add('vim-jp/vimdoc-ja')
-  call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
