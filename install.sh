@@ -79,6 +79,9 @@ case "$yn" in
   export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
   eval "$(pyenv init -)"
 
+  pyenv global system
+  pip3 install neovim
+
   yes n | pyenv install 2.7-dev
   yes n | pyenv install 3.6-dev
   pyenv global 3.6-dev
@@ -99,13 +102,13 @@ case "$yn" in
     $HOME/.rbenv/plugins/ruby-build
   git clone https://github.com/sstephenson/rbenv-gem-rehash.git \
     $HOME/.rbenv/plugins/rbenv-gem-rehash
-  
+
   export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
   eval "$(rbenv init -)"
-  
+
   yes n | rbenv install 2.4.0-dev
   rbenv global 2.4.0-dev
-  
+
   gem update --system
   gem install bundler
  ;;
@@ -126,7 +129,7 @@ case "$yn" in
   echo 'export PATH=$HOME/.ctf/binwalk/src/scripts:$PATH' >> $HOME/.zshenv
   echo 'export PATH=$HOME/.ctf/sqlmap:$PATH' >> $HOME/.zshenv
   echo 'source $HOME/.ctf/peda/peda.py' >> $HOME/.gdbinit
-  
+
 
   wget -O - https://sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.10.tar.gz | tar zxf - -C $SCRIPT_DIR/ctf
   git clone https://github.com/devttys0/binwalk.git $SCRIPT_DIR/ctf/binwalk

@@ -116,11 +116,13 @@ if dein#load_state('~/.vim/dein')
 
   call dein#add('~/.vim/dein//repos/github.com/Shougo/dein.vim')
   call dein#add('vim-jp/vimdoc-ja')
+  call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
-  call dein#add('Shougo/deoppet.nvim')
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/vimproc', {'build': 'make'})
   call dein#add('Shougo/denite.nvim')
   call dein#add('Shougo/context_filetype.vim')
@@ -230,6 +232,14 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 "-------------------------------------------------------------------------------
 " テンプレート
 "-------------------------------------------------------------------------------
+" タブ保管
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-n>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 " テンプレート中に含まれる特定文字列を置き換える
 autocmd User plugin-template-loaded call s:template_keywords()
 function! s:template_keywords()
