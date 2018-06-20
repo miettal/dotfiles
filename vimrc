@@ -115,7 +115,6 @@ if dein#load_state('~/.vim/dein')
   call dein#begin('~/.vim/dein')
 
   call dein#add('~/.vim/dein//repos/github.com/Shougo/dein.vim')
-  call dein#add('vim-jp/vimdoc-ja')
   call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
@@ -173,8 +172,6 @@ let g:ale_linters = {
 let g:NERDTreeShowHidden = 1
 " deoplete
 let g:deoplete#enable_at_startup = 1
-" vimdoc-ja
-set helplang=ja,en
 " quickrun
 let g:quickrun_config = {}
 let g:quickrun_config._ = {
