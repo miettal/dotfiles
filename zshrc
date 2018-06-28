@@ -12,5 +12,3 @@ export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 eval "$(rbenv init - --no-rehash)"
 
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
