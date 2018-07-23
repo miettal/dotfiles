@@ -13,4 +13,4 @@ eval "$(rbenv init - --no-rehash)"
 
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
 
-tmux rename -t prezto $(hostname)
+tmux rename -t prezto $(hostname) 2> /dev/null
