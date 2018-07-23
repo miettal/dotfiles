@@ -116,28 +116,3 @@ case "$yn" in
   # no
  ;;
 esac
-
-# ctf tools
-printf "do you want to instal ctf tools?[y/n]:"
-read yn
-case "$yn" in
-"y") 
-  mkdir -p $SCRIPT_DIR/ctf
-  ln -f -s $SCRIPT_DIR/ctf $HOME/.ctf
-
-  echo 'export PATH=$HOME/.ctf/exiftool/Image-ExifTool-10.10:$PATH' >> $HOME/.zshenv
-  echo 'export PATH=$HOME/.ctf/binwalk/src/scripts:$PATH' >> $HOME/.zshenv
-  echo 'export PATH=$HOME/.ctf/sqlmap:$PATH' >> $HOME/.zshenv
-  echo 'source $HOME/.ctf/peda/peda.py' >> $HOME/.gdbinit
-
-
-  wget -O - https://sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.10.tar.gz | tar zxf - -C $SCRIPT_DIR/ctf
-  git clone https://github.com/devttys0/binwalk.git $SCRIPT_DIR/ctf/binwalk
-  git clone https://github.com/sqlmapproject/sqlmap.git $SCRIPT_DIR/ctf/sqlmap
-  git clone https://github.com/longld/peda.git $SCRIPT_DIR/ctf/peda
- ;;
-*)
-  # no
- ;;
-esac
-
