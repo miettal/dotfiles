@@ -56,7 +56,6 @@ nnoremap <C-h> <C-w>h
 "-------------------------------------------------------------------------------
 " ファイルの種別によってコマンドを実行
 "-------------------------------------------------------------------------------
-" C
 autocmd Filetype c setlocal cindent
 autocmd Filetype h setlocal cindent
 " C++
@@ -65,6 +64,11 @@ autocmd Filetype hpp setlocal cindent
 " Python
 autocmd FileType python setlocal autoindent
 autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+" Ruby
+autocmd FileType ruby setlocal autoindent
+autocmd FileType ruby setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 " Java
 autocmd Filetype java setlocal cindent
 " Makefile
