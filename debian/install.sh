@@ -1,23 +1,21 @@
 #!/bin/bash
+
 sudo apt-get update
 sudo apt-get upgrade --assume-yes
+
 sudo apt-get install --assume-yes git
 sudo apt-get install --assume-yes mercurial
-sudo apt-get install --assume-yes build-essential
-sudo apt-get install --assume-yes make
-sudo apt-get install --assume-yes automake
-sudo apt-get install --assume-yes autoconf
 sudo apt-get install --assume-yes zsh
 sudo apt-get install --assume-yes tmux
-sudo apt-get install --assume-yes noevim
-sudo apt-get install --assume-yes vim
 sudo apt-get install --assume-yes ctags
-sudo apt-get install --assume-yes build-essential
 sudo apt-get install --assume-yes wget
 sudo apt-get install --assume-yes curl
 
 # for c
-apt-get install --assume-yes build-essential
+sudo apt-get install --assume-yes build-essential
+sudo apt-get install --assume-yes make
+sudo apt-get install --assume-yes automake
+sudo apt-get install --assume-yes autoconf
 
 # for python
 sudo apt-get install --assume-yes libssl-dev
@@ -32,6 +30,8 @@ sudo apt-get install --assume-yes bison
 sudo apt-get install --assume-yes libssl-dev
 sudo apt-get install --assume-yes libreadline-dev
 
-# for thefuck
-sudo apt-get install --assume-yes python3-dev python3-pip
-sudo -H pip3 install thefuck
+# for vim
+sudo apt-get install --assume-yes neovim
+sudo apt-get install --assume-yes vim
+sudo apt-get install --assume-yes python-neovim
+sudo apt-get install --assume-yes python3-neovim

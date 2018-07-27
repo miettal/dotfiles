@@ -12,3 +12,5 @@ export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 eval "$(rbenv init - --no-rehash)"
 
 alias rm='mv -f --backup=numbered --target-directory ~/.trash'
+
+tmux rename -t prezto $(hostname) 2> /dev/null
