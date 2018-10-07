@@ -7,11 +7,8 @@ platform=`python $SCRIPT_DIR/platformcheck.py`
 mkdir -p $HOME/.config/fontconfig
 mkdir -p $HOME/.config/nvim
 
-ln -f -s $SCRIPT_DIR/zshrc $HOME/.zshrc
-ln -f -s $SCRIPT_DIR/zlogin $HOME/.zlogin
-ln -f -s $SCRIPT_DIR/zlogout $HOME/.zlogout
-ln -f -s $SCRIPT_DIR/zprofile $HOME/.zprofile
-ln -f -s $SCRIPT_DIR/zpreztorc $HOME/.zpreztorc
+ln -f -s $SCRIPT_DIR/config.fish $HOME/.config/fish/config.fish
+ln -f -s $SCRIPT_DIR/fishfile $HOME/.config/fish/fishfile
 ln -f -s $SCRIPT_DIR/gitconfig $HOME/.gitconfig
 ln -f -s $SCRIPT_DIR/gitignore $HOME/.gitignore
 ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc
@@ -26,30 +23,17 @@ ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts
 ln -f -s $SCRIPT_DIR/gemrc $HOME/.gemrc
 
 rm -rf $HOME/.gdbinit
-rm -rf $HOME/.zshenv
 rm -rf $HOME/.vimrc_env
 rm -rf $HOME/.tmux_env
 
-echo "source $SCRIPT_DIR/$platform/zshenv" >> $HOME/.zshenv
 echo "source $SCRIPT_DIR/$platform/vimrc_env" >> $HOME/.vimrc_env
 echo "source $SCRIPT_DIR/$platform/tmux_env" >> $HOME/.tmux_env
 
 echo "source $SCRIPT_DIR/gdbinit" >> $HOME/.gdbinit
-echo "source $SCRIPT_DIR/zshenv" >> $HOME/.zshenv
 echo "source $SCRIPT_DIR/vimrc_env" >> $HOME/.vimrc_env
 echo "source $SCRIPT_DIR/tmux_env" >> $HOME/.tmux_env
 
 $SCRIPT_DIR/$platform/install.sh
-
-# change login shell
-if [[ $SHELL != "/bin/zsh" ]]; then
-  if [[ $platform = "cygwin" ]] ; then
-    echo "Please modify your shell manually"
-  else
-    chsh -s /bin/zsh
-  fi
-  echo Re-login
-fi
 
 # private dotfiles
 mkdir -p $HOME/.ssh
@@ -116,28 +100,3 @@ case "$yn" in
   # no
  ;;
 esac
-
-# ctf tools
-printf "do you want to instal ctf tools?[y/n]:"
-read yn
-case "$yn" in
-"y") 
-  mkdir -p $SCRIPT_DIR/ctf
-  ln -f -s $SCRIPT_DIR/ctf $HOME/.ctf
-
-  echo 'export PATH=$HOME/.ctf/exiftool/Image-ExifTool-10.10:$PATH' >> $HOME/.zshenv
-  echo 'export PATH=$HOME/.ctf/binwalk/src/scripts:$PATH' >> $HOME/.zshenv
-  echo 'export PATH=$HOME/.ctf/sqlmap:$PATH' >> $HOME/.zshenv
-  echo 'source $HOME/.ctf/peda/peda.py' >> $HOME/.gdbinit
-
-
-  wget -O - https://sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.10.tar.gz | tar zxf - -C $SCRIPT_DIR/ctf
-  git clone https://github.com/devttys0/binwalk.git $SCRIPT_DIR/ctf/binwalk
-  git clone https://github.com/sqlmapproject/sqlmap.git $SCRIPT_DIR/ctf/sqlmap
-  git clone https://github.com/longld/peda.git $SCRIPT_DIR/ctf/peda
- ;;
-*)
-  # no
- ;;
-esac
-

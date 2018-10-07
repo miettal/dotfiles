@@ -11,4 +11,4 @@ brew tap brona/iproute2mac
 brew install iproute2mac
 brew install autoconf
 brew install automake
-
+brew install fish
