@@ -5,11 +5,13 @@ sudo apt-get upgrade --assume-yes
 
 sudo apt-get install --assume-yes git
 sudo apt-get install --assume-yes mercurial
-sudo apt-get install --assume-yes zsh
-sudo apt-get install --assume-yes tmux
 sudo apt-get install --assume-yes ctags
 sudo apt-get install --assume-yes wget
 sudo apt-get install --assume-yes curl
+
+# for shell
+sudo apt-get install --assume-yes fish
+sudo apt-get install --assume-yes tmux
 
 # for c
 sudo apt-get install --assume-yes build-essential
