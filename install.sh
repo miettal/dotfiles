@@ -66,10 +66,9 @@ case "$yn" in
   pyenv global system
   pip3 install neovim
 
-  yes n | pyenv install 2.7-dev
-  yes n | pyenv install 3.6-dev
+  pyenv install --skip-existing 2.7-dev
+  pyenv install --skip-existing 3.6-dev
   pyenv global 3.6-dev
-
  ;;
 *)
   # no
@@ -82,16 +81,14 @@ read yn
 case "$yn" in
 "y") 
   git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
-  git clone https://github.com/sstephenson/ruby-build.git \
-    $HOME/.rbenv/plugins/ruby-build
-  git clone https://github.com/sstephenson/rbenv-gem-rehash.git \
-    $HOME/.rbenv/plugins/rbenv-gem-rehash
+  git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+  git clone https://github.com/sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/rbenv-gem-rehash
 
   export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
   eval "$(rbenv init -)"
 
-  yes n | rbenv install 2.4.0-dev
-  rbenv global 2.4.0-dev
+  rbenv install --skip-existing 2.4.0-dev
+  rbenv global 2.6.0-dev
 
   gem update --system
   gem install bundler
