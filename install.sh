@@ -87,7 +87,7 @@ case "$yn" in
   export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
   eval "$(rbenv init -)"
 
-  rbenv install --skip-existing 2.4.0-dev
+  rbenv install --skip-existing 2.6.0-dev
   rbenv global 2.6.0-dev
 
   gem update --system
