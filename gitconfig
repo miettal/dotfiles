@@ -2,7 +2,7 @@
     name = Hiromasa Ihara
     email = iharahiromasa@gmail.com
 [core]
-    editor = /usr/bin/vim
+    editor = vi
     excludesfile = ~/.gitignore
 [alias]
     co = checkout
