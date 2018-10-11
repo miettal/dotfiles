@@ -1,4 +1,4 @@
-sh_vi_key_bindings
+fish_vi_key_bindings
 set -g theme_color_scheme dracula
 set -g LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
 
