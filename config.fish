@@ -1,6 +1,10 @@
-fish_vi_key_bindings
+sh_vi_key_bindings
 set -g theme_color_scheme dracula
 set -g LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
+
+set -U fish_user_paths $HOME/.pyenv/bin $fish_user_paths
+set -U fish_user_paths $HOME/.rbenv/bin $fish_user_paths
+set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 
 alias commit='git add .; git commit . -m "quick commit"; git push'
 
