@@ -97,3 +97,5 @@ case "$yn" in
   # no
  ;;
 esac
+
+$SCRIPT_DIR/dotfiles/install.fish
