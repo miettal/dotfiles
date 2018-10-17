@@ -13,5 +13,5 @@ alias vi='vim'
 
 if status is-interactive
 and not set -q TMUX
-    exec tmux
+    tmux attach -t base; or tmux new -s base
 end
