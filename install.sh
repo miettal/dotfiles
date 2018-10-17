@@ -6,6 +6,7 @@ platform=`python $SCRIPT_DIR/platformcheck.py`
 
 mkdir -p $HOME/.config/fontconfig
 mkdir -p $HOME/.config/nvim
+mkdir -p $HOME/.config/fish
 
 ln -f -s $SCRIPT_DIR/config.fish $HOME/.config/fish/config.fish
 ln -f -s $SCRIPT_DIR/fishfile $HOME/.config/fish/fishfile
@@ -39,9 +40,6 @@ $SCRIPT_DIR/$platform/install.sh
 mkdir -p $HOME/.ssh
 git clone git@github.com:miettal/dotfiles_private.git $SCRIPT_DIR/dotfiles_private
 ln -f -s $SCRIPT_DIR/dotfiles_private/ssh/* $HOME/.ssh/
-
-# zsh
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
 
 # vim
 mkdir -p $HOME/.vim/dein/repos/github.com/Shougo/dein.vim
@@ -98,4 +96,4 @@ case "$yn" in
  ;;
 esac
 
-$SCRIPT_DIR/dotfiles/install.fish
+$SCRIPT_DIR/install.fish
