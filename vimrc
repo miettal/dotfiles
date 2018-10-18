@@ -140,7 +140,6 @@ if dein#load_state('~/.vim/dein')
 endif
 
 filetype plugin indent on
-syntax enable
 
 if dein#check_install(['vimproc'])
   call dein#install(['vimproc'])
@@ -252,3 +251,5 @@ autocmd User plugin-template-loaded
 " Load other vimrc
 "-------------------------------------------------------------------------------
 source $HOME/.vimrc_env
+
+syntax enable
