@@ -57,6 +57,7 @@ case "$yn" in
   git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
   git clone https://github.com/pyenv/pyenv-pip-rehash.git $HOME/.pyenv/plugins/pyenv-pip-rehash
   git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
+  git clone https://github.com/pyenv/pyenv-update.git $HOME/.pyenv/plugins/pyenv-update
 
   export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
   eval "$(pyenv init -)"
@@ -64,6 +65,7 @@ case "$yn" in
   pyenv global system
   pip3 install neovim
 
+  pyenv update
   pyenv install --skip-existing 2.7-dev
   pyenv install --skip-existing 3.6-dev
   pyenv global 3.6-dev
@@ -81,10 +83,12 @@ case "$yn" in
   git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
   git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
   git clone https://github.com/sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/rbenv-gem-rehash
+  git clone https://github.com/rkh/rbenv-update.git $HOME/.rbenv/plugins/rbenv-update
 
   export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
   eval "$(rbenv init -)"
 
+  rbenv update
   rbenv install --skip-existing 2.6.0-dev
   rbenv global 2.6.0-dev
 
