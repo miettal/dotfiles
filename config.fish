@@ -10,6 +10,7 @@ set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
 
 alias commit='git add .; git commit . -m "quick commit"; git push'
 alias vi='vim'
+alias rm='trash'
 
 if status is-interactive
 and not set -q TMUX

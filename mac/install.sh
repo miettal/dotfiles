@@ -22,3 +22,7 @@ brew install automake
 # for vim
 brew install neovim
 brew install vim
+
+# for trash
+brew install npm
+npm install --global trash-cli

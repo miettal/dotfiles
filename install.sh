@@ -4,6 +4,10 @@ SCRIPT_DIR=`(cd $(dirname $0);pwd)`
 
 platform=`python $SCRIPT_DIR/platformcheck.py`
 
+mkdir -p $HOME/.local
+mkdir -p $HOME/.local/bin
+
+mkdir -p $HOME/.config/
 mkdir -p $HOME/.config/fontconfig
 mkdir -p $HOME/.config/nvim
 mkdir -p $HOME/.config/fish
@@ -45,7 +49,7 @@ ln -f -s $SCRIPT_DIR/dotfiles_private/ssh/* $HOME/.ssh/
 mkdir -p $HOME/.vim/dein/repos/github.com/Shougo/dein.vim
 git clone https://github.com/Shougo/dein.vim.git $HOME/.vim/dein/repos/github.com/Shougo/dein.vim
 
-# trash directory
+# trash
 mkdir -p $HOME/.trash
 
 # pyenv
@@ -64,6 +68,7 @@ case "$yn" in
 
   pyenv global system
   pip3 install neovim
+  pip3 install trash-cli
 
   pyenv update
   pyenv install --skip-existing 2.7-dev
