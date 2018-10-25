@@ -10,6 +10,6 @@
 [url "https://github.com/"]
     insteadOf = git://github.com/
 [push]
-    default = current
+	default = current
 [pull]
-    default = current
+	default = current
