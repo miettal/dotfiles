@@ -7,6 +7,7 @@ platform=`python $SCRIPT_DIR/platformcheck.py`
 mkdir -p $HOME/.local
 mkdir -p $HOME/.local/bin
 
+mkdir -p $HOME/.vim
 mkdir -p $HOME/.config/
 mkdir -p $HOME/.config/fontconfig
 mkdir -p $HOME/.config/nvim
@@ -18,9 +19,7 @@ ln -f -s $SCRIPT_DIR/gitconfig $HOME/.gitconfig
 ln -f -s $SCRIPT_DIR/gitignore $HOME/.gitignore
 ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc
 ln -f -s $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
-ln -f -s $SCRIPT_DIR/vim $HOME/.vim
 ln -f -s $SCRIPT_DIR/vimrc $HOME/.vimrc
-ln -f -s $SCRIPT_DIR/vim $HOME/.config/nvim/
 ln -f -s $SCRIPT_DIR/vimrc $HOME/.config/nvim/init.vim
 ln -f -s $SCRIPT_DIR/vimperator $HOME/.vimperator
 ln -f -s $SCRIPT_DIR/vimperatorrc $HOME/.vimperatorrc
