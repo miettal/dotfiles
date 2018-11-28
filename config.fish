@@ -5,6 +5,9 @@ set -x PATH $HOME/.pyenv/bin $PATH
 set -x PATH $HOME/.rbenv/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
 
+#set -g theme_display_git_dirty no
+set -g theme_date_format "+%Y%m%d %H:%M:%S"
+
 set -x EDITOR vim
 set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
 
