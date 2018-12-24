@@ -64,7 +64,6 @@ autocmd Filetype hpp setlocal cindent
 " Python
 autocmd FileType python setlocal autoindent
 autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-
 " Ruby
 autocmd FileType ruby setlocal autoindent
 autocmd FileType ruby setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
@@ -77,10 +76,7 @@ autocmd Filetype make setlocal noexpandtab
 "-------------------------------------------------------------------------------
 " ファイル名前によってファイルタイプを設定
 "-------------------------------------------------------------------------------
-" .vimperatorrc,_vimpeartorrc
-autocmd BufNewFile,BufRead .vimperatorrc setlocal filetype=vim
-autocmd BufNewFile,BufRead _vimperatorrc setlocal filetype=vim
-
+"
 "-------------------------------------------------------------------------------
 " バイナリエディタ設定
 "-------------------------------------------------------------------------------
@@ -112,29 +108,29 @@ set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.vim/dein')
   call dein#begin('~/.vim/dein')
 
-  call dein#add('~/.vim/dein//repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-    call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-  endif
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
+"  call dein#add('~/.vim/dein//repos/github.com/Shougo/dein.vim')
+"  call dein#add('Shougo/deoplete.nvim')
+"  if !has('nvim')
+"    call dein#add('roxma/nvim-yarp')
+"    call dein#add('roxma/vim-hug-neovim-rpc')
+"    call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+"  endif
+"  call dein#add('Shougo/neosnippet.vim')
+"  call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/vimproc', {'build': 'make'})
-  call dein#add('Shougo/denite.nvim')
-  call dein#add('Shougo/context_filetype.vim')
-  call dein#add('cocopon/vaffle.vim')
-  call dein#add('thinca/vim-template')
+"  call dein#add('Shougo/denite.nvim')
+"  call dein#add('Shougo/context_filetype.vim')
+"  call dein#add('cocopon/vaffle.vim')
+"  call dein#add('thinca/vim-template')
   call dein#add('thinca/vim-quickrun')
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('zchee/deoplete-jedi')
-  call dein#add('w0rp/ale')
+"  call dein#add('itchyny/lightline.vim')
+"  call dein#add('zchee/deoplete-jedi')
+"  call dein#add('w0rp/ale')
   call dein#add('airblade/vim-gitgutter')
-  call dein#add('honza/vim-snippets')
-  call dein#add('rkitover/vimpager', {'build': 'chmod +x vimpager'})
-  call dein#add('vim-scripts/sudo.vim')
-  call dein#add('nathanaelkane/vim-indent-guides')
+"  call dein#add('honza/vim-snippets')
+"  call dein#add('rkitover/vimpager', {'build': 'chmod +x vimpager'})
+"  call dein#add('vim-scripts/sudo.vim')
+"  call dein#add('nathanaelkane/vim-indent-guides')
 
   call dein#end()
   call dein#save_state()
@@ -153,23 +149,23 @@ endif
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
 "-------------------------------------------------------------------------------
-" ale
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_sign_column_always = 0
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 0
-let g:ale_open_list = 0
-let g:ale_keep_list_window_open = 0
-let g:ale_linters = {
-\   'python': ['flake8'],
-\}
-" nerdtree
-let g:NERDTreeShowHidden = 1
-" deoplete
-let g:deoplete#enable_at_startup = 1
+"" ale
+"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"let g:ale_sign_column_always = 0
+"let g:ale_lint_on_enter = 1
+"let g:ale_lint_on_save = 1
+"let g:ale_lint_on_text_changed = 'always'
+"let g:ale_set_loclist = 0
+"let g:ale_set_quickfix = 0
+"let g:ale_open_list = 0
+"let g:ale_keep_list_window_open = 0
+"let g:ale_linters = {
+"\   'python': ['flake8'],
+"\}
+"" nerdtree
+"let g:NERDTreeShowHidden = 1
+"" deoplete
+"let g:deoplete#enable_at_startup = 1
 " quickrun
 let g:quickrun_config = {}
 let g:quickrun_config._ = {
@@ -207,17 +203,17 @@ if has("unix")
     \   }
   endif
 endif
-"unite.vim
-let g:unite_enable_start_insert = 1
-let g:unite_source_history_yank_enable = 1
-let g:unite_source_file_mru_limit = 200
-" vim-indent-guides
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+""unite.vim
+"let g:unite_enable_start_insert = 1
+"let g:unite_source_history_yank_enable = 1
+"let g:unite_source_file_mru_limit = 200
+"" vim-indent-guides
+"let g:indent_guides_enable_on_vim_startup=1
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_guide_size = 1
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
