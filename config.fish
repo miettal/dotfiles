@@ -1,6 +1,7 @@
 fish_vi_key_bindings
 set -g theme_color_scheme dracula
 
+set -e fish_user_paths
 set -U fish_user_paths $HOME/.pyenv/bin $fish_user_paths
 set -U fish_user_paths $HOME/.rbenv/bin $fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $fish_user_paths
