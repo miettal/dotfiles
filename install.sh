@@ -73,7 +73,8 @@ case "$yn" in
   pyenv install --skip-existing 2.7-dev
   pyenv install --skip-existing 3.6-dev
   pyenv global 3.6-dev
-  pyenv virtualenv 3.6-dev vim
+
+  pip install flake8
  ;;
 *)
   # no
