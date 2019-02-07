@@ -96,7 +96,6 @@ augroup END
 "-------------------------------------------------------------------------------
 let PATH = expand("~/.pyenv/shims") . ":" . $PATH
 let PATH = expand("~/.rbenv/shims") . ":" . $PATH
-let g:python3_host_prog = $PYENV_PATH . '/versions/neovim3/bin/python'
 
 "-------------------------------------------------------------------------------
 " dein.vim設定
