@@ -74,7 +74,7 @@ case "$yn" in
   pyenv install --skip-existing 3.6-dev
   pyenv global 3.6-dev
 
-  pip install flake8
+  pip install flake8 autopep8 isort
  ;;
 *)
   # no

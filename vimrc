@@ -149,6 +149,14 @@ endif
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
 "-------------------------------------------------------------------------------
+" ale
+let g:ale_fixers = {
+\ 'javascript': ['prettier'],
+\ 'python': ['autopep8', 'isort'],
+\ }
+let g:ale_linter_aliases = {
+\   'htmldjango': ['html'],
+\}
 "" nerdtree
 "let g:NERDTreeShowHidden = 1
 "" deoplete
