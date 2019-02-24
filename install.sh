@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SCRIPT_DIR=`(cd $(dirname $0);pwd)`
+SCRIPT_DIR=$(cd $(dirname $0);pwd)
 
-platform=`python $SCRIPT_DIR/platformcheck.py`
+platform=$(python $SCRIPT_DIR/platformcheck.py)
 
 mkdir -p $HOME/.local
 mkdir -p $HOME/.local/bin
@@ -71,8 +71,8 @@ case "$yn" in
 
   pyenv update
   pyenv install --skip-existing 2.7-dev
-  pyenv install --skip-existing 3.6-dev
-  pyenv global 3.6-dev
+  pyenv install --skip-existing 3.8-dev
+  pyenv global 3.8-dev
 
   pip install flake8 autopep8 isort
  ;;
