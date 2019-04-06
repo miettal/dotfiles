@@ -132,6 +132,13 @@ if dein#load_state('~/.vim/dein')
   call dein#add('vim-scripts/sudo.vim')
   call dein#add('nathanaelkane/vim-indent-guides')
 
+"  call dein#add('pangloss/vim-javascript')
+"  call dein#add('mxw/vim-jsx')
+  call dein#add('othree/yajs.vim')
+  call dein#add('maxmellon/vim-jsx-pretty')
+"  call dein#add('othree/javascript-libraries-syntax.vim')
+"  call dein#add('othree/es.next.syntax.vim')
+
   call dein#end()
   call dein#save_state()
 endif
