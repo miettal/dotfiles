@@ -12,6 +12,7 @@ set -g theme_date_format "+%Y%m%d %H:%M:%S"
 set -x EDITOR vim
 set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
 set -x PYENV_PATH $HOME/.pyenv
+set -x LC_ALL en_US.UTF-8
 
 . (pyenv init - | psub)
 . (rbenv init - | psub)

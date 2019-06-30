@@ -68,6 +68,8 @@ autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try
 autocmd FileType ruby setlocal autoindent
 autocmd FileType ruby setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+" Javascript
+autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
 " Java
 autocmd Filetype java setlocal cindent
 " Makefile
