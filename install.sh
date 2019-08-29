@@ -71,8 +71,8 @@ case "$yn" in
 
   pyenv update
   pyenv install --skip-existing 2.7-dev
-  pyenv install --skip-existing 3.8-dev
-  pyenv global 3.8-dev
+  pyenv install --skip-existing 3.9-dev
+  pyenv global 3.9-dev
 
   pip install flake8 autopep8 isort
  ;;
