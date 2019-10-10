@@ -14,7 +14,9 @@ set -x LSCOLORS gxfxbEaEBxxEhEhBaDaCaD
 set -x PYENV_PATH $HOME/.pyenv
 set -x LC_ALL en_US.UTF-8
 
-alias commit='git add .; git commit . -m "quick commit"; git push'
+set -x NODE_PATH /usr/local/lib/node_modules
+
+alias commit='git add .; git commit; git push'
 alias vi='vim'
 alias rm='trash'
 
