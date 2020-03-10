@@ -159,6 +159,7 @@ let g:ale_linter_aliases = {
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('auto_complete_delay', 200)
 " vim-gitgutter
+let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_highlight_lines = 1
 " quickrun
 let g:quickrun_config = {}
