@@ -110,36 +110,25 @@ set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.vim/dein')
   call dein#begin('~/.vim/dein')
 
-  call dein#add('~/.vim/dein//repos/github.com/Shougo/dein.vim')
+
   call dein#add('Shougo/deoplete.nvim')
-"  if !has('nvim')
-"    call dein#add('roxma/nvim-yarp')
-"    call dein#add('roxma/vim-hug-neovim-rpc')
-"    call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-"  endif
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/vimproc', {'build': 'make'})
-"  call dein#add('Shougo/denite.nvim')
-"  call dein#add('Shougo/context_filetype.vim')
-"  call dein#add('cocopon/vaffle.vim')
-"  call dein#add('thinca/vim-template')
+  call dein#add('deoplete-plugins/deoplete-jedi')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+
   call dein#add('thinca/vim-quickrun')
+  call dein#add('Shougo/vimproc', {'build': 'make'})
+
   call dein#add('itchyny/lightline.vim')
-  call dein#add('zchee/deoplete-jedi')
+
   call dein#add('w0rp/ale')
+
   call dein#add('airblade/vim-gitgutter')
-"  call dein#add('honza/vim-snippets')
-  call dein#add('rkitover/vimpager', {'build': 'chmod +x vimpager'})
-  call dein#add('vim-scripts/sudo.vim')
+
   call dein#add('nathanaelkane/vim-indent-guides')
 
-"  call dein#add('pangloss/vim-javascript')
-"  call dein#add('mxw/vim-jsx')
   call dein#add('othree/yajs.vim')
   call dein#add('maxmellon/vim-jsx-pretty')
-"  call dein#add('othree/javascript-libraries-syntax.vim')
-"  call dein#add('othree/es.next.syntax.vim')
 
   call dein#end()
   call dein#save_state()
@@ -166,10 +155,11 @@ let g:ale_fixers = {
 let g:ale_linter_aliases = {
 \   'htmldjango': ['html'],
 \}
-"" nerdtree
-"let g:NERDTreeShowHidden = 1
-"" deoplete
-"let g:deoplete#enable_at_startup = 1
+" deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('auto_complete_delay', 200)
+" vim-gitgutter
+let g:gitgutter_highlight_lines = 1
 " quickrun
 let g:quickrun_config = {}
 let g:quickrun_config._ = {
@@ -207,46 +197,11 @@ if has("unix")
     \   }
   endif
 endif
-""unite.vim
-"let g:unite_enable_start_insert = 1
-"let g:unite_source_history_yank_enable = 1
-"let g:unite_source_file_mru_limit = 200
-"" vim-indent-guides
-"let g:indent_guides_enable_on_vim_startup=1
-"let g:indent_guides_start_level = 2
-"let g:indent_guides_guide_size = 1
-"let g:indent_guides_auto_colors = 0
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインにショートカットを設定
 "-------------------------------------------------------------------------------
 "nothing
-
-"-------------------------------------------------------------------------------
-" テンプレート
-"-------------------------------------------------------------------------------
-" タブ保管
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-imap <expr><TAB>
- \ pumvisible() ? "\<C-n>" :
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" テンプレート中に含まれる特定文字列を置き換える
-autocmd User plugin-template-loaded call s:template_keywords()
-function! s:template_keywords()
-  silent! %s/<+DATE+>/\=strftime('%Y-%m-%d')/g
-  silent! %s/<+FILENAME+>/\=expand('%:r')/g
-  silent! %s/<+CFILENAME+>/\=toupper(expand('%:r'))/g
-endfunction
-" テンプレート中に含まれる'<+CURSOR+>'にカーソルを移動
-autocmd User plugin-template-loaded
-  \   if search('<+CURSOR+>')
-  \ |   silent! execute 'normal! "_da>'
-  \ | endif
 
 "-------------------------------------------------------------------------------
 " Load other vimrc
