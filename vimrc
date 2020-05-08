@@ -121,7 +121,7 @@ if dein#load_state('~/.vim/dein')
 
   call dein#add('itchyny/lightline.vim')
 
-  call dein#add('w0rp/ale')
+  call dein#add('dense-analysis/ale')
 
   call dein#add('airblade/vim-gitgutter')
 
