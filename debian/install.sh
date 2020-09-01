@@ -4,6 +4,7 @@ sudo apt-get update
 sudo apt-get upgrade --assume-yes
 
 sudo apt-get install --assume-yes git
+sudo apt-get install --assume-yes git-secrets
 sudo apt-get install --assume-yes mercurial
 sudo apt-get install --assume-yes ctags
 sudo apt-get install --assume-yes wget

@@ -110,7 +110,6 @@ set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.vim/dein')
   call dein#begin('~/.vim/dein')
 
-
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('deoplete-plugins/deoplete-jedi')
   call dein#add('roxma/nvim-yarp')
@@ -124,6 +123,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('dense-analysis/ale')
 
   call dein#add('airblade/vim-gitgutter')
+  call dein#add('rhysd/committia.vim')
 
   call dein#add('nathanaelkane/vim-indent-guides')
 
@@ -161,6 +161,8 @@ call deoplete#custom#option('auto_complete_delay', 200)
 " vim-gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_highlight_lines = 1
+" committia.vim
+let g:committia_open_only_vim_starting = 0
 " quickrun
 let g:quickrun_config = {}
 let g:quickrun_config._ = {

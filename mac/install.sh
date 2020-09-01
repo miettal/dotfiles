@@ -6,6 +6,7 @@ brew update
 brew upgrade
 
 brew install git
+brew install git-secrets
 brew install mercurial
 brew tap brona/iproute2mac
 brew install iproute2mac
