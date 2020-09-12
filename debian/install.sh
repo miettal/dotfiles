@@ -21,8 +21,10 @@ sudo apt-get install --assume-yes automake
 sudo apt-get install --assume-yes autoconf
 
 # for python
+sudo apt-get install --assume-yes libffi-dev
 sudo apt-get install --assume-yes libssl-dev
 sudo apt-get install --assume-yes zlib1g-dev
+sudo apt-get install --assume-yes liblzma-dev
 sudo apt-get install --assume-yes libbz2-dev
 sudo apt-get install --assume-yes libreadline-dev
 sudo apt-get install --assume-yes libsqlite3-dev
