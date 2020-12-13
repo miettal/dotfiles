@@ -5,6 +5,7 @@
     editor = vi
     excludesfile = ~/.gitignore
 [alias]
+    n = now --all --stat
     co = checkout
     conflicts = !git ls-files -u | cut -f 2 | sort -u
 [url "https://github.com/"]
