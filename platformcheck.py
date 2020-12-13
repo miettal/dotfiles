@@ -1,14 +1,13 @@
-# coding=utf-8
-from __future__ import absolute_import, division, print_function, unicode_literals
-
 import sys
 import platform
+
+import distro
 
 system = platform.system()
 if system == 'Darwin' :
   print('mac')
 elif system == 'Linux' :
-  dist = platform.linux_distribution()
+  dist = distro.linux_distribution()
   if dist[0] == 'Ubuntu' :
     print('ubuntu')
   elif dist[0] == 'debian' :

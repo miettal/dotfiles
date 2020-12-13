@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 
-platform=$(python $SCRIPT_DIR/platformcheck.py)
+platform=$(python3 $SCRIPT_DIR/platformcheck.py)
 
 mkdir -p $HOME/.local
 mkdir -p $HOME/.local/bin
@@ -70,10 +70,10 @@ case "$yn" in
   pip3 install trash-cli
 
   pyenv update
-  pyenv install --skip-existing 2.7-dev
   pyenv install --skip-existing 3.7-dev
   pyenv install --skip-existing 3.8-dev
   pyenv install --skip-existing 3.9-dev
+  pyenv install --skip-existing 3.10-dev
   pyenv global 3.9-dev
 
   pip install flake8 autopep8 isort
