@@ -130,6 +130,8 @@ if dein#load_state('~/.vim/dein')
   call dein#add('othree/yajs.vim')
   call dein#add('maxmellon/vim-jsx-pretty')
 
+  call dein#add('hashivim/vim-terraform')
+
   call dein#end()
   call dein#save_state()
 endif

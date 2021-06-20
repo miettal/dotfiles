@@ -2,6 +2,7 @@
 
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 
+pip3 install distro
 platform=$(python3 $SCRIPT_DIR/platformcheck.py)
 
 mkdir -p $HOME/.local
@@ -66,15 +67,14 @@ case "$yn" in
   eval "$(pyenv init -)"
 
   pyenv global system
-  pip3 install neovim
-  pip3 install trash-cli
 
   pyenv update
   pyenv install --skip-existing 3.7-dev
   pyenv install --skip-existing 3.8-dev
   pyenv install --skip-existing 3.9-dev
   pyenv install --skip-existing 3.10-dev
-  pyenv global 3.9-dev
+  pyenv install --skip-existing 3.11-dev
+  pyenv global 3.11-dev
 
   pip install flake8 autopep8 isort
  ;;
@@ -99,6 +99,9 @@ case "$yn" in
   rbenv update
   rbenv install --skip-existing 2.6.0-dev
   rbenv global 2.6.0-dev
+  rbenv global 2.7.0-dev
+  rbenv global 3.0.0-dev
+  rbenv global 3.1.0-dev
 
   gem update --system
   gem install bundler
