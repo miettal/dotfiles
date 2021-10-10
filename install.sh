@@ -46,8 +46,8 @@ git clone git@github.com:miettal/dotfiles_private.git $SCRIPT_DIR/dotfiles_priva
 ln -f -s $SCRIPT_DIR/dotfiles_private/ssh/* $HOME/.ssh/
 
 # vim
-mkdir -p $HOME/.vim/dein/repos/github.com/Shougo/dein.vim
-git clone https://github.com/Shougo/dein.vim.git $HOME/.vim/dein/repos/github.com/Shougo/dein.vim
+mkdir -p $HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+git clone https://github.com/Shougo/dein.vim.git $HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 # trash
 mkdir -p $HOME/.trash
@@ -77,6 +77,7 @@ case "$yn" in
   pyenv global 3.11-dev
 
   pip install flake8 autopep8 isort
+  pip install --user jedi --upgrade
  ;;
 *)
   # no
