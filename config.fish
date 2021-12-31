@@ -10,22 +10,30 @@ set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 fish_add_path /opt/homebrew/bin
 eval (/opt/homebrew/bin/brew shellenv)
 set prefix (brew --prefix)
-# xz
-export LDFLAGS="-L$prefix/opt/xz/lib $LDFLAGS"
-export CPPFLAGS="-I$prefix/opt/xz/include $CPPFLAGS"
-export PKG_CONFIG_PATH="$prefix/opt/xz/lib/pkgconfig:$PKG_CONFIG_PATH"
-# openblas
-export LDFLAGS="-L$prefix/opt/openblas/lib $LDFLAGS"
-export CPPFLAGS="-I$prefix/opt/openblas/include $CPPFLAGS"
-export PKG_CONFIG_PATH="$prefix/opt/openblas/lib/pkgconfig:$PKG_CONFIG_PATH"
-# hdf5
-export LDFLAGS="-L$prefix/opt/hdf5/lib $LDFLAGS"
-export CPPFLAGS="-I$prefix/opt/hdf5/include $CPPFLAGS"
-export PKG_CONFIG_PATH="$prefix/opt/hdf5/lib/pkgconfig:$PKG_CONFIG_PATH"
-# openssl
-export LDFLAGS="-L$prefix/opt/openssl/lib $LDFLAGS"
-export CPPFLAGS="-I$prefix/opt/openssl/include $CPPFLAGS"
-export PKG_CONFIG_PATH="$prefix/opt/openssl/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+fish_add_path /opt/homebrew/opt/bzip2/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/bzip2/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/bzip2/include"
+fish_add_path /opt/homebrew/opt/bzip2/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/bzip2/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/bzip2/include"
+fish_add_path /opt/homebrew/opt/hdf5/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/hdf5/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/hdf5/include"
+fish_add_path /opt/homebrew/opt/openssl/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/openssl/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/openssl/include"
+fish_add_path /opt/homebrew/opt/openblas/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/openblas/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/openblas/include"
+fish_add_path /opt/homebrew/opt/xz/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/xz/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/xz/include"
+fish_add_path /opt/homebrew/opt/libssh/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/libssh/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/libssh/include"
+
+set -x HDF5_DIR /opt/homebrew/opt/hdf5
 
 # set -g theme_display_git_dirty no
 set -g theme_date_format "+%Y%m%d %H:%M:%S"
