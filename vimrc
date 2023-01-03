@@ -84,53 +84,66 @@ augroup BinaryXXD
   autocmd BufWritePost * set nomod | endif
 augroup END
 
-"-------------------------------------------------------------------------------
-" dein.vim設定
-"-------------------------------------------------------------------------------
-if &compatible
-  set nocompatible               " Be iMproved
+" 
+
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-call dein#begin('~/.cache/dein')
-    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+call plug#begin()
+    Plug 'thinca/vim-quickrun'
+    Plug 'Shougo/vimproc', {'do' : 'make'}
 
-    call dein#add('lambdalisue/vim-pyenv')
-    call dein#add('tpope/vim-rbenv')
+    " appearance
+    Plug 'w0ng/vim-hybrid'
+    Plug 'itchyny/lightline.vim'
+    Plug 'nathanaelkane/vim-indent-guides'
 
-    call dein#add('Shougo/deoplete.nvim')
-    if !has('nvim')
-      call dein#add('roxma/nvim-yarp')
-      call dein#add('roxma/vim-hug-neovim-rpc')
-    endif
-    call dein#add('deoplete-plugins/deoplete-jedi')
+    " autocomplete
+    Plug 'Shougo/ddc.vim'
+    Plug 'vim-denops/denops.vim'
+    Plug 'Shougo/ddc-ui-native'
+    Plug 'Shougo/ddc-source-around'
+    Plug 'Shougo/ddc-matcher_head'
+    Plug 'Shougo/ddc-sorter_rank'
 
-    call dein#add('thinca/vim-quickrun')
-    call dein#add('Shougo/vimproc', {'build': 'make'})
+    " *env
+    Plug 'lambdalisue/vim-pyenv'
+    Plug 'tpope/vim-rbenv'
+ 
+    " lsp
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'mattn/vim-lsp-settings'
 
-    call dein#add('itchyny/lightline.vim')
+    " git
+    Plug 'airblade/vim-gitgutter'
+    Plug 'rhysd/committia.vim'
 
-    call dein#add('dense-analysis/ale')
+    " other
+    Plug 'tweekmonster/braceless.vim'
 
-    call dein#add('airblade/vim-gitgutter')
-    call dein#add('rhysd/committia.vim')
+"   Plug 'dense-analysis/ale'
+"   Plug 'othree/yajs.vim'
+"   Plug 'maxmellon/vim-jsx-pretty'
+"   Plug 'hashivim/vim-terraform'
+call plug#end()
 
-    call dein#add('nathanaelkane/vim-indent-guides')
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
-    call dein#add('othree/yajs.vim')
-    call dein#add('maxmellon/vim-jsx-pretty')
+if &compatible
+  set nocompatible
+endif
 
-    call dein#add('hashivim/vim-terraform')
-
-    call dein#add('tweekmonster/braceless.vim')
-call dein#end()
+set background=dark
+colorscheme hybrid
 
 filetype plugin indent on
 syntax enable
-
-if dein#check_install()
-  call dein#install()
-endif
 
 "-------------------------------------------------------------------------------
 " Vundleでインストールしたプラグインの設定
@@ -143,8 +156,36 @@ let g:ale_fixers = {
 let g:ale_linter_aliases = {
 \   'htmldjango': ['html'],
 \}
-" deoplete
-let g:deoplete#enable_at_startup = 1
+" ddc
+call ddc#custom#patch_global('ui', 'native')
+call ddc#custom#patch_global('sources', ['around'])
+call ddc#custom#patch_global('sourceOptions', #{
+      \ _: #{
+      \   matchers: ['matcher_head'],
+      \   sorters: ['sorter_rank']},
+      \ })
+call ddc#custom#patch_global('sourceOptions', #{
+      \   around: #{ mark: 'A' },
+      \ })
+call ddc#custom#patch_global('sourceParams', #{
+      \   around: #{ maxSize: 500 },
+      \ })
+call ddc#custom#patch_filetype(['c', 'cpp'], 'sources',
+      \ ['around', 'clangd'])
+call ddc#custom#patch_filetype(['c', 'cpp'], 'sourceOptions', #{
+      \   clangd: #{ mark: 'C' },
+      \ })
+" call ddc#custom#patch_filetype('markdown', 'sourceParams', {
+"       \   around: #{ maxSize: 100 },
+"       \ })
+inoremap <silent><expr> <TAB>
+\ pumvisible() ? '<C-n>' :
+\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+\ '<TAB>' : ddc#map#manual_complete()
+inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
+
+call ddc#enable()
+
 " vim-gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_highlight_lines = 1

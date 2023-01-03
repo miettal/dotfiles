@@ -4,6 +4,7 @@
 [core]
     editor = vi
     excludesfile = ~/.gitignore
+	autocrlf = false
 [alias]
     save = "!git pull origin $(git symbolic-ref --short HEAD); git-now --all --stat ; git push"
     co = checkout
