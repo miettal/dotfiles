@@ -115,7 +115,7 @@ call plug#begin()
  
     " lsp
     Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
+    " Plug 'mattn/vim-lsp-settings'
 
     " git
     Plug 'airblade/vim-gitgutter'
@@ -123,6 +123,7 @@ call plug#begin()
 
     " other
     Plug 'tweekmonster/braceless.vim'
+    Plug 'hashivim/vim-terraform'
 
 "   Plug 'dense-analysis/ale'
 "   Plug 'othree/yajs.vim'
