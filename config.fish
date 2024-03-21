@@ -23,6 +23,7 @@ set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/openblas/lib/pkgconfig"
 set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/lapack/lib/pkgconfig"
 set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/xz/lib/pkgconfig"
 set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libssh/lib/pkgconfig"
+set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libtiff/lib/pkgconfig"
 set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/eccodes/lib/pkgconfig"
 # set -gx LDFLAGS "-L/opt/homebrew/opt/.../lib"
 # set -gx CPPFLAGS "-I/opt/homebrew/opt/.../include
@@ -54,6 +55,6 @@ end
 set -g fish_user_paths "/opt/homebrew/opt/pcsc-lite/bin" $fish_user_paths
 set -g fish_user_paths "/opt/homebrew/opt/pcsc-lite/sbin" $fish_user_paths
  
-if test -d ~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/
-    set -x SSH_AUTH_SOCK /Users/taisyo/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-end
+# if test -d ~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/
+#     set -x SSH_AUTH_SOCK /Users/taisyo/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+# end
