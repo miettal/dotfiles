@@ -90,10 +90,9 @@ case "$yn" in
   eval "$(rbenv init -)"
 
   rbenv update
-  rbenv install --skip-existing 3.0.0-dev
-  rbenv install --skip-existing 3.1.0-dev
   rbenv install --skip-existing 3.2.0-dev
   rbenv install --skip-existing 3.3.0-dev
+  rbenv install --skip-existing 3.4.0-dev
 
   gem update --system
   gem install bundler
