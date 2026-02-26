@@ -6,10 +6,12 @@ eval $(/opt/homebrew/bin/brew shellenv)
 brew update
 brew upgrade
 
+brew install the_silver_searcher
+brew install lsd
+brew install htop
 brew install git
 brew install git-secrets
 brew install mercurial
-brew tap brona/iproute2mac
 brew install iproute2mac
 
 # for shell

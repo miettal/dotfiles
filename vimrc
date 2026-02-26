@@ -93,6 +93,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
+    Plug 'is0n/jaq-nvim'
     Plug 'thinca/vim-quickrun'
     Plug 'Shougo/vimproc', {'do' : 'make'}
 
