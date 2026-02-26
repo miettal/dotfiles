@@ -17,36 +17,23 @@ set prefix (brew --prefix)
 
 fish_add_path $HOME/.nodebrew/current/bin
 fish_add_path /opt/homebrew/opt/libpq/bin
-# 
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/bzip2/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/llvm/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/hdf5/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/openssl@3/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/openblas/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/lapack/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/xz/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libssh/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libtiff/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/eccodes/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libomp/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/netcdf/lib/pkgconfig"
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libtiff/lib/pkgconfig"
-set -gx LDFLAGS "-L/opt/homebrew/opt/netcdf/lib"
-set -gx CFLAGS "-I/opt/homebrew/opt/netcdf/include"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/netcdf/include"
-set -gx LDFLAGS "-L/opt/homebrew/opt/libomp/lib"
-set -gx CFLAGS "-I/opt/homebrew/opt/libomp/include"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/libomp/include"
-set -gx LDFLAGS "-L/opt/homebrew/opt/libtiff/lib"
-set -gx CFLAGS "-I/opt/homebrew/opt/libtiff/include"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/libtiff/include"
-# set -gx LDFLAGS "-L/opt/homebrew/opt/.../lib"
-# set -gx CPPFLAGS "-I/opt/homebrew/opt/.../include
-# set -gx CFLAGS "-I/opt/homebrew/opt/.../include
-
-set -gx LDFLAGS "-L/opt/homebrew/lib"
-set -gx CFLAGS "-I/opt/homebrew/include"
-set -gx CPPFLAGS "-I/opt/homebrew/include"
+#
+set -gx PKG_CONFIG_PATH \
+    "/opt/homebrew/opt/bzip2/lib/pkgconfig" \
+    "/opt/homebrew/opt/llvm/lib/pkgconfig" \
+    "/opt/homebrew/opt/hdf5/lib/pkgconfig" \
+    "/opt/homebrew/opt/openssl@3/lib/pkgconfig" \
+    "/opt/homebrew/opt/openblas/lib/pkgconfig" \
+    "/opt/homebrew/opt/lapack/lib/pkgconfig" \
+    "/opt/homebrew/opt/xz/lib/pkgconfig" \
+    "/opt/homebrew/opt/libssh/lib/pkgconfig" \
+    "/opt/homebrew/opt/libtiff/lib/pkgconfig" \
+    "/opt/homebrew/opt/eccodes/lib/pkgconfig" \
+    "/opt/homebrew/opt/libomp/lib/pkgconfig" \
+    "/opt/homebrew/opt/netcdf/lib/pkgconfig"
+set -gx LDFLAGS "-L/opt/homebrew/lib -L/opt/homebrew/opt/netcdf/lib -L/opt/homebrew/opt/libomp/lib -L/opt/homebrew/opt/libtiff/lib"
+set -gx CFLAGS "-I/opt/homebrew/include -I/opt/homebrew/opt/netcdf/include -I/opt/homebrew/opt/libomp/include -I/opt/homebrew/opt/libtiff/include"
+set -gx CPPFLAGS "-I/opt/homebrew/include -I/opt/homebrew/opt/netcdf/include -I/opt/homebrew/opt/libomp/include -I/opt/homebrew/opt/libtiff/include"
 
 set -gx HDF5_DIR /opt/homebrew/opt/hdf5
 set -gx OPENBLAS /opt/homebrew/opt/openblas
