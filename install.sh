@@ -22,8 +22,6 @@ ln -f -s $SCRIPT_DIR/inputrc $HOME/.inputrc
 ln -f -s $SCRIPT_DIR/tmux.conf $HOME/.tmux.conf
 ln -f -s $SCRIPT_DIR/vimrc $HOME/.vimrc
 ln -f -s $SCRIPT_DIR/init.lua $HOME/.config/nvim/init.lua
-ln -f -s $SCRIPT_DIR/vimperator $HOME/.vimperator
-ln -f -s $SCRIPT_DIR/vimperatorrc $HOME/.vimperatorrc
 ln -f -s $SCRIPT_DIR/config/fontconfig/fonts.conf $HOME/.config/fontconfig/fonts.conf
 ln -f -s $SCRIPT_DIR/gemrc $HOME/.gemrc
 
@@ -45,10 +43,6 @@ mkdir -p $HOME/.ssh
 git clone git@github.com:miettal/dotfiles_private.git $SCRIPT_DIR/dotfiles_private
 ln -f -s $SCRIPT_DIR/dotfiles_private/ssh/* $HOME/.ssh/
 
-# vim
-mkdir -p $HOME/.cache/dein/repos/github.com/Shougo/dein.vim
-git clone https://github.com/Shougo/dein.vim.git $HOME/.cache/dein/repos/github.com/Shougo/dein.vim
-
 # trash
 mkdir -p $HOME/.trash
 
@@ -60,7 +54,6 @@ case "$yn" in
   git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
   git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
   git clone https://github.com/pyenv/pyenv-pip-rehash.git $HOME/.pyenv/plugins/pyenv-pip-rehash
-  git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
   git clone https://github.com/pyenv/pyenv-update.git $HOME/.pyenv/plugins/pyenv-update
 
   export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:${PATH}
@@ -69,12 +62,11 @@ case "$yn" in
   pyenv global system
 
   pyenv update
-  pyenv install --skip-existing 3.8-dev
-  pyenv install --skip-existing 3.9-dev
-  pyenv install --skip-existing 3.10-dev
   pyenv install --skip-existing 3.11-dev
   pyenv install --skip-existing 3.12-dev
-  pyenv global 3.12-dev
+  pyenv install --skip-existing 3.13-dev
+  pyenv install --skip-existing 3.14-dev
+  pyenv global 3.14-dev
 
   pip install flake8 autopep8 isort
   pip install --user jedi --upgrade

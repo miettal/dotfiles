@@ -1,7 +1,0 @@
-alias open='xdg-open'
-alias update_system="sudo apt-get update && sudo apt-get autoremove -y && sudo apt-get -y dist-upgrade && sudo apt-get autoremove -y"
-
-alias play='/usr/share/nightingale/nightingale-bin -play'
-alias pause='/usr/share/nightingale/nightingale-bin -pause'
-alias next='/usr/share/nightingale/nightingale-bin -next'
-alias prev='/usr/share/nightingale/nightingale-bin -previous'

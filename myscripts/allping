@@ -1,6 +1,0 @@
-export COUNTER=1
-while [ $COUNTER -lt 255 ]
-do
-    ping -c 1 -W 1 $1$COUNTER &
-    COUNTER=$(( $COUNTER + 1 ))
-done
