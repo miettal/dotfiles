@@ -68,6 +68,7 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
+  'is0n/jaq-nvim',
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -311,6 +312,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
+vim.keymap.set("n", "<leader>j", ":<C-u>Jaq<CR>", { silent = true })
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -656,6 +658,14 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+require("jaq-nvim").setup({
+	cmds = {
+		external = {
+			python = "python %",
+		},
+	},
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

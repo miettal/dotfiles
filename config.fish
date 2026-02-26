@@ -2,11 +2,14 @@ fish_vi_key_bindings
 set -g theme_color_scheme dracula
 
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.pyenv/bin $fish_user_paths
-set -U fish_user_paths $HOME/.rbenv/bin $fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 
-
+# *env
+set -U fish_user_paths $HOME/.pyenv/bin $fish_user_paths
+set -U fish_user_paths $HOME/.rbenv/bin $fish_user_paths
+set -U fish_user_paths $HOME/.jenv/bin $fish_user_paths
+status is-interactive; and pyenv init - | source
+status is-interactive; and jenv init - | source
 
 fish_add_path /opt/homebrew/bin
 eval (/opt/homebrew/bin/brew shellenv)
@@ -25,9 +28,25 @@ set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/xz/lib/pkgconfig"
 set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libssh/lib/pkgconfig"
 set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libtiff/lib/pkgconfig"
 set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/eccodes/lib/pkgconfig"
+set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libomp/lib/pkgconfig"
+set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/netcdf/lib/pkgconfig"
+set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libtiff/lib/pkgconfig"
+set -gx LDFLAGS "-L/opt/homebrew/opt/netcdf/lib"
+set -gx CFLAGS "-I/opt/homebrew/opt/netcdf/include"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/netcdf/include"
+set -gx LDFLAGS "-L/opt/homebrew/opt/libomp/lib"
+set -gx CFLAGS "-I/opt/homebrew/opt/libomp/include"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/libomp/include"
+set -gx LDFLAGS "-L/opt/homebrew/opt/libtiff/lib"
+set -gx CFLAGS "-I/opt/homebrew/opt/libtiff/include"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/libtiff/include"
 # set -gx LDFLAGS "-L/opt/homebrew/opt/.../lib"
 # set -gx CPPFLAGS "-I/opt/homebrew/opt/.../include
 # set -gx CFLAGS "-I/opt/homebrew/opt/.../include
+
+set -gx LDFLAGS "-L/opt/homebrew/lib"
+set -gx CFLAGS "-I/opt/homebrew/include"
+set -gx CPPFLAGS "-I/opt/homebrew/include"
 
 set -gx HDF5_DIR /opt/homebrew/opt/hdf5
 set -gx OPENBLAS /opt/homebrew/opt/openblas
@@ -45,16 +64,18 @@ alias vi='nvim'
 alias rm='trash'
 alias ls='lsd'
 
-status is-interactive; and pyenv init --path | source
-pyenv init - | source
-
 if status is-interactive
 and not set -q TMUX
     tmux attach -t base; or tmux new -s base
 end
 set -g fish_user_paths "/opt/homebrew/opt/pcsc-lite/bin" $fish_user_paths
 set -g fish_user_paths "/opt/homebrew/opt/pcsc-lite/sbin" $fish_user_paths
+set -g fish_user_paths "/opt/homebrew/opt/make/libexec/gnubin" $fish_user_paths
+fish_add_path /opt/homebrew/opt/influxdb@1/bin
  
 # if test -d ~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/
 #     set -x SSH_AUTH_SOCK /Users/taisyo/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 # end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/taisyo/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/taisyo/Downloads/google-cloud-sdk/path.fish.inc'; end
